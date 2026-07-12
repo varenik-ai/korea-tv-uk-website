@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Analytics: not configured yet for korea-tv.uk. Insert GA4/GTM/Clarity/Search Console tags here once created. -->
+  <title>Watch Korean TV Online Free | 36 Live Channels 24/7</title>
+  <meta name="description" content="Watch 36 South Korean TV channels online for free — Arirang TV, SBS, EBS, KTV, regional, religious and business channels. No registration, no VPN, live 24/7."/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <meta name="author" content="Korea TV"/>
+  <link rel="canonical" href="https://korea-tv.uk/en/"/>
+  <link rel="alternate" hreflang="ko" href="https://korea-tv.uk/"/>
+  <link rel="alternate" hreflang="en" href="https://korea-tv.uk/en/"/>
+  <link rel="alternate" hreflang="x-default" href="https://korea-tv.uk/"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='white'/%3E%3Ccircle cx='16' cy='16' r='7' fill='CD2E3A'/%3E%3C/svg%3E"/>
+  <meta name="theme-color" content="#0a0a14"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Korea TV"/>
+  <meta property="og:title" content="Watch Korean TV Online Free | 36 Live Channels 24/7"/>
+  <meta property="og:description" content="Watch 36 South Korean TV channels online for free — Arirang TV, SBS, EBS, KTV, regional, religious and business channels. No registration, no VPN, live 24/7."/>
+  <meta property="og:url" content="https://korea-tv.uk/en/"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebSite","@id":"https://korea-tv.uk/#website","url":"https://korea-tv.uk/","name":"Korea TV","description":"Watch 36 South Korean TV channels online for free — Arirang TV, SBS, EBS, KTV, regional, religious and business channels. No registration, no VPN, live 24/7.","inLanguage":"en"},
+    {"@type":"Organization","@id":"https://korea-tv.uk/#org","name":"Korea TV","url":"https://korea-tv.uk/","sameAs":["https://t.me/Korea_TV_hub","https://t.me/KoreaTVHub_bot"]},
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I watch Korean TV from abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7."}},{"@type":"Question","name":"Is registration required?","acceptedAnswer":{"@type":"Answer","text":"No. All 36 channels are available immediately and free, with no account or subscription."}},{"@type":"Question","name":"Can I watch on iPhone and Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away."}},{"@type":"Question","name":"Do I need a VPN?","acceptedAnswer":{"@type":"Answer","text":"No. korea-tv.uk is accessible from anywhere in the world without a VPN."}}]}
+  ]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.15/hls.min.js"></script>
+  <style>
+:root{--bg:#080810;--bg2:#0f0f1c;--bg3:#151525;--card:#12121f;--border:#1e1e32;--border2:#252540;
+      --accent:#0047A0;--accent2:#1c66d4;--yellow:#CD2E3A;--text:#e2e2f0;--muted:#8a8aa5;--muted2:#454560;
+      --red:#e53935;--tg-color:#229ED9;--radius:14px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.6)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:6px;height:6px} ::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px} ::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+.channel-sidebar::-webkit-scrollbar{display:none} .channel-sidebar{scrollbar-width:none}
+.sidebar-wrapper{position:sticky;top:76px;height:calc(100vh - 120px);display:flex;gap:6px}
+.custom-scroll-track{width:6px;flex-shrink:0;background:var(--bg3);border-radius:4px;position:relative;cursor:pointer}
+.custom-scroll-thumb{width:100%;min-height:28px;background:var(--yellow);border-radius:4px;position:absolute;top:0;left:0;cursor:grab;transition:background .15s}
+.custom-scroll-thumb:hover{background:#e0384a} .custom-scroll-thumb:active{cursor:grabbing}
+header{position:sticky;top:0;z-index:100;background:rgba(8,8,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);
+       display:flex;align-items:center;gap:20px;padding:0 24px;height:60px}
+.logo{display:flex;align-items:center;gap:2px;font-size:28px;font-weight:900;letter-spacing:1px;flex-shrink:0}
+.logo .red{color:var(--yellow)} .logo .blue{color:var(--accent2)}
+nav{display:flex;gap:4px;margin-left:8px}
+nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;color:var(--muted);transition:all .2s}
+nav a:hover,nav a.active{background:var(--bg3);color:var(--text)}
+.header-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.live-count{font-size:12px;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:6px}
+.live-dot-sm{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite}
+.tg-header-btn{display:flex;align-items:center;gap:7px;background:var(--tg-color);color:white;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;transition:all .2s}
+.tg-header-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
+.lang-switcher{display:flex;align-items:center;gap:5px}
+.lang-link{font-size:12px;color:var(--muted);padding:4px 9px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);transition:.15s;font-weight:600}
+.lang-link:hover{color:var(--text);border-color:var(--border2)} .lang-link.active{color:var(--accent2);border-color:var(--accent)}
+.breadcrumb{padding:10px 20px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border)}
+.page-title-wrap{max-width:1400px;margin:0 auto;padding:0 16px 12px}
+h1{font-size:26px;font-weight:900;line-height:1.25;margin-bottom:6px}
+.page-meta{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.cnt-badge{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--accent2)}
+.live-badge-main{display:flex;align-items:center;gap:5px;background:rgba(229,57,53,.1);border:1px solid rgba(229,57,53,.3);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--red)}
+.live-dot-main{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite}
+.main-wrap{display:grid;grid-template-columns:280px 1fr 300px;gap:16px;max-width:1400px;margin:0 auto;padding:0 16px 16px}
+.channel-sidebar{display:flex;flex-direction:column;gap:2px;flex:1;height:100%;overflow-y:scroll}
+.sidebar-search{position:relative;margin-bottom:10px;flex-shrink:0}
+.sidebar-search input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:var(--radius-sm);padding:9px 12px 9px 36px;font-size:13px;font-family:inherit;outline:none}
+.sidebar-search input:focus{border-color:var(--accent)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px}
+.cat-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;padding:12px 8px 4px;flex-shrink:0}
+.cat-label:first-child{padding-top:0}
+.sidebar-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 0 4px;flex-shrink:0}
+.mini-ch-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:7px 8px;cursor:pointer;transition:all .15s;font-size:12px;font-weight:700;color:var(--text);line-height:1.3;display:flex;align-items:center;gap:6px}
+.mini-ch-card:hover{border-color:var(--border2);background:var(--bg2)}
+.mini-ch-card.active{border-color:rgba(28,102,212,.4);background:rgba(0,71,160,.12);color:var(--accent2)}
+.mini-ch-dot{width:5px;height:5px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;flex-shrink:0}
+.ch-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;cursor:pointer;transition:all .15s;border:1px solid transparent;flex-shrink:0}
+.ch-item:hover{background:var(--bg3);border-color:var(--border)}
+.ch-item.active{background:linear-gradient(135deg,rgba(0,71,160,.15),rgba(28,102,212,.08));border-color:rgba(28,102,212,.3)}
+.ch-item.active .ch-name-s{color:var(--accent2)}
+.ch-icon-s{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0}
+.ch-name-s{font-size:15px;font-weight:600;flex:1} .ch-desc-s{font-size:11px;color:var(--muted)}
+.live-indicator{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;flex-shrink:0}
+.player-col{display:flex;flex-direction:column;gap:14px}
+.player-wrap{position:relative;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);aspect-ratio:16/9}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.player-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg2)}
+.player-empty .big-icon{font-size:56px;opacity:.3} .player-empty p{color:var(--muted);font-size:14px} .player-empty.hidden{display:none}
+.player-live-badge{position:absolute;top:14px;left:14px;z-index:20;background:var(--red);color:white;font-size:11px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:20px;display:none;align-items:center;gap:5px}
+.player-live-badge .dot{width:6px;height:6px;background:white;border-radius:50%;animation:pulse 1s infinite}
+.now-playing-bar{position:absolute;bottom:0;left:0;right:0;z-index:15;background:linear-gradient(transparent,rgba(0,0,0,.85));padding:32px 16px 14px;display:none}
+.now-playing-bar.visible{display:block} .np-name{font-size:18px;font-weight:800} .np-desc{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
+.player-controls{position:absolute;inset:0;z-index:25;display:flex;align-items:flex-end;justify-content:flex-end;padding:12px;opacity:0;transition:opacity .35s ease;pointer-events:none}
+.player-wrap.controls-visible .player-controls{opacity:1;pointer-events:all}
+.ctrl-btns{display:flex;gap:6px}
+.ctrl-btn{background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 12px;font-size:12px;cursor:pointer;transition:all .2s}
+.ctrl-btn:hover{background:rgba(255,255,255,.15)}
+.unmute-banner{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);z-index:30;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.player-wrap.controls-visible .unmute-banner{opacity:1;pointer-events:all}
+.unmute-banner button{background:var(--accent);color:white;border:none;border-radius:24px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(0,71,160,.5);transition:all .2s;font-family:inherit;white-space:nowrap}
+.unmute-banner button:hover{background:var(--accent2);transform:scale(1.03)}
+.player-status{font-size:13px;color:var(--muted);text-align:center;padding:6px 0;display:flex;align-items:center;justify-content:center;gap:6px}
+.status-dot{width:7px;height:7px;background:var(--accent2);border-radius:50%;animation:pulse 1.2s infinite}
+.tg-overlay{position:absolute;inset:0;z-index:40;background:rgba(8,8,20,.88);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;animation:fadeIn .4s ease}
+.tg-overlay.show{display:flex}
+.tg-overlay-card{text-align:center;padding:32px 28px;max-width:320px}
+.tg-overlay-icon{font-size:52px;margin-bottom:14px} .tg-overlay-title{font-size:20px;font-weight:800;margin-bottom:8px}
+.tg-overlay-desc{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px;line-height:1.6}
+.tg-overlay-btn{display:inline-flex;align-items:center;gap:8px;background:var(--tg-color);color:white;padding:12px 24px;border-radius:24px;font-size:15px;font-weight:700;transition:all .2s;margin-bottom:10px}
+.tg-overlay-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
+.tg-overlay-skip{display:block;font-size:12px;color:rgba(255,255,255,.35);cursor:pointer;margin-top:10px;transition:color .2s}
+.tg-overlay-skip:hover{color:rgba(255,255,255,.7)}
+.channel-info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
+.ci-title{font-size:18px;font-weight:800;margin-bottom:4px} .ci-desc{font-size:13px;color:var(--muted)}
+.right-sidebar{display:flex;flex-direction:column;gap:14px;position:sticky;top:76px;height:fit-content}
+.tg-cta-card{background:linear-gradient(135deg,#0d1f3c 0%,#0a2a3f 100%);border:1px solid rgba(34,158,217,.25);border-radius:var(--radius);padding:20px;text-align:center;position:relative;overflow:hidden}
+.tg-cta-live{display:none;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--red);margin-bottom:10px}
+.tg-cta-live-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite;flex-shrink:0}
+.tg-cta-icon{font-size:40px;margin-bottom:10px} .tg-cta-title{font-size:15px;font-weight:800;margin-bottom:6px;line-height:1.3}
+.tg-cta-desc{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:16px;line-height:1.5}
+.tg-cta-features{text-align:left;margin-bottom:16px;display:flex;flex-direction:column;gap:5px}
+.tg-cta-feat{font-size:12px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px} .feat-check{color:#4ade80;font-size:13px}
+.tg-cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--tg-color);color:white;padding:11px 16px;border-radius:12px;font-size:14px;font-weight:700;transition:all .2s;width:100%}
+.tg-cta-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
+.tg-sub-count{font-size:11px;color:rgba(255,255,255,.35);margin-top:8px}
+.about-section{max-width:1400px;margin:0 auto;padding:0 16px 40px}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:24px}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
+.about-card .icon{font-size:28px;margin-bottom:8px} .about-card .num{font-size:24px;font-weight:900;color:var(--accent2)} .about-card .lbl{font-size:12px;color:var(--muted);margin-top:2px}
+.seo-text{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px}
+.seo-text h2{font-size:18px;font-weight:800;margin-bottom:10px} .seo-text p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:8px}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24px}
+.footer-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-size:16px;font-weight:900} .footer-links{display:flex;gap:20px} .footer-links a{font-size:13px;color:var(--muted);transition:color .2s} .footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:12px;color:var(--muted2)}
+.footer-tg a{display:inline-flex;align-items:center;gap:7px;background:var(--tg-color);color:white;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;transition:all .2s}
+.footer-tg a:hover{background:#1a8dc5}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details{margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:12px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}} @keyframes fadeIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@media (max-width:1100px){.main-wrap{grid-template-columns:220px 1fr 260px;gap:12px}}
+@media (max-width:900px){
+  .main-wrap{grid-template-columns:1fr;padding:10px;gap:12px}
+  .player-col{order:1} .right-sidebar{order:2;position:static;display:flex;flex-direction:row;flex-wrap:wrap;gap:12px}
+  .sidebar-wrapper{order:3;position:static;height:auto} .custom-scroll-track{display:none}
+  .channel-sidebar{height:auto;overflow:visible;display:flex;flex-direction:column;gap:0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:0}
+  .cat-label{display:block;padding:10px 12px 4px;margin:0;border-top:1px solid var(--border)} .cat-label:first-child{border-top:none}
+  .cat-group{display:flex;flex-direction:column;gap:2px;padding:4px 8px 8px}
+  .ch-item{flex-direction:row;align-items:center;width:100%;padding:10px 12px;text-align:left;gap:12px}
+  .ch-icon-s{width:42px;height:42px;font-size:12px;border-radius:10px} .ch-name-s{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ch-desc-s{display:none}
+  .live-indicator{margin-left:auto}
+  .tg-overlay{position:fixed;z-index:9999} .tg-overlay-card{padding:24px 20px;max-width:300px}
+  .tg-cta-card{flex:1;min-width:220px} .tg-cta-live{display:flex}
+  nav{display:none} .lang-switcher{display:none}
+}
+@media (max-width:600px){
+  header{padding:0 12px;height:52px;gap:8px} .logo{font-size:20px} .live-count{display:none}
+  .tg-header-btn{padding:8px;font-size:12px;gap:5px;border-radius:50%;width:36px;height:36px;justify-content:center}
+  .tg-header-btn span:not(.tg-icon){display:none} .tg-icon{font-size:0;display:flex;align-items:center;justify-content:center}
+  .main-wrap{padding:8px;gap:8px} .right-sidebar{flex-direction:column}
+  .np-name{font-size:14px} .ctrl-btn{padding:6px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://korea-tv.uk/en/" class="logo"><span class="red">한</span><span class="blue">국</span><span class="red">·TV</span></a>
+  <nav><a href="#" class="active">Channels</a><a href="#about">About</a></nav>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <a href="https://korea-tv.uk/" class="lang-link">🇰🇷 KO</a>
+      <a href="https://korea-tv.uk/en/" class="lang-link active">🇬🇧 EN</a>
+    </div>
+    <div class="live-count"><div class="live-dot-sm"></div>36 channels</div>
+    <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-header-btn">
+      <span class="tg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></span>
+      <span>Watch on Telegram</span>
+    </a>
+  </div>
+</header>
+
+<div class="breadcrumb"><span>🇰🇷 Korean TV Online</span></div>
+<div class="page-title-wrap">
+  <h1>Watch Korean TV Online Free</h1>
+  <div class="page-meta">
+    <span class="cnt-badge">36 channels</span>
+    <span class="live-badge-main"><span class="live-dot-main"></span>LIVE</span>
+    <span>Live 24/7</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="sidebar-wrapper">
+    <aside class="channel-sidebar" id="channel-sidebar">
+      <div class="sidebar-search"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="Search channel..."/></div>
+    </aside>
+    <div class="custom-scroll-track" id="scroll-track"><div class="custom-scroll-thumb" id="scroll-thumb"></div></div>
+  </div>
+
+  <div class="player-col">
+    <div class="player-wrap" id="player-wrap">
+      <video id="video" autoplay playsinline webkit-playsinline muted></video>
+      <div class="player-empty" id="player-empty"><div class="big-icon">📺</div><p>Select a channel from the list</p></div>
+      <div class="player-live-badge" id="live-badge"><div class="dot"></div> LIVE</div>
+      <div class="now-playing-bar" id="now-playing-bar"><div class="np-name" id="np-name"></div><div class="np-desc" id="np-desc"></div></div>
+      <div class="player-controls">
+        <div class="ctrl-btns">
+          <button class="ctrl-btn" id="reload-btn" style="display:none">🔄 Reconnect</button>
+          <button class="ctrl-btn" id="fullscreen-btn">⛶ Fullscreen</button>
+        </div>
+      </div>
+      <div class="unmute-banner" id="unmute-banner"><button id="unmute-btn">🔊 Unmute</button></div>
+      <div class="tg-overlay" id="tg-overlay">
+        <div class="tg-overlay-card">
+          <div class="tg-overlay-icon">✈️</div>
+          <div class="tg-overlay-title">Watch on Telegram</div>
+          <div class="tg-overlay-desc">All 36 channels in one Telegram app — free. iOS, Android and Desktop.</div>
+          <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-overlay-btn">✈️ Open in Telegram</a>
+          <span class="tg-overlay-skip" id="overlay-skip">✕ Continue watching</span>
+        </div>
+      </div>
+    </div>
+    <div class="player-status" id="player-status">Select a channel to watch</div>
+    <div class="channel-info-card" id="channel-info-card" style="display:none">
+      <div class="ci-title" id="ci-title"></div><div class="ci-desc" id="ci-desc"></div>
+    </div>
+  </div>
+
+  <aside class="right-sidebar">
+    <div class="tg-cta-card">
+      <div class="tg-cta-live"><span class="tg-cta-live-dot"></span>LIVE &middot; Live 24/7</div>
+      <div class="tg-cta-icon">✈️</div>
+      <div class="tg-cta-title">Watch on Telegram</div>
+      <div class="tg-cta-desc">36 Korean channels right in the messenger</div>
+      <div class="tg-cta-features">
+        <div class="tg-cta-feat"><span class="feat-check">✓</span> No registration</div>
+        <div class="tg-cta-feat"><span class="feat-check">✓</span> iOS · Android · Desktop</div>
+        <div class="tg-cta-feat"><span class="feat-check">✓</span> HD quality 24/7</div>
+      </div>
+      <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-cta-btn">✈️ Open Korea TV</a>
+      <div class="tg-sub-count">@Korea_TV_hub</div>
+    </div>
+  </aside>
+</div>
+
+<div class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-card"><div class="icon">📡</div><div class="num">36</div><div class="lbl">Channels</div></div>
+    <div class="about-card"><div class="icon">🆓</div><div class="num">0</div><div class="lbl">Completely free</div></div>
+    <div class="about-card"><div class="icon">🌍</div><div class="num">2</div><div class="lbl">Languages</div></div>
+    <div class="about-card"><div class="icon">📱</div><div class="num">HD</div><div class="lbl">Quality</div></div>
+    <div class="about-card"><div class="icon">🕐</div><div class="num">24/7</div><div class="lbl">Non-stop</div></div>
+  </div>
+  <div class="seo-text">
+    <h1 style="font-size:22px;font-weight:800;margin-bottom:12px">Watch Korean TV Online Free — 36 Live Channels</h1>
+    <p>Korea TV is a free service for watching South Korean TV channels live. It covers 36 channels across 8 categories: International, EBS, Public & Government, National Terrestrial, Regional, Religious, Business & Shopping, and Music & Radio.</p>
+    <p>All channels are available directly in the browser, with no registration or payment. The same channels are also available on Telegram — <a href="https://t.me/Korea_TV_hub" target="_blank" rel="noopener" style="color:var(--accent2)">@Korea_TV_hub</a>.</p>
+  </div>
+  <div class="seo-text" style="margin-top:16px" id="faq">
+    <h2 style="font-size:18px;font-weight:800;margin-bottom:16px">Frequently Asked Questions</h2>
+    <details><summary>Can I watch Korean TV from abroad? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7.</p></details><details><summary>Is registration required? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. All 36 channels are available immediately and free, with no account or subscription.</p></details><details><summary>Can I watch on iPhone and Android? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away.</p></details><details><summary>Do I need a VPN? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. korea-tv.uk is accessible from anywhere in the world without a VPN.</p></details>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🇰🇷 <span style="color:#CD2E3A">한</span><span style="color:#0047A0">국</span>·TV</div>
+      <div class="footer-copy" style="margin-top:4px">&copy; 2026 &middot; Free Korean TV Online</div>
+    </div>
+    <div class="footer-links"><a href="#about">About</a><a href="#">Privacy</a></div>
+    <div class="footer-tg"><a href="https://t.me/Korea_TV_hub" target="_blank">✈️ Telegram</a></div>
+  </div>
+  <div style="text-align:center;margin-top:16px;font-size:11px;color:var(--muted2)">
+    This site does not store any video content. All streams are provided by third parties and are publicly available on the internet.
+  </div>
+</footer>
+
+<script>
+const PROXY = 'https://korea-worker.dyaltd.workers.dev';
+const TG_URL = 'https://t.me/Korea_TV_hub';
+const CHANNEL_GROUPS = [
+  { label: '🌏 International', channels: [
+      { id:'arirang', name:'Arirang TV', desc:'International broadcaster in English for global audiences — news and culture.', icon:'ARI', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['intl'] },
+      { id:'arirang_radio', name:'Arirang Radio', desc:'English-language radio from Arirang — music and lifestyle programming.', icon:'ARR', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['intl'] }
+    ] },
+  { label: '📚 EBS Educational', channels: [
+      { id:'ebs1', name:'EBS 1TV', desc:'EBS\'s flagship channel — education, documentaries, children\'s programming.', icon:'E1', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
+      { id:'ebs2', name:'EBS 2TV', desc:'EBS\'s second channel — school and lecture programming.', icon:'E2', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
+      { id:'ebs_plus1', name:'EBS Plus1', desc:'EBS supplementary channel — learning content.', icon:'P1', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
+      { id:'ebs_plus2', name:'EBS Plus2', desc:'EBS supplementary channel — educational programming.', icon:'P2', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
+      { id:'ebs_kids', name:'EBS Kids', desc:'EBS\'s children\'s channel — animation and educational content.', icon:'KID', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
+      { id:'ebs_english', name:'EBS English', desc:'EBS\'s English-language learning channel.', icon:'ENG', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] }
+    ] },
+  { label: '🏛️ Public & Government', channels: [
+      { id:'ktv', name:'KTV', desc:'South Korea\'s government-run public policy and information channel.', icon:'KTV', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
+      { id:'gugak', name:'Gugak TV', desc:'Traditional Korean music channel run by the National Gugak Center.', icon:'GUG', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
+      { id:'oun', name:'OUN', desc:'Korea National Open University\'s distance-education channel.', icon:'OUN', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
+      { id:'nbs', name:'NBS', desc:'Agriculture and fisheries information broadcasting.', icon:'NBS', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
+      { id:'tbs', name:'TBS', desc:'Seoul\'s public broadcaster — traffic info and current affairs.', icon:'TBS', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
+      { id:'natv', name:'National Assembly TV', desc:'Broadcasts South Korea\'s National Assembly plenary and committee sessions.', icon:'NA', color:'#0047A0', iconBg:'#0047A022', tags:['public'] }
+    ] },
+  { label: '📡 National Terrestrial', channels: [
+      { id:'sbs', name:'SBS', desc:'One of Korea\'s major national terrestrial networks — news, drama, entertainment.', icon:'SBS', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['terrestrial'] }
+    ] },
+  { label: '📍 Regional Channels', channels: [
+      { id:'mbc_jeju', name:'MBC Jeju', desc:'Regional MBC affiliate for Jeju Island.', icon:'JEJ', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'mbc_chungbuk', name:'MBC Chungbuk', desc:'Regional MBC affiliate for North Chungcheong.', icon:'CB', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'sbs_kbc', name:'KBC Gwangju', desc:'SBS regional affiliate for Gwangju/Jeonnam.', icon:'KBC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'sbs_ubc', name:'UBC Ulsan', desc:'SBS regional affiliate for Ulsan.', icon:'UBC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'obs_gyeonggi', name:'OBS Gyeonggi', desc:'Independent terrestrial broadcaster for Gyeonggi/Incheon.', icon:'OBS', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'nhtv', name:'NHTV', desc:'Agricultural broadcasting channel affiliated with Nonghyup (NACF).', icon:'NH', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'mbc_chuncheon', name:'MBC Chuncheon', desc:'Regional MBC affiliate for Gangwon (Chuncheon).', icon:'CHN', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'mbc_daejeon', name:'MBC Daejeon', desc:'Regional MBC affiliate for Daejeon/Chungnam.', icon:'DJ', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'nib', name:'NIB', desc:'Local cable broadcaster in the Incheon area.', icon:'NIB', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'jjctv', name:'JJCTV', desc:'Local government and municipal-affairs channel.', icon:'JJC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'kcn', name:'KCN', desc:'Regional cable broadcaster in the Geumgang (Chungcheong) area.', icon:'KCN', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] }
+    ] },
+  { label: '⛪ Religious Channels', channels: [
+      { id:'btn', name:'BTN', desc:'Buddhist religious broadcaster.', icon:'BTN', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
+      { id:'goodtv', name:'GoodTV', desc:'Christian religious broadcaster.', icon:'GTV', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
+      { id:'abn', name:'ABN', desc:'Christian religious broadcaster.', icon:'ABN', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
+      { id:'fgtv', name:'FGTV', desc:'Christian broadcaster affiliated with Yoido Full Gospel Church.', icon:'FG', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
+      { id:'rutc', name:'RUTC TV', desc:'Christian gospel broadcasting channel.', icon:'RUT', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] }
+    ] },
+  { label: '📈 Business & Shopping', channels: [
+      { id:'wowtv', name:'WOWTV', desc:'Korea Economic TV — stock market and business news.', icon:'WOW', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
+      { id:'mkmoney', name:'MK Money', desc:'Maeil Business TV — business and finance news.', icon:'MK', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
+      { id:'ktalpha', name:'KT Alpha Shopping', desc:'TV home shopping channel.', icon:'KTA', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] }
+    ] },
+  { label: '🎵 Music & Radio', channels: [
+      { id:'tbs_efm', name:'TBS eFM', desc:'Seoul\'s English-language radio station — news and talk.', icon:'eFM', color:'#ad1457', iconBg:'#ad145722', tags:['music'] },
+      { id:'tbs_fm', name:'TBS FM', desc:'Seoul\'s Korean-language traffic and talk radio station.', icon:'FM', color:'#ad1457', iconBg:'#ad145722', tags:['music'] }
+    ] }
+];
+
+let currentCh = null, hls = null, overlayTimer = null, userUnmuted = false, _overlayCount = 0;
+const video = document.getElementById('video');
+const playerEmpty = document.getElementById('player-empty');
+const liveBadge = document.getElementById('live-badge');
+const npBar = document.getElementById('now-playing-bar');
+const npName = document.getElementById('np-name');
+const npDesc = document.getElementById('np-desc');
+const reloadBtn = document.getElementById('reload-btn');
+const fsBtn = document.getElementById('fullscreen-btn');
+const unmuteBtn = document.getElementById('unmute-btn');
+const unmuteBanner = document.getElementById('unmute-banner');
+const tgOverlay = document.getElementById('tg-overlay');
+const overlaySkip = document.getElementById('overlay-skip');
+const statusEl = document.getElementById('player-status');
+const infoCard = document.getElementById('channel-info-card');
+const ciTitle = document.getElementById('ci-title');
+const ciDesc = document.getElementById('ci-desc');
+const searchInput = document.getElementById('search-input');
+const sidebar = document.getElementById('channel-sidebar');
+
+const POPULAR_IDS = ['sbs', 'arirang', 'ebs1', 'ktv', 'natv'];
+const LS_RECENT = 'ktv_recent_v1';
+function getRecent() { try { return JSON.parse(localStorage.getItem(LS_RECENT) || '[]'); } catch { return []; } }
+function saveRecent(id) { let a=getRecent().filter(x=>x!==id); a.unshift(id); a=a.slice(0,5); try{localStorage.setItem(LS_RECENT, JSON.stringify(a));}catch{} }
+function findChannel(id) { for (const g of CHANNEL_GROUPS) { const ch=g.channels.find(c=>c.id===id); if (ch) return ch; } return null; }
+
+function renderMiniSection(labelText, ids) {
+  const channels = ids.map(findChannel).filter(Boolean);
+  if (!channels.length) return;
+  const label = document.createElement('div'); label.className='cat-label'; label.textContent=labelText; sidebar.appendChild(label);
+  const grid = document.createElement('div'); grid.className='sidebar-mini-grid';
+  channels.forEach(ch => {
+    const card = document.createElement('div');
+    card.className = 'mini-ch-card' + (currentCh?.id===ch.id ? ' active':'');
+    card.innerHTML = `<span class="mini-ch-dot"></span>${ch.name}`;
+    card.onclick = () => openChannel(ch);
+    grid.appendChild(card);
+  });
+  sidebar.appendChild(grid);
+}
+
+function buildSidebar(filter='') {
+  [...sidebar.children].forEach(el => { if (!el.classList.contains('sidebar-search')) el.remove(); });
+  const q = filter.toLowerCase();
+  if (!q) {
+    const recentIds = getRecent();
+    if (recentIds.length) renderMiniSection('🕐 Recently viewed', recentIds);
+    renderMiniSection('⭐ Popular', POPULAR_IDS);
+  }
+  CHANNEL_GROUPS.forEach(group => {
+    const matching = group.channels.filter(ch => !q || ch.name.toLowerCase().includes(q) || ch.tags.some(t=>t.includes(q)));
+    if (!matching.length) return;
+    const label = document.createElement('div'); label.className='cat-label'; label.textContent=group.label; sidebar.appendChild(label);
+    const catGroup = document.createElement('div'); catGroup.className='cat-group'; sidebar.appendChild(catGroup);
+    matching.forEach(ch => {
+      const item = document.createElement('div');
+      item.className = 'ch-item' + (currentCh?.id===ch.id ? ' active':'');
+      item.innerHTML = `<div class="ch-icon-s" style="background:${ch.iconBg};color:${ch.color}">${ch.icon}</div><div><div class="ch-name-s">${ch.name}</div><div class="ch-desc-s">${ch.desc}</div></div><div class="live-indicator"></div>`;
+      item.onclick = () => openChannel(ch);
+      catGroup.appendChild(item);
+    });
+  });
+}
+searchInput.addEventListener('input', e => buildSidebar(e.target.value));
+
+function openChannel(ch) {
+  currentCh = ch; saveRecent(ch.id); buildSidebar(searchInput.value);
+  playerEmpty.classList.add('hidden');
+  npName.textContent = ch.name; npDesc.textContent = ch.desc; npBar.classList.add('visible');
+  liveBadge.style.setProperty('background', ch.color);
+  infoCard.style.display = 'block'; ciTitle.textContent = ch.name; ciDesc.textContent = ch.desc;
+  const activeItem = sidebar.querySelector('.ch-item.active');
+  if (activeItem) activeItem.scrollIntoView({behavior:'smooth', block:'nearest'});
+  clearTimeout(overlayTimer); tgOverlay.classList.remove('show');
+  if (_overlayCount < 2) {
+    overlayTimer = setTimeout(() => { tgOverlay.classList.add('show'); _overlayCount++; video.pause(); }, 12000);
+  }
+  loadStream(ch);
+}
+
+function setStatus(msg, isError=false) {
+  statusEl.innerHTML = isError ? `⚠️ ${msg}` : `<span class="status-dot"></span>${msg}`;
+  reloadBtn.style.display = isError ? 'block' : 'none';
+}
+function stopStream() { if (hls) { hls.destroy(); hls=null; } video.src=''; liveBadge.style.display='none'; }
+
+async function loadStream(ch) {
+  stopStream();
+  setStatus('Loading...');
+  const streamUrl = PROXY + '/stream?channel=' + ch.id;
+  async function tryPlay() {
+    video.muted = false; video.volume = 1;
+    try { await video.play(); userUnmuted = true; unmuteBtn.textContent = '🔇 Mute'; }
+    catch(e) {
+      video.muted = true; userUnmuted = false; unmuteBtn.textContent = '🔊 Unmute';
+      try { await video.play(); } catch(e2) { setStatus('Press play'); }
+    }
+  }
+  if (Hls.isSupported()) {
+    hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true, backBufferLength:30});
+    hls.loadSource(streamUrl); hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, async () => { setStatus('LIVE — ' + ch.name); liveBadge.style.display='flex'; await tryPlay(); });
+    hls.on(Hls.Events.ERROR, (e,data) => {
+      if (!data.fatal) return;
+      if (data.type===Hls.ErrorTypes.NETWORK_ERROR) { try{hls.startLoad();}catch(e){} return; }
+      if (data.type===Hls.ErrorTypes.MEDIA_ERROR) { try{hls.recoverMediaError();}catch(e){} return; }
+      setStatus('Connection error. Please try again.', true);
+    });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = streamUrl;
+    video.addEventListener('loadedmetadata', async () => { setStatus('LIVE — ' + ch.name); liveBadge.style.display='flex'; await tryPlay(); }, {once:true});
+  } else {
+    setStatus('Your browser does not support HLS', true);
+  }
+}
+
+unmuteBtn.addEventListener('click', () => {
+  if (video.muted) { video.muted=false; video.volume=1; userUnmuted=true; unmuteBtn.textContent='🔇 Mute'; }
+  else { video.muted=true; userUnmuted=false; unmuteBtn.textContent='🔊 Unmute'; }
+});
+reloadBtn.addEventListener('click', () => { if (currentCh) loadStream(currentCh); });
+
+const playerWrap = document.getElementById('player-wrap');
+fsBtn.addEventListener('click', () => {
+  const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+  if (fsEl) { if (document.exitFullscreen) document.exitFullscreen(); else if (document.webkitExitFullscreen) document.webkitExitFullscreen(); fsBtn.textContent='⛶ Fullscreen'; }
+  else { if (playerWrap.requestFullscreen) playerWrap.requestFullscreen().catch(()=>{}); else if (playerWrap.webkitRequestFullscreen) playerWrap.webkitRequestFullscreen(); else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen(); fsBtn.textContent='✕ Exit'; }
+});
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) fsBtn.textContent='⛶ Fullscreen'; });
+document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) fsBtn.textContent='⛶ Fullscreen'; });
+video.addEventListener('webkitbeginfullscreen', () => { fsBtn.textContent='✕ Exit'; });
+video.addEventListener('webkitendfullscreen', () => { fsBtn.textContent='⛶ Fullscreen'; });
+
+overlaySkip.addEventListener('click', () => { tgOverlay.classList.remove('show'); clearTimeout(overlayTimer); video.play().catch(()=>{}); });
+
+(function initControlsFade() {
+  const wrap = document.getElementById('player-wrap'); let hideTimer=null;
+  function showControls() { wrap.classList.add('controls-visible'); clearTimeout(hideTimer); hideTimer=setTimeout(()=>wrap.classList.remove('controls-visible'),3000); }
+  wrap.addEventListener('mousemove', showControls); wrap.addEventListener('mouseenter', showControls);
+  wrap.addEventListener('mouseleave', () => { clearTimeout(hideTimer); hideTimer=setTimeout(()=>wrap.classList.remove('controls-visible'),600); });
+  wrap.addEventListener('touchstart', () => { showControls(); }, {passive:true});
+})();
+
+(function initCustomScrollbar() {
+  const sb = document.getElementById('channel-sidebar'); const track=document.getElementById('scroll-track'); const thumb=document.getElementById('scroll-thumb');
+  if (!sb || !track || !thumb) return;
+  function updateThumb() {
+    const trackH=track.clientHeight; const ratio=sb.clientHeight/sb.scrollHeight; const thumbH=Math.max(28, ratio*trackH); const maxTop=trackH-thumbH;
+    const scrollR = sb.scrollHeight>sb.clientHeight ? sb.scrollTop/(sb.scrollHeight-sb.clientHeight) : 0;
+    thumb.style.height=thumbH+'px'; thumb.style.top=(scrollR*maxTop)+'px';
+  }
+  sb.addEventListener('scroll', updateThumb, {passive:true}); window.addEventListener('resize', updateThumb);
+  new MutationObserver(updateThumb).observe(sb, {childList:true, subtree:false});
+  let dragging=false, startY=0, startTop=0;
+  thumb.addEventListener('mousedown', e => { dragging=true; startY=e.clientY; startTop=sb.scrollTop; e.preventDefault(); });
+  document.addEventListener('mousemove', e => { if(!dragging) return; const trackH=track.clientHeight; const thumbH=thumb.clientHeight; const delta=(e.clientY-startY)/(trackH-thumbH); sb.scrollTop=startTop+delta*(sb.scrollHeight-sb.clientHeight); });
+  document.addEventListener('mouseup', () => { dragging=false; });
+  track.addEventListener('click', e => {
+    if (e.target===thumb) return;
+    const rect=track.getBoundingClientRect(); const clickY=e.clientY-rect.top; const thumbH=thumb.clientHeight; const trackH=track.clientHeight;
+    const ratio=Math.max(0, Math.min(1, (clickY-thumbH/2)/(trackH-thumbH))); sb.scrollTop=ratio*(sb.scrollHeight-sb.clientHeight);
+  });
+  setTimeout(updateThumb, 150);
+})();
+
+buildSidebar();
+</script>
+</body>
+</html>
