@@ -22,13 +22,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
+  <meta property="og:type" content="video.other"/>
+  <meta property="og:image" content="https://korea-tv.uk/thumbnails/tbs-live.jpg"/>
+  <meta property="og:image:width" content="1280"/>
+  <meta property="og:image:height" content="720"/>
+  <meta name="twitter:image" content="https://korea-tv.uk/thumbnails/tbs-live.jpg"/>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
     {"@type":"WebPage","@id":"https://korea-tv.uk/en/tbs-live/","url":"https://korea-tv.uk/en/tbs-live/","name":"Watch TBS Live Online Free | Korea TV","description":"TBS online — Seoul&#39;s public broadcaster — traffic info and current affairs.. Watch free, no registration, no VPN, live 24/7 on korea-tv.uk.","inLanguage":"en","isPartOf":{"@id":"https://korea-tv.uk/#website"}},
     {"@type":"BreadcrumbList","itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://korea-tv.uk/"},
       {"@type":"ListItem","position":2,"name":"TBS","item":"https://korea-tv.uk/en/tbs-live/"}
-    ]}
+    ]},
+    {"@type":"VideoObject","name":"Watch TBS Live Online Free | Korea TV","description":"TBS online — Seoul&#39;s public broadcaster — traffic info and current affairs.. Watch free, no registration, no VPN, live 24/7 on korea-tv.uk.",
+      "thumbnailUrl":["https://korea-tv.uk/thumbnails/tbs-live.jpg"],"uploadDate":"2026-07-12T00:00:00+09:00",
+      "contentUrl":"https://korea-worker.dyaltd.workers.dev/stream?channel=tbs","embedUrl":"https://korea-tv.uk/en/tbs-live/",
+      "isFamilyFriendly":true,
+      "publication":{"@type":"BroadcastEvent","isLiveBroadcast":true,"startDate":"2026-07-12T00:00:00+09:00","endDate":"2030-12-31T23:59:59+09:00"},
+      "potentialAction":{"@type":"WatchAction","target":"https://korea-tv.uk/en/tbs-live/"}}
   ]}
   </script>
   <style>
@@ -125,7 +136,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px;tex
   <p class="hero-count">Seoul's public broadcaster — traffic info and current affairs.</p>
 </section>
 <div class="player-wrap" id="player-wrap">
-  <video id="video" playsinline controls muted autoplay></video>
+  <video id="video" playsinline controls muted autoplay poster="https://korea-tv.uk/thumbnails/tbs-live.jpg"></video>
 </div>
 <div class="player-status" id="player-status">Loading stream...</div>
 <div class="seo-block">
