@@ -425,7 +425,7 @@ function openChannel(ch) {
   if (activeItem) activeItem.scrollIntoView({behavior:'smooth', block:'nearest'});
   clearTimeout(overlayTimer); tgOverlay.classList.remove('show');
   if (_overlayCount < 2) {
-    overlayTimer = setTimeout(() => { tgOverlay.classList.add('show'); _overlayCount++; video.pause(); }, 12000);
+    overlayTimer = setTimeout(() => { tgOverlay.classList.add('show'); _overlayCount++; video.pause(); }, 120000);
   }
   loadStream(ch);
 }
