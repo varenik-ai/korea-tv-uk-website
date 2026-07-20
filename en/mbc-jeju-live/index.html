@@ -116,6 +116,38 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px;tex
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 @media(max-width:600px){header{padding:0 12px;height:52px}.logo{font-size:19px}
   .ch-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
+
+/* Left channel sidebar — same look as the homepage, but plain navigational links
+   (each page here is its own SEO-indexed URL, so no JS-driven player switching). */
+.layout-wrap{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;gap:20px;align-items:flex-start}
+.channel-sidebar{width:280px;flex-shrink:0;background:var(--card);border:1px solid var(--border);
+                  border-radius:var(--radius);padding:14px;max-height:80vh;overflow-y:auto;
+                  position:sticky;top:76px}
+.channel-sidebar::-webkit-scrollbar{width:5px}
+.channel-sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+.sidebar-search{position:relative;margin-bottom:10px}
+.sidebar-search input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);
+                       border-radius:var(--radius-sm);padding:9px 12px 9px 36px;font-size:13px;
+                       font-family:inherit;outline:none}
+.sidebar-search input:focus{border-color:var(--accent)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px}
+.cat-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;
+           letter-spacing:1.5px;padding:12px 6px 4px}
+.cat-label:first-child{padding-top:0}
+.cat-group{display:flex;flex-direction:column;gap:2px;margin-bottom:4px}
+.ch-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;transition:all .15s;border:1px solid transparent}
+.ch-item:hover{background:var(--bg3);border-color:var(--border)}
+.ch-item.active{background:linear-gradient(135deg,rgba(0,71,160,.15),rgba(28,102,212,.08));border-color:rgba(28,102,212,.3)}
+.ch-item.active .ch-name-s{color:var(--accent2)}
+.ch-icon-s{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+           font-size:9px;font-weight:900;flex-shrink:0}
+.ch-name-s{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-desc-s{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-indicator{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;
+                 flex-shrink:0;margin-left:auto}
+.content-col{flex:1;min-width:0}
+@media(max-width:900px){.layout-wrap{flex-direction:column;padding:0 12px}
+  .channel-sidebar{width:100%;max-height:320px;position:static}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X503KNBLXB"></script>
 <script>
@@ -136,26 +168,31 @@ gtag('config', 'G-X503KNBLXB');
     </a>
   </div>
 </header>
-<section class="hero">
-  <div class="hero-icon">📺</div>
-  <div class="hero-badge"><span class="live-dot"></span> LIVE</div>
-  <h1>MBC Jeju</h1>
-  <p class="hero-count">Regional MBC affiliate for Jeju Island.</p>
-</section>
-<div class="player-wrap" id="player-wrap">
-  <video id="video" playsinline controls muted autoplay poster="https://korea-tv.uk/thumbnails/mbc-jeju-live.jpg"></video>
-</div>
-<div class="player-status" id="player-status">Loading stream...</div>
-<div class="seo-block">
-  <div class="card">
-    <h2>MBC Jeju</h2>
-    <p>Regional MBC affiliate for Jeju Island.</p>
-    <p><a href="https://korea-tv.uk/" class="btn-primary" style="margin-top:8px">📺 Watch All Channels</a></p>
-  </div>
-  <div class="card" style="margin-top:14px">
-    <h2>Similar Channels</h2>
-    <div class="similar-grid">
-      <a class="ch-card" href="https://korea-tv.uk/en/mbc-chungbuk-live/"><div class="ch-name">MBC Chungbuk</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/sbs-kbc-live/"><div class="ch-name">KBC Gwangju</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/sbs-ubc-live/"><div class="ch-name">UBC Ulsan</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/obs-gyeonggi-live/"><div class="ch-name">OBS Gyeonggi</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/nhtv-live/"><div class="ch-name">NHTV</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/mbc-chuncheon-live/"><div class="ch-name">MBC Chuncheon</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a>
+<div class="layout-wrap">
+  <aside class="channel-sidebar" id="channel-sidebar"><div class="sidebar-search"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="Search channel..."/></div><div class="cat-label">🌏 International</div><div class="cat-group"><a href="https://korea-tv.uk/en/arirang-live/" class="ch-item" data-name="arirang tv"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARI</div><div style="flex:1;min-width:0"><div class="ch-name-s">Arirang TV</div><div class="ch-desc-s">International broadcaster in English for global audiences — news and culture.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/arirang-radio-live/" class="ch-item" data-name="arirang radio"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARR</div><div style="flex:1;min-width:0"><div class="ch-name-s">Arirang Radio</div><div class="ch-desc-s">English-language radio from Arirang — music and lifestyle programming.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📚 EBS Educational</div><div class="cat-group"><a href="https://korea-tv.uk/en/ebs1-live/" class="ch-item" data-name="ebs 1tv"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E1</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS 1TV</div><div class="ch-desc-s">EBS&#39;s flagship channel — education, documentaries, children&#39;s programming.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs2-live/" class="ch-item" data-name="ebs 2tv"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E2</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS 2TV</div><div class="ch-desc-s">EBS&#39;s second channel — school and lecture programming.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-plus1-live/" class="ch-item" data-name="ebs plus1"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P1</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Plus1</div><div class="ch-desc-s">EBS supplementary channel — learning content.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-plus2-live/" class="ch-item" data-name="ebs plus2"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P2</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Plus2</div><div class="ch-desc-s">EBS supplementary channel — educational programming.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-kids-live/" class="ch-item" data-name="ebs kids"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">KID</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Kids</div><div class="ch-desc-s">EBS&#39;s children&#39;s channel — animation and educational content.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-english-live/" class="ch-item" data-name="ebs english"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">ENG</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS English</div><div class="ch-desc-s">EBS&#39;s English-language learning channel.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">🏛️ Public & Government</div><div class="cat-group"><a href="https://korea-tv.uk/en/ktv-live/" class="ch-item" data-name="ktv"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">KTV</div><div style="flex:1;min-width:0"><div class="ch-name-s">KTV</div><div class="ch-desc-s">South Korea&#39;s government-run public policy and information channel.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/gugak-live/" class="ch-item" data-name="gugak tv"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">GUG</div><div style="flex:1;min-width:0"><div class="ch-name-s">Gugak TV</div><div class="ch-desc-s">Traditional Korean music channel run by the National Gugak Center.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/oun-live/" class="ch-item" data-name="oun"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">OUN</div><div style="flex:1;min-width:0"><div class="ch-name-s">OUN</div><div class="ch-desc-s">Korea National Open University&#39;s distance-education channel.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/nbs-live/" class="ch-item" data-name="nbs"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">NBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">NBS</div><div class="ch-desc-s">Agriculture and fisheries information broadcasting.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/tbs-live/" class="ch-item" data-name="tbs"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">TBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS</div><div class="ch-desc-s">Seoul&#39;s public broadcaster — traffic info and current affairs.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/natv-live/" class="ch-item" data-name="national assembly tv"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">NA</div><div style="flex:1;min-width:0"><div class="ch-name-s">National Assembly TV</div><div class="ch-desc-s">Broadcasts South Korea&#39;s National Assembly plenary and committee sessions.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📡 National Terrestrial</div><div class="cat-group"><a href="https://korea-tv.uk/en/sbs-live/" class="ch-item" data-name="sbs"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">SBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">SBS</div><div class="ch-desc-s">One of Korea&#39;s major national terrestrial networks — news, drama, entertainment.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📍 Regional Channels</div><div class="cat-group"><a href="https://korea-tv.uk/en/mbc-jeju-live/" class="ch-item active" data-name="mbc jeju"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JEJ</div><div style="flex:1;min-width:0"><div class="ch-name-s">MBC Jeju</div><div class="ch-desc-s">Regional MBC affiliate for Jeju Island.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/mbc-chungbuk-live/" class="ch-item" data-name="mbc chungbuk"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">CB</div><div style="flex:1;min-width:0"><div class="ch-name-s">MBC Chungbuk</div><div class="ch-desc-s">Regional MBC affiliate for North Chungcheong.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/sbs-kbc-live/" class="ch-item" data-name="kbc gwangju"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KBC</div><div style="flex:1;min-width:0"><div class="ch-name-s">KBC Gwangju</div><div class="ch-desc-s">SBS regional affiliate for Gwangju/Jeonnam.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/sbs-ubc-live/" class="ch-item" data-name="ubc ulsan"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">UBC</div><div style="flex:1;min-width:0"><div class="ch-name-s">UBC Ulsan</div><div class="ch-desc-s">SBS regional affiliate for Ulsan.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/obs-gyeonggi-live/" class="ch-item" data-name="obs gyeonggi"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">OBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">OBS Gyeonggi</div><div class="ch-desc-s">Independent terrestrial broadcaster for Gyeonggi/Incheon.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/nhtv-live/" class="ch-item" data-name="nhtv"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NH</div><div style="flex:1;min-width:0"><div class="ch-name-s">NHTV</div><div class="ch-desc-s">Agricultural broadcasting channel affiliated with Nonghyup (NACF).</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/mbc-chuncheon-live/" class="ch-item" data-name="mbc chuncheon"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">CHN</div><div style="flex:1;min-width:0"><div class="ch-name-s">MBC Chuncheon</div><div class="ch-desc-s">Regional MBC affiliate for Gangwon (Chuncheon).</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/mbc-daejeon-live/" class="ch-item" data-name="mbc daejeon"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">DJ</div><div style="flex:1;min-width:0"><div class="ch-name-s">MBC Daejeon</div><div class="ch-desc-s">Regional MBC affiliate for Daejeon/Chungnam.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/nib-live/" class="ch-item" data-name="nib"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NIB</div><div style="flex:1;min-width:0"><div class="ch-name-s">NIB</div><div class="ch-desc-s">Local cable broadcaster in the Incheon area.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/jjctv-live/" class="ch-item" data-name="jjctv"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JJC</div><div style="flex:1;min-width:0"><div class="ch-name-s">JJCTV</div><div class="ch-desc-s">Local government and municipal-affairs channel.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/kcn-live/" class="ch-item" data-name="kcn"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KCN</div><div style="flex:1;min-width:0"><div class="ch-name-s">KCN</div><div class="ch-desc-s">Regional cable broadcaster in the Geumgang (Chungcheong) area.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">⛪ Religious Channels</div><div class="cat-group"><a href="https://korea-tv.uk/en/btn-live/" class="ch-item" data-name="btn"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">BTN</div><div style="flex:1;min-width:0"><div class="ch-name-s">BTN</div><div class="ch-desc-s">Buddhist religious broadcaster.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/goodtv-live/" class="ch-item" data-name="goodtv"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">GTV</div><div style="flex:1;min-width:0"><div class="ch-name-s">GoodTV</div><div class="ch-desc-s">Christian religious broadcaster.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/abn-live/" class="ch-item" data-name="abn"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">ABN</div><div style="flex:1;min-width:0"><div class="ch-name-s">ABN</div><div class="ch-desc-s">Christian religious broadcaster.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/fgtv-live/" class="ch-item" data-name="fgtv"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">FG</div><div style="flex:1;min-width:0"><div class="ch-name-s">FGTV</div><div class="ch-desc-s">Christian broadcaster affiliated with Yoido Full Gospel Church.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/rutc-live/" class="ch-item" data-name="rutc tv"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">RUT</div><div style="flex:1;min-width:0"><div class="ch-name-s">RUTC TV</div><div class="ch-desc-s">Christian gospel broadcasting channel.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📈 Business & Shopping</div><div class="cat-group"><a href="https://korea-tv.uk/en/wowtv-live/" class="ch-item" data-name="wowtv"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">WOW</div><div style="flex:1;min-width:0"><div class="ch-name-s">WOWTV</div><div class="ch-desc-s">Korea Economic TV — stock market and business news.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/mkmoney-live/" class="ch-item" data-name="mk money"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">MK</div><div style="flex:1;min-width:0"><div class="ch-name-s">MK Money</div><div class="ch-desc-s">Maeil Business TV — business and finance news.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ktalpha-live/" class="ch-item" data-name="kt alpha shopping"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">KTA</div><div style="flex:1;min-width:0"><div class="ch-name-s">KT Alpha Shopping</div><div class="ch-desc-s">TV home shopping channel.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">🎵 Music & Radio</div><div class="cat-group"><a href="https://korea-tv.uk/en/tbs-efm-live/" class="ch-item" data-name="tbs efm"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">eFM</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS eFM</div><div class="ch-desc-s">Seoul&#39;s English-language radio station — news and talk.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/tbs-fm-live/" class="ch-item" data-name="tbs fm"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">FM</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS FM</div><div class="ch-desc-s">Seoul&#39;s Korean-language traffic and talk radio station.</div></div><div class="live-indicator"></div></a></div></aside>
+  <div class="content-col">
+    <section class="hero">
+      <div class="hero-icon">📺</div>
+      <div class="hero-badge"><span class="live-dot"></span> LIVE</div>
+      <h1>MBC Jeju</h1>
+      <p class="hero-count">Regional MBC affiliate for Jeju Island.</p>
+    </section>
+    <div class="player-wrap" id="player-wrap">
+      <video id="video" playsinline controls muted autoplay poster="https://korea-tv.uk/thumbnails/mbc-jeju-live.jpg"></video>
+    </div>
+    <div class="player-status" id="player-status">Loading stream...</div>
+    <div class="seo-block">
+      <div class="card">
+        <h2>MBC Jeju</h2>
+        <p>Regional MBC affiliate for Jeju Island.</p>
+        <p><a href="https://korea-tv.uk/" class="btn-primary" style="margin-top:8px">📺 Watch All Channels</a></p>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h2>Similar Channels</h2>
+        <div class="similar-grid">
+          <a class="ch-card" href="https://korea-tv.uk/en/mbc-chungbuk-live/"><div class="ch-name">MBC Chungbuk</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/sbs-kbc-live/"><div class="ch-name">KBC Gwangju</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/sbs-ubc-live/"><div class="ch-name">UBC Ulsan</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/obs-gyeonggi-live/"><div class="ch-name">OBS Gyeonggi</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/nhtv-live/"><div class="ch-name">NHTV</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/mbc-chuncheon-live/"><div class="ch-name">MBC Chuncheon</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -190,6 +227,26 @@ function play(id, name) {
   }
 }
 play('mbc_jeju', 'MBC Jeju');
+</script>
+<script>
+(function(){
+  const input = document.getElementById('search-input');
+  if (!input) return;
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase();
+    document.querySelectorAll('.channel-sidebar .cat-group').forEach(group => {
+      let any = false;
+      group.querySelectorAll('.ch-item').forEach(item => {
+        const match = !q || item.dataset.name.includes(q);
+        item.style.display = match ? '' : 'none';
+        if (match) any = true;
+      });
+      group.style.display = any ? '' : 'none';
+      const label = group.previousElementSibling;
+      if (label && label.classList.contains('cat-label')) label.style.display = any ? '' : 'none';
+    });
+  });
+})();
 </script>
 </body>
 </html>
