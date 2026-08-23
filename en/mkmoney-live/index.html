@@ -218,7 +218,15 @@ function play(id, name) {
     hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true});
     hls.loadSource(url); hls.attachMedia(video);
     hls.on(Hls.Events.MANIFEST_PARSED, () => { statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); });
-    hls.on(Hls.Events.ERROR, (e,d) => { if (d.fatal) statusEl.textContent = 'Connection error. Please refresh.'; });
+    let fatalErrorCount = 0;
+    hls.on(Hls.Events.FRAG_LOADED, () => { fatalErrorCount = 0; });
+    hls.on(Hls.Events.ERROR, (e,d) => {
+      if (!d.fatal) return;
+      fatalErrorCount++;
+      if (d.type === Hls.ErrorTypes.NETWORK_ERROR) { try { hls.startLoad(); } catch(err) {} }
+      else if (d.type === Hls.ErrorTypes.MEDIA_ERROR) { try { hls.recoverMediaError(); } catch(err) {} }
+      if (fatalErrorCount >= 3) statusEl.textContent = 'Connection error. Please refresh.';
+    });
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
     video.src = url;
     video.addEventListener('loadedmetadata', () => { statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); }, {once:true});
