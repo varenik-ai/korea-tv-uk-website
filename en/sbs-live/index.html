@@ -206,25 +206,38 @@ const PROXY = 'https://korea-worker.dyaltd.workers.dev';
 const video = document.getElementById('video');
 const statusEl = document.getElementById('player-status');
 let hls;
+let _fullCycles = 0, _netErrorCount = 0;
 function play(id, name) {
-  statusEl.textContent = 'Loading stream...';
+  statusEl.textContent = _fullCycles > 0 ? 'Reconnecting... (' + _fullCycles + ')' : 'Loading stream...';
   const url = PROXY + '/stream?channel=' + id;
+  if (hls) { try { hls.destroy(); } catch(err) {} hls = null; }
+  _netErrorCount = 0;
+  function onFatalError() {
+    _fullCycles++;
+    const delay = Math.min(3000 + (_fullCycles - 1) * 3000, 15000);
+    statusEl.textContent = 'Connection error. Reconnecting...';
+    setTimeout(() => play(id, name), delay);
+  }
   if (window.Hls && Hls.isSupported()) {
     hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true});
     hls.loadSource(url); hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, () => { statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); });
-    let fatalErrorCount = 0;
-    hls.on(Hls.Events.FRAG_LOADED, () => { fatalErrorCount = 0; });
+    hls.on(Hls.Events.MANIFEST_PARSED, () => { _fullCycles = 0; statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); });
+    hls.on(Hls.Events.FRAG_LOADED, () => { _netErrorCount = 0; });
     hls.on(Hls.Events.ERROR, (e,d) => {
       if (!d.fatal) return;
-      fatalErrorCount++;
-      if (d.type === Hls.ErrorTypes.NETWORK_ERROR) { try { hls.startLoad(); } catch(err) {} }
-      else if (d.type === Hls.ErrorTypes.MEDIA_ERROR) { try { hls.recoverMediaError(); } catch(err) {} }
-      if (fatalErrorCount >= 3) statusEl.textContent = 'Connection error. Please refresh.';
+      if (d.type === Hls.ErrorTypes.NETWORK_ERROR) {
+        _netErrorCount++;
+        try { hls.startLoad(); } catch(err) {}
+        setTimeout(() => { if (hls && _netErrorCount >= 3) onFatalError(); }, 3000);
+        return;
+      }
+      if (d.type === Hls.ErrorTypes.MEDIA_ERROR) { try { hls.recoverMediaError(); } catch(err) {} return; }
+      onFatalError();
     });
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
     video.src = url;
-    video.addEventListener('loadedmetadata', () => { statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); }, {once:true});
+    video.addEventListener('loadedmetadata', () => { _fullCycles = 0; statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); }, {once:true});
+    video.addEventListener('error', () => onFatalError(), {once:true});
   } else {
     statusEl.textContent = 'Your browser does not support HLS.';
   }
