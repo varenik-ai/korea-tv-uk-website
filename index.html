@@ -203,7 +203,7 @@ gtag('config', 'G-X503KNBLXB');
 
 <header>
   <a href="https://korea-tv.uk/" class="logo"><span class="red">한</span><span class="blue">국</span><span class="red">·TV</span></a>
-  <nav><a href="#" class="active">채널</a><a href="#about">사이트 소개</a></nav>
+  <nav><a href="#" class="active">채널</a><a href="https://korea-tv.uk/blog/">블로그</a><a href="#about">사이트 소개</a></nav>
   <div class="header-right">
     <div class="lang-switcher">
       <a href="https://korea-tv.uk/" class="lang-link active">🇰🇷 KO</a>
@@ -488,9 +488,10 @@ function setStatus(msg, isError=false) {
   statusEl.innerHTML = isError ? `⚠️ ${msg}` : `<span class="status-dot"></span>${msg}`;
   reloadBtn.style.display = isError ? 'block' : 'none';
 }
-function stopStream() { if (hls) { hls.destroy(); hls=null; } video.src=''; liveBadge.style.display='none'; }
+function stopStream() { if (hls) { hls.destroy(); hls=null; } if (_stallTimer) { clearInterval(_stallTimer); _stallTimer = null; } _lastTime = -1; _stallCount = 0; video.src=''; liveBadge.style.display='none'; }
 
 let _fullCycles = 0, _netErrorCount = 0;
+let _stallTimer = null, _lastTime = -1, _stallCount = 0;
 async function loadStream(ch) {
   stopStream();
   setStatus(_fullCycles > 0 ? '재연결 시도 중... (' + _fullCycles + ')' : '불러오는 중...');
@@ -510,6 +511,14 @@ async function loadStream(ch) {
     setStatus('연결 오류. 재연결 중...', true);
     setTimeout(() => { if (currentCh === ch) loadStream(ch); }, delay);
   }
+  _stallTimer = setInterval(() => {
+    if (video.paused || video.ended) return;
+    if (Math.abs(video.currentTime - _lastTime) < 0.05) {
+      _stallCount++;
+      if (_stallCount >= 2) { clearInterval(_stallTimer); _stallTimer = null; onFatalError(); }
+    } else { _stallCount = 0; }
+    _lastTime = video.currentTime;
+  }, 5000);
   if (Hls.isSupported()) {
     hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true, backBufferLength:30});
     hls.loadSource(streamUrl); hls.attachMedia(video);
