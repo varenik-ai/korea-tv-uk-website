@@ -25,7 +25,7 @@
   {"@context":"https://schema.org","@graph":[
     {"@type":"WebSite","@id":"https://korea-tv.uk/#website","url":"https://korea-tv.uk/","name":"Korea TV","description":"Watch 36 South Korean TV channels online for free — Arirang TV, SBS, EBS, KTV, regional, religious and business channels. No registration, no VPN, live 24/7.","inLanguage":"en"},
     {"@type":"Organization","@id":"https://korea-tv.uk/#org","name":"Korea TV","url":"https://korea-tv.uk/","sameAs":["https://t.me/Korea_TV_hub","https://t.me/KoreaTVHub_bot"]},
-    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I watch Korean TV from abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7."}},{"@type":"Question","name":"Is registration required?","acceptedAnswer":{"@type":"Answer","text":"No. All 36 channels are available immediately and free, with no account or subscription."}},{"@type":"Question","name":"Can I watch on iPhone and Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away."}},{"@type":"Question","name":"Do I need a VPN?","acceptedAnswer":{"@type":"Answer","text":"No. korea-tv.uk is accessible from anywhere in the world without a VPN."}}]}
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I watch Korean TV from abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7."}},{"@type":"Question","name":"Is registration required?","acceptedAnswer":{"@type":"Answer","text":"No. All 36 channels are available immediately and free, with no account or subscription."}},{"@type":"Question","name":"Can I watch on iPhone and Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away."}},{"@type":"Question","name":"Do I need a VPN?","acceptedAnswer":{"@type":"Answer","text":"No. korea-tv.uk is accessible from anywhere in the world without a VPN."}},{"@type":"Question","name":"Does it work well on desktop and laptop?","acceptedAnswer":{"@type":"Answer","text":"Yes. The layout automatically adapts to your screen size, and full-screen viewing is supported."}},{"@type":"Question","name":"What if a specific channel isn't loading?","acceptedAnswer":{"@type":"Answer","text":"This can happen due to a temporary network issue. The player automatically attempts to reconnect; if it persists, try refreshing the page or watching another channel first."}},{"@type":"Question","name":"Are there ads?","acceptedAnswer":{"@type":"Answer","text":"The site itself doesn't insert separate video ads. Any advertising within a channel's own broadcast follows that broadcaster's own policy."}},{"@type":"Question","name":"Which channels are available?","acceptedAnswer":{"@type":"Answer","text":"Arirang TV, SBS, the EBS family, KTV, regional broadcasters, religious channels, business/shopping channels, and music/radio — 36 channels in total, organized by category."}},{"@type":"Question","name":"Should I use Telegram or the website?","acceptedAnswer":{"@type":"Answer","text":"Both are free and offer the same channels. Telegram is convenient for quickly switching channels on mobile, while the website is better for watching on a larger screen."}}]}
   ]}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -167,6 +167,29 @@ details{margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:
   .main-wrap{padding:8px;gap:8px} .right-sidebar{flex-direction:column}
   .np-name{font-size:14px} .ctrl-btn{padding:6px 10px;font-size:11px}
 }
+
+.ch-tile{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;padding:12px 8px;border-radius:12px;transition:background .15s;background:none;border:none}
+.ch-tile:hover{background:var(--card)}
+.ch-tile-icon{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;flex-shrink:0}
+.ch-tile-name{font-size:13px;font-weight:700;text-align:center;color:var(--text);line-height:1.25;max-width:100%;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;padding:18px;width:100%;box-sizing:border-box;overflow-y:auto;max-height:100%}
+.player-wrap.grid-mode{aspect-ratio:auto;min-height:420px}
+.player-wrap.grid-mode .player-empty{position:static;height:auto;overflow:visible;border-radius:var(--radius)}
+.filter-bar{margin:14px 0 0}
+.filter-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.filter-tabs::-webkit-scrollbar{display:none}
+.filter-tab{background:var(--bg3);border:1px solid var(--border);color:var(--muted);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;font-family:inherit;flex-shrink:0}
+.filter-tab:hover{border-color:var(--border2);color:var(--text)}
+.filter-tab.active{background:var(--accent2);border-color:var(--accent2);color:#fff}
+.tg-banner-desk{display:none}
+@media (min-width:900px){
+.tg-banner-desk{display:flex;align-items:center;gap:10px;padding:10px 14px;margin-bottom:14px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:1px solid rgba(34,158,217,.35);border-radius:var(--radius);text-decoration:none;color:#fff;transition:.2s}
+.tg-banner-desk:hover{background:linear-gradient(135deg,#0d2540,#0c3050);border-color:rgba(34,158,217,.6)}
+}
+.tg-banner-desk-icon{width:30px;height:30px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tg-banner-desk-text{flex:1;font-size:13px;color:rgba(255,255,255,.85)}
+.tg-banner-desk-text b{color:#fff}
+.tg-banner-desk-arrow{font-size:15px;opacity:.6;flex-shrink:0}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X503KNBLXB"></script>
 <script>
@@ -213,9 +236,10 @@ gtag('config', 'G-X503KNBLXB');
   </div>
 
   <div class="player-col">
-    <div class="player-wrap" id="player-wrap">
+    <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-banner-desk"><div class="tg-banner-desk-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></div><div class="tg-banner-desk-text"><b>Watch on Telegram</b> — All 36 channels in one app, free</div><span class="tg-banner-desk-arrow">→</span></a>
+    <div class="player-wrap grid-mode" id="player-wrap">
       <video id="video" autoplay playsinline webkit-playsinline muted></video>
-      <div class="player-empty" id="player-empty"><div class="big-icon">📺</div><p>Select a channel from the list</p></div>
+      <div class="player-empty" id="player-empty"><div class="tile-grid" id="tile-grid"></div></div>
       <div class="player-live-badge" id="live-badge"><div class="dot"></div> LIVE</div>
       <div class="now-playing-bar" id="now-playing-bar"><div class="np-name" id="np-name"></div><div class="np-desc" id="np-desc"></div></div>
       <div class="player-controls">
@@ -238,6 +262,11 @@ gtag('config', 'G-X503KNBLXB');
     <div class="player-status" id="player-status">Select a channel to watch</div>
     <div class="channel-info-card" id="channel-info-card" style="display:none">
       <div class="ci-title" id="ci-title"></div><div class="ci-desc" id="ci-desc"></div>
+    </div>
+    <div class="filter-bar filter-bar-below">
+      <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-tab active" data-cat="">All Channels</button><button class="filter-tab" data-cat="🌏 International">🌏 International</button><button class="filter-tab" data-cat="📚 EBS Educational">📚 EBS Educational</button><button class="filter-tab" data-cat="🏛️ Public & Government">🏛️ Public & Government</button><button class="filter-tab" data-cat="📡 National Terrestrial">📡 National Terrestrial</button><button class="filter-tab" data-cat="📍 Regional Channels">📍 Regional Channels</button><button class="filter-tab" data-cat="⛪ Religious Channels">⛪ Religious Channels</button><button class="filter-tab" data-cat="📈 Business & Shopping">📈 Business & Shopping</button><button class="filter-tab" data-cat="🎵 Music & Radio">🎵 Music & Radio</button>
+      </div>
     </div>
   </div>
 
@@ -274,7 +303,7 @@ gtag('config', 'G-X503KNBLXB');
   </div>
   <div class="seo-text" style="margin-top:16px" id="faq">
     <h2 style="font-size:18px;font-weight:800;margin-bottom:16px">Frequently Asked Questions</h2>
-    <details><summary>Can I watch Korean TV from abroad? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7.</p></details><details><summary>Is registration required? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. All 36 channels are available immediately and free, with no account or subscription.</p></details><details><summary>Can I watch on iPhone and Android? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away.</p></details><details><summary>Do I need a VPN? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. korea-tv.uk is accessible from anywhere in the world without a VPN.</p></details>
+    <details><summary>Can I watch Korean TV from abroad? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7.</p></details><details><summary>Is registration required? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. All 36 channels are available immediately and free, with no account or subscription.</p></details><details><summary>Can I watch on iPhone and Android? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away.</p></details><details><summary>Do I need a VPN? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. korea-tv.uk is accessible from anywhere in the world without a VPN.</p></details><details><summary>Does it work well on desktop and laptop? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The layout automatically adapts to your screen size, and full-screen viewing is supported.</p></details><details><summary>What if a specific channel isn't loading? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">This can happen due to a temporary network issue. The player automatically attempts to reconnect; if it persists, try refreshing the page or watching another channel first.</p></details><details><summary>Are there ads? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">The site itself doesn't insert separate video ads. Any advertising within a channel's own broadcast follows that broadcaster's own policy.</p></details><details><summary>Which channels are available? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Arirang TV, SBS, the EBS family, KTV, regional broadcasters, religious channels, business/shopping channels, and music/radio — 36 channels in total, organized by category.</p></details><details><summary>Should I use Telegram or the website? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Both are free and offer the same channels. Telegram is convenient for quickly switching channels on mobile, while the website is better for watching on a larger screen.</p></details>
   </div>
 </div>
 
@@ -391,6 +420,31 @@ function renderMiniSection(labelText, ids) {
   sidebar.appendChild(grid);
 }
 
+let activeCat = '';
+document.getElementById('filter-tabs').addEventListener('click', function(e) {
+  const btn = e.target.closest('.filter-tab');
+  if (!btn) return;
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = btn.dataset.cat;
+  buildSidebar(searchInput.value);
+});
+
+function buildTileGrid() {
+  const gridEl = document.getElementById('tile-grid');
+  if (!gridEl) return;
+  gridEl.innerHTML = '';
+  CHANNEL_GROUPS.forEach(group => {
+    group.channels.forEach(ch => {
+      const tile = document.createElement('div');
+      tile.className = 'ch-tile';
+      tile.innerHTML = `<div class="ch-tile-icon" style="background:${ch.iconBg};color:${ch.color}">${ch.icon}</div><div class="ch-tile-name">${ch.name}</div>`;
+      tile.onclick = () => openChannel(ch);
+      gridEl.appendChild(tile);
+    });
+  });
+}
+
 function buildSidebar(filter='') {
   [...sidebar.children].forEach(el => { if (!el.classList.contains('sidebar-search')) el.remove(); });
   const q = filter.toLowerCase();
@@ -400,6 +454,7 @@ function buildSidebar(filter='') {
     renderMiniSection('⭐ Popular', POPULAR_IDS);
   }
   CHANNEL_GROUPS.forEach(group => {
+    if (activeCat && group.label !== activeCat) return;
     const matching = group.channels.filter(ch => !q || ch.name.toLowerCase().includes(q) || ch.tags.some(t=>t.includes(q)));
     if (!matching.length) return;
     const label = document.createElement('div'); label.className='cat-label'; label.textContent=group.label; sidebar.appendChild(label);
@@ -418,6 +473,7 @@ searchInput.addEventListener('input', e => buildSidebar(e.target.value));
 function openChannel(ch) {
   currentCh = ch; saveRecent(ch.id); buildSidebar(searchInput.value);
   playerEmpty.classList.add('hidden');
+  document.getElementById('player-wrap').classList.remove('grid-mode');
   npName.textContent = ch.name; npDesc.textContent = ch.desc; npBar.classList.add('visible');
   liveBadge.style.setProperty('background', ch.color);
   infoCard.style.display = 'block'; ciTitle.textContent = ch.name; ciDesc.textContent = ch.desc;
@@ -529,6 +585,7 @@ overlaySkip.addEventListener('click', () => { tgOverlay.classList.remove('show')
 })();
 
 buildSidebar();
+buildTileGrid();
 </script>
 </body>
 </html>
