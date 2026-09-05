@@ -87,4 +87,12 @@
   <url><loc>https://korea-tv.uk/korean-tv-in-china/</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://korea-tv.uk/korean-tv-in-canada/</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://korea-tv.uk/korean-tv-in-australia/</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://korea-tv.uk/blog/</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://korea-tv.uk/en/blog/</loc><priority>0.65</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://korea-tv.uk/blog/watching-korean-tv-abroad/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://korea-tv.uk/en/blog/watching-korean-tv-abroad/</loc><priority>0.55</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://korea-tv.uk/blog/arirang-sbs-ebs-difference/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://korea-tv.uk/en/blog/arirang-sbs-ebs-difference/</loc><priority>0.55</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://korea-tv.uk/blog/korean-regional-broadcasters-guide/</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://korea-tv.uk/en/blog/korean-regional-broadcasters-guide/</loc><priority>0.55</priority><changefreq>monthly</changefreq></url>
 </urlset>
