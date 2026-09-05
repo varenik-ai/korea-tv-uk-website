@@ -520,7 +520,7 @@ async function loadStream(ch) {
     _lastTime = video.currentTime;
   }, 5000);
   if (Hls.isSupported()) {
-    hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true, backBufferLength:30});
+    hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true, backBufferLength:30, capLevelToPlayerSize:true, maxBufferLength:20});
     hls.loadSource(streamUrl); hls.attachMedia(video);
     hls.on(Hls.Events.MANIFEST_PARSED, async () => { _fullCycles = 0; setStatus('실시간 — ' + ch.name); liveBadge.style.display='flex'; await tryPlay(); });
     hls.on(Hls.Events.FRAG_LOADED, () => { _netErrorCount = 0; });

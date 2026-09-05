@@ -271,7 +271,7 @@ function play(id, name) {
     _lastTime = video.currentTime;
   }, 5000);
   if (window.Hls && Hls.isSupported()) {
-    hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true});
+    hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true, capLevelToPlayerSize:true, maxBufferLength:20});
     hls.loadSource(url); hls.attachMedia(video);
     hls.on(Hls.Events.MANIFEST_PARSED, () => { _fullCycles = 0; statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); });
     hls.on(Hls.Events.FRAG_LOADED, () => { _netErrorCount = 0; });
