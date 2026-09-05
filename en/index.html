@@ -25,7 +25,7 @@
   {"@context":"https://schema.org","@graph":[
     {"@type":"WebSite","@id":"https://korea-tv.uk/#website","url":"https://korea-tv.uk/","name":"Korea TV","description":"Watch 36 South Korean TV channels online for free — Arirang TV, SBS, EBS, KTV, regional, religious and business channels. No registration, no VPN, live 24/7.","inLanguage":"en"},
     {"@type":"Organization","@id":"https://korea-tv.uk/#org","name":"Korea TV","url":"https://korea-tv.uk/","sameAs":["https://t.me/Korea_TV_hub","https://t.me/KoreaTVHub_bot"]},
-    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I watch Korean TV from abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7."}},{"@type":"Question","name":"Is registration required?","acceptedAnswer":{"@type":"Answer","text":"No. All 36 channels are available immediately and free, with no account or subscription."}},{"@type":"Question","name":"Can I watch on iPhone and Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away."}},{"@type":"Question","name":"Do I need a VPN?","acceptedAnswer":{"@type":"Answer","text":"No. korea-tv.uk is accessible from anywhere in the world without a VPN."}},{"@type":"Question","name":"Does it work well on desktop and laptop?","acceptedAnswer":{"@type":"Answer","text":"Yes. The layout automatically adapts to your screen size, and full-screen viewing is supported."}},{"@type":"Question","name":"What if a specific channel isn't loading?","acceptedAnswer":{"@type":"Answer","text":"This can happen due to a temporary network issue. The player automatically attempts to reconnect; if it persists, try refreshing the page or watching another channel first."}},{"@type":"Question","name":"Are there ads?","acceptedAnswer":{"@type":"Answer","text":"The site itself doesn't insert separate video ads. Any advertising within a channel's own broadcast follows that broadcaster's own policy."}},{"@type":"Question","name":"Which channels are available?","acceptedAnswer":{"@type":"Answer","text":"Arirang TV, SBS, the EBS family, KTV, regional broadcasters, religious channels, business/shopping channels, and music/radio — 36 channels in total, organized by category."}},{"@type":"Question","name":"Should I use Telegram or the website?","acceptedAnswer":{"@type":"Answer","text":"Both are free and offer the same channels. Telegram is convenient for quickly switching channels on mobile, while the website is better for watching on a larger screen."}}]}
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I watch Korean TV from abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7."}},{"@type":"Question","name":"Is registration required?","acceptedAnswer":{"@type":"Answer","text":"No. All 36 channels are available immediately and free, with no account or subscription."}},{"@type":"Question","name":"Can I watch on iPhone and Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away."}},{"@type":"Question","name":"Do I need a VPN?","acceptedAnswer":{"@type":"Answer","text":"No. korea-tv.uk is accessible from anywhere in the world without a VPN."}},{"@type":"Question","name":"What video quality can I expect?","acceptedAnswer":{"@type":"Answer","text":"Video quality follows the original stream quality provided by each broadcaster. Most channels stream in HD, and quality adjusts automatically based on your connection speed."}},{"@type":"Question","name":"Can I watch on Chromecast or a Smart TV?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can cast the browser tab to Chromecast from mobile or desktop, or open korea-tv.uk directly in your Smart TV's built-in browser."}},{"@type":"Question","name":"Does it work well on desktop and laptop?","acceptedAnswer":{"@type":"Answer","text":"Yes. The layout automatically adapts to your screen size, and full-screen viewing is supported."}},{"@type":"Question","name":"What if a specific channel isn't loading?","acceptedAnswer":{"@type":"Answer","text":"This can happen due to a temporary network issue. The player automatically attempts to reconnect; if it persists, try refreshing the page or watching another channel first."}},{"@type":"Question","name":"Are there ads?","acceptedAnswer":{"@type":"Answer","text":"The site itself doesn't insert separate video ads. Any advertising within a channel's own broadcast follows that broadcaster's own policy."}},{"@type":"Question","name":"Which channels are available?","acceptedAnswer":{"@type":"Answer","text":"Arirang TV, SBS, the EBS family, KTV, regional broadcasters, religious channels, business/shopping channels, and music/radio — 36 channels in total, organized by category."}},{"@type":"Question","name":"Should I use Telegram or the website?","acceptedAnswer":{"@type":"Answer","text":"Both are free and offer the same channels. Telegram is convenient for quickly switching channels on mobile, while the website is better for watching on a larger screen."}}]}
   ]}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -121,6 +121,14 @@ video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .ci-title{font-size:18px;font-weight:800;margin-bottom:4px} .ci-desc{font-size:13px;color:var(--muted)}
 .right-sidebar{display:flex;flex-direction:column;gap:14px;position:sticky;top:76px;height:fit-content}
 .tg-cta-card{background:linear-gradient(135deg,#0d1f3c 0%,#0a2a3f 100%);border:1px solid rgba(34,158,217,.25);border-radius:var(--radius);padding:20px;text-align:center;position:relative;overflow:hidden}
+.popular-box,.recent-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+.pop-title,.rbox-title{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.pop-item,.recent-item{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:8px;border:1px solid var(--border);margin-bottom:5px;cursor:pointer;transition:all .15s}
+.pop-item:last-child,.recent-item:last-child{margin-bottom:0}
+.pop-item:hover,.recent-item:hover{background:var(--bg3);border-color:var(--accent2)}
+.pop-icon,.rec-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.pop-name,.rec-name{font-size:12.5px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pop-live,.rec-live{font-size:9px;font-weight:800;color:var(--red)}
 .tg-cta-live{display:none;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--red);margin-bottom:10px}
 .tg-cta-live-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite;flex-shrink:0}
 .tg-cta-icon{font-size:40px;margin-bottom:10px} .tg-cta-title{font-size:15px;font-weight:800;margin-bottom:6px;line-height:1.3}
@@ -271,6 +279,14 @@ gtag('config', 'G-X503KNBLXB');
   </div>
 
   <aside class="right-sidebar">
+    <div class="popular-box">
+      <div class="pop-title">⭐ Popular Channels</div>
+      <div id="pop-list"></div>
+    </div>
+    <div class="recent-box" id="recent-box" style="display:none">
+      <div class="rbox-title">🕐 Recently Watched</div>
+      <div id="recent-list"></div>
+    </div>
     <div class="tg-cta-card">
       <div class="tg-cta-live"><span class="tg-cta-live-dot"></span>LIVE &middot; Live 24/7</div>
       <div class="tg-cta-icon">✈️</div>
@@ -303,7 +319,7 @@ gtag('config', 'G-X503KNBLXB');
   </div>
   <div class="seo-text" style="margin-top:16px" id="faq">
     <h2 style="font-size:18px;font-weight:800;margin-bottom:16px">Frequently Asked Questions</h2>
-    <details><summary>Can I watch Korean TV from abroad? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7.</p></details><details><summary>Is registration required? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. All 36 channels are available immediately and free, with no account or subscription.</p></details><details><summary>Can I watch on iPhone and Android? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away.</p></details><details><summary>Do I need a VPN? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. korea-tv.uk is accessible from anywhere in the world without a VPN.</p></details><details><summary>Does it work well on desktop and laptop? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The layout automatically adapts to your screen size, and full-screen viewing is supported.</p></details><details><summary>What if a specific channel isn't loading? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">This can happen due to a temporary network issue. The player automatically attempts to reconnect; if it persists, try refreshing the page or watching another channel first.</p></details><details><summary>Are there ads? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">The site itself doesn't insert separate video ads. Any advertising within a channel's own broadcast follows that broadcaster's own policy.</p></details><details><summary>Which channels are available? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Arirang TV, SBS, the EBS family, KTV, regional broadcasters, religious channels, business/shopping channels, and music/radio — 36 channels in total, organized by category.</p></details><details><summary>Should I use Telegram or the website? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Both are free and offer the same channels. Telegram is convenient for quickly switching channels on mobile, while the website is better for watching on a larger screen.</p></details>
+    <details><summary>Can I watch Korean TV from abroad? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. Just open korea-tv.uk in any browser — phone, tablet or computer. No VPN or registration is required, and the site is accessible worldwide 24/7.</p></details><details><summary>Is registration required? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. All 36 channels are available immediately and free, with no account or subscription.</p></details><details><summary>Can I watch on iPhone and Android? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The site is fully mobile-optimized. Open it in Safari (iPhone) or Chrome (Android) and playback starts right away.</p></details><details><summary>Do I need a VPN? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">No. korea-tv.uk is accessible from anywhere in the world without a VPN.</p></details><details><summary>What video quality can I expect? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Video quality follows the original stream quality provided by each broadcaster. Most channels stream in HD, and quality adjusts automatically based on your connection speed.</p></details><details><summary>Can I watch on Chromecast or a Smart TV? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. You can cast the browser tab to Chromecast from mobile or desktop, or open korea-tv.uk directly in your Smart TV's built-in browser.</p></details><details><summary>Does it work well on desktop and laptop? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Yes. The layout automatically adapts to your screen size, and full-screen viewing is supported.</p></details><details><summary>What if a specific channel isn't loading? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">This can happen due to a temporary network issue. The player automatically attempts to reconnect; if it persists, try refreshing the page or watching another channel first.</p></details><details><summary>Are there ads? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">The site itself doesn't insert separate video ads. Any advertising within a channel's own broadcast follows that broadcaster's own policy.</p></details><details><summary>Which channels are available? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Arirang TV, SBS, the EBS family, KTV, regional broadcasters, religious channels, business/shopping channels, and music/radio — 36 channels in total, organized by category.</p></details><details><summary>Should I use Telegram or the website? <span>▾</span></summary><p style="margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6">Both are free and offer the same channels. Telegram is convenient for quickly switching channels on mobile, while the website is better for watching on a larger screen.</p></details>
   </div>
 </div>
 
@@ -405,6 +421,41 @@ function getRecent() { try { return JSON.parse(localStorage.getItem(LS_RECENT) |
 function saveRecent(id) { let a=getRecent().filter(x=>x!==id); a.unshift(id); a=a.slice(0,5); try{localStorage.setItem(LS_RECENT, JSON.stringify(a));}catch{} }
 function findChannel(id) { for (const g of CHANNEL_GROUPS) { const ch=g.channels.find(c=>c.id===id); if (ch) return ch; } return null; }
 
+function buildPopular() {
+  const list = document.getElementById('pop-list');
+  if (!list) return;
+  list.innerHTML = '';
+  POPULAR_IDS.forEach(function(id) {
+    const ch = findChannel(id);
+    if (!ch) return;
+    const el = document.createElement('div');
+    el.className = 'pop-item';
+    el.innerHTML = '<div class="pop-icon" style="background:' + ch.iconBg + ';color:' + ch.color + '">' + ch.icon + '</div>'
+      + '<span class="pop-name">' + ch.name + '</span><span class="pop-live">LIVE</span>';
+    el.onclick = function() { openChannel(ch); };
+    list.appendChild(el);
+  });
+}
+function buildRecentBox() {
+  const ids = getRecent();
+  const box = document.getElementById('recent-box');
+  const list = document.getElementById('recent-list');
+  if (!box || !list) return;
+  if (!ids.length) { box.style.display = 'none'; return; }
+  box.style.display = '';
+  list.innerHTML = '';
+  ids.forEach(function(id) {
+    const ch = findChannel(id);
+    if (!ch) return;
+    const el = document.createElement('div');
+    el.className = 'recent-item';
+    el.innerHTML = '<div class="rec-icon" style="background:' + ch.iconBg + ';color:' + ch.color + '">' + ch.icon + '</div>'
+      + '<span class="rec-name">' + ch.name + '</span><span class="rec-live">▶</span>';
+    el.onclick = function() { openChannel(ch); };
+    list.appendChild(el);
+  });
+}
+
 function renderMiniSection(labelText, ids) {
   const channels = ids.map(findChannel).filter(Boolean);
   if (!channels.length) return;
@@ -471,7 +522,7 @@ function buildSidebar(filter='') {
 searchInput.addEventListener('input', e => buildSidebar(e.target.value));
 
 function openChannel(ch) {
-  currentCh = ch; saveRecent(ch.id); buildSidebar(searchInput.value);
+  currentCh = ch; saveRecent(ch.id); buildSidebar(searchInput.value); buildRecentBox();
   playerEmpty.classList.add('hidden');
   document.getElementById('player-wrap').classList.remove('grid-mode');
   npName.textContent = ch.name; npDesc.textContent = ch.desc; npBar.classList.add('visible');
@@ -594,6 +645,8 @@ overlaySkip.addEventListener('click', () => { tgOverlay.classList.remove('show')
 })();
 
 buildSidebar();
+buildPopular();
+buildRecentBox();
 buildTileGrid();
 </script>
 </body>
