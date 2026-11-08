@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Analytics: not configured yet for korea-tv.uk. Insert GA4/GTM/Clarity/Search Console tags here once created. -->
   <title>한국 TV 온라인 실시간 무료 시청 | 31개 채널 24/7</title>
   <meta name="description" content="31개 한국 채널을 무료로 온라인 실시간 시청하세요 — 아리랑TV, EBS, KTV, 지역·종교·경제 채널까지. 회원가입 없이, VPN 없이, 24/7 실시간 방송."/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
@@ -35,174 +34,257 @@
 <script defer src="/assets/player-ui.js?v=1"></script>
 <script defer src="/assets/cast.js?v=1"></script>
   <style>
-:root{--bg:#080810;--bg2:#0f0f1c;--bg3:#151525;--card:#12121f;--border:#1e1e32;--border2:#252540;
-      --accent:#0047A0;--accent2:#1c66d4;--yellow:#CD2E3A;--text:#e2e2f0;--muted:#8a8aa5;--muted2:#454560;
-      --red:#e53935;--tg-color:#229ED9;--radius:14px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.6)}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
-a{color:inherit;text-decoration:none}
-::-webkit-scrollbar{width:6px;height:6px} ::-webkit-scrollbar-track{background:var(--bg2)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px} ::-webkit-scrollbar-thumb:hover{background:var(--muted)}
-.channel-sidebar::-webkit-scrollbar{display:none} .channel-sidebar{scrollbar-width:none}
-.sidebar-wrapper{position:sticky;top:76px;height:calc(100vh - 120px);display:flex;gap:6px}
-.custom-scroll-track{width:6px;flex-shrink:0;background:var(--bg3);border-radius:4px;position:relative;cursor:pointer}
-.custom-scroll-thumb{width:100%;min-height:28px;background:var(--yellow);border-radius:4px;position:absolute;top:0;left:0;cursor:grab;transition:background .15s}
-.custom-scroll-thumb:hover{background:#e0384a} .custom-scroll-thumb:active{cursor:grabbing}
-header{position:sticky;top:0;z-index:100;background:rgba(8,8,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);
-       display:flex;align-items:center;gap:20px;padding:0 24px;height:60px}
-.logo{display:flex;align-items:center;gap:2px;font-size:28px;font-weight:900;letter-spacing:1px;flex-shrink:0}
-.logo .red{color:var(--yellow)} .logo .blue{color:var(--accent2)}
-nav{display:flex;gap:4px;margin-left:8px}
-nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;color:var(--muted);transition:all .2s}
-nav a:hover,nav a.active{background:var(--bg3);color:var(--text)}
-.header-right{margin-left:auto;display:flex;align-items:center;gap:10px}
-.live-count{font-size:12px;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:6px}
-.live-dot-sm{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite}
-.tg-header-btn{display:flex;align-items:center;gap:7px;background:var(--tg-color);color:white;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;transition:all .2s}
-.tg-header-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
-.lang-switcher{display:flex;align-items:center;gap:5px}
-.lang-link{font-size:12px;color:var(--muted);padding:4px 9px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);transition:.15s;font-weight:600}
-.lang-link:hover{color:var(--text);border-color:var(--border2)} .lang-link.active{color:var(--accent2);border-color:var(--accent)}
-.breadcrumb{padding:10px 20px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border)}
-.page-title-wrap{max-width:1400px;margin:0 auto;padding:0 16px 12px}
-h1{font-size:26px;font-weight:900;line-height:1.25;margin-bottom:6px}
-.page-meta{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
-.cnt-badge{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--accent2)}
-.live-badge-main{display:flex;align-items:center;gap:5px;background:rgba(229,57,53,.1);border:1px solid rgba(229,57,53,.3);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--red)}
-.live-dot-main{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite}
-.main-wrap{display:grid;grid-template-columns:280px 1fr 300px;gap:16px;max-width:1400px;margin:0 auto;padding:0 16px 16px}
-.main-wrap>.sidebar-wrapper,.main-wrap>.player-col,.main-wrap>.right-sidebar{min-width:0}
-.channel-sidebar{display:flex;flex-direction:column;gap:2px;flex:1;height:100%;overflow-y:scroll}
-.sidebar-search{position:relative;margin-bottom:10px;flex-shrink:0}
-.sidebar-search input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:var(--radius-sm);padding:9px 12px 9px 36px;font-size:13px;font-family:inherit;outline:none}
-.sidebar-search input:focus{border-color:var(--accent)}
-.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px}
-.cat-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;padding:12px 8px 4px;flex-shrink:0}
-.cat-label:first-child{padding-top:0}
-.sidebar-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 0 4px;flex-shrink:0}
-.mini-ch-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:7px 8px;cursor:pointer;transition:all .15s;font-size:12px;font-weight:700;color:var(--text);line-height:1.3;display:flex;align-items:center;gap:6px}
-.mini-ch-card:hover{border-color:var(--border2);background:var(--bg2)}
-.mini-ch-card.active{border-color:rgba(28,102,212,.4);background:rgba(0,71,160,.12);color:var(--accent2)}
-.mini-ch-dot{width:5px;height:5px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;flex-shrink:0}
-.ch-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;cursor:pointer;transition:all .15s;border:1px solid transparent;flex-shrink:0}
-.ch-item:hover{background:var(--bg3);border-color:var(--border)}
-.ch-item.active{background:linear-gradient(135deg,rgba(0,71,160,.15),rgba(28,102,212,.08));border-color:rgba(28,102,212,.3)}
-.ch-item.active .ch-name-s{color:var(--accent2)}
-.ch-icon-s{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0}
-.ch-name-s{font-size:15px;font-weight:600;flex:1} .ch-desc-s{font-size:11px;color:var(--muted)}
-.live-indicator{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;flex-shrink:0}
-.player-col{display:flex;flex-direction:column;gap:14px}
-.player-wrap{position:relative;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);aspect-ratio:16/9}
-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.player-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg2)}
-.player-empty .big-icon{font-size:56px;opacity:.3} .player-empty p{color:var(--muted);font-size:14px} .player-empty.hidden{display:none}
-.player-live-badge{position:absolute;top:14px;left:14px;z-index:20;background:var(--red);color:white;font-size:11px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:20px;display:none;align-items:center;gap:5px}
-.player-live-badge .dot{width:6px;height:6px;background:white;border-radius:50%;animation:pulse 1s infinite}
-.now-playing-bar{position:absolute;bottom:0;left:0;right:0;z-index:15;background:linear-gradient(transparent,rgba(0,0,0,.85));padding:32px 16px 14px;display:none}
-.now-playing-bar.visible{display:block} .np-name{font-size:18px;font-weight:800} .np-desc{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
-.player-controls{position:absolute;inset:0;z-index:25;display:flex;align-items:flex-end;justify-content:flex-end;padding:12px;opacity:0;transition:opacity .35s ease;pointer-events:none}
-.player-wrap.controls-visible .player-controls{opacity:1;pointer-events:all}
-.ctrl-btns{display:flex;gap:6px}
-.ctrl-btn{background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:white;border-radius:8px;padding:7px 12px;font-size:12px;cursor:pointer;transition:all .2s}
-.ctrl-btn:hover{background:rgba(255,255,255,.15)}
-.unmute-banner{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);z-index:30;opacity:0;pointer-events:none;transition:opacity .35s ease}
-.player-wrap.controls-visible .unmute-banner{opacity:1;pointer-events:all}
-.unmute-banner button{background:var(--accent);color:white;border:none;border-radius:24px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(0,71,160,.5);transition:all .2s;font-family:inherit;white-space:nowrap}
-.unmute-banner button:hover{background:var(--accent2);transform:scale(1.03)}
-.player-status{font-size:13px;color:var(--muted);text-align:center;padding:6px 0;display:flex;align-items:center;justify-content:center;gap:6px}
-.status-dot{width:7px;height:7px;background:var(--accent2);border-radius:50%;animation:pulse 1.2s infinite}
-.tg-overlay{position:absolute;inset:0;z-index:40;background:rgba(8,8,20,.88);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;animation:fadeIn .4s ease}
-.tg-overlay.show{display:flex}
-.tg-overlay-card{text-align:center;padding:32px 28px;max-width:320px}
-.tg-overlay-icon{font-size:52px;margin-bottom:14px} .tg-overlay-title{font-size:20px;font-weight:800;margin-bottom:8px}
-.tg-overlay-desc{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px;line-height:1.6}
-.tg-overlay-btn{display:inline-flex;align-items:center;gap:8px;background:var(--tg-color);color:white;padding:12px 24px;border-radius:24px;font-size:15px;font-weight:700;transition:all .2s;margin-bottom:10px}
-.tg-overlay-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
-.tg-overlay-skip{display:block;font-size:12px;color:rgba(255,255,255,.35);cursor:pointer;margin-top:10px;transition:color .2s}
-.tg-overlay-skip:hover{color:rgba(255,255,255,.7)}
-.channel-info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
-.ci-title{font-size:18px;font-weight:800;margin-bottom:4px} .ci-desc{font-size:13px;color:var(--muted)}
-.right-sidebar{display:flex;flex-direction:column;gap:14px;position:sticky;top:76px;height:fit-content}
-.tg-cta-card{background:linear-gradient(135deg,#0d1f3c 0%,#0a2a3f 100%);border:1px solid rgba(34,158,217,.25);border-radius:var(--radius);padding:20px;text-align:center;position:relative;overflow:hidden}
-.popular-box,.recent-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
-.pop-title,.rbox-title{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
-.pop-item,.recent-item{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:8px;border:1px solid var(--border);margin-bottom:5px;cursor:pointer;transition:all .15s}
-.pop-item:last-child,.recent-item:last-child{margin-bottom:0}
-.pop-item:hover,.recent-item:hover{background:var(--bg3);border-color:var(--accent2)}
-.pop-icon,.rec-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.pop-name,.rec-name{font-size:12.5px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pop-live,.rec-live{font-size:9px;font-weight:800;color:var(--red)}
-.tg-cta-live{display:none;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--red);margin-bottom:10px}
-.tg-cta-live-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite;flex-shrink:0}
-.tg-cta-icon{font-size:40px;margin-bottom:10px} .tg-cta-title{font-size:15px;font-weight:800;margin-bottom:6px;line-height:1.3}
-.tg-cta-desc{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:16px;line-height:1.5}
-.tg-cta-features{text-align:left;margin-bottom:16px;display:flex;flex-direction:column;gap:5px}
-.tg-cta-feat{font-size:12px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px} .feat-check{color:#4ade80;font-size:13px}
-.tg-cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--tg-color);color:white;padding:11px 16px;border-radius:12px;font-size:14px;font-weight:700;transition:all .2s;width:100%}
-.tg-cta-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
-.tg-sub-count{font-size:11px;color:rgba(255,255,255,.35);margin-top:8px}
-.about-section{max-width:1400px;margin:0 auto;padding:0 16px 40px}
-.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:24px}
-.about-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
-.about-card .icon{font-size:28px;margin-bottom:8px} .about-card .num{font-size:24px;font-weight:900;color:var(--accent2)} .about-card .lbl{font-size:12px;color:var(--muted);margin-top:2px}
-.seo-text{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px}
-.seo-text h2{font-size:18px;font-weight:800;margin-bottom:10px} .seo-text p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:8px}
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24px}
-.footer-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer-logo{font-size:16px;font-weight:900} .footer-links{display:flex;gap:20px} .footer-links a{font-size:13px;color:var(--muted);transition:color .2s} .footer-links a:hover{color:var(--text)}
-.footer-copy{font-size:12px;color:var(--muted2)}
-.footer-tg a{display:inline-flex;align-items:center;gap:7px;background:var(--tg-color);color:white;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;transition:all .2s}
-.footer-tg a:hover{background:#1a8dc5}
-details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
-details{margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:12px}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}} @keyframes fadeIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
-@media (max-width:1100px){.main-wrap{grid-template-columns:220px 1fr 260px;gap:12px}}
-@media (max-width:900px){
-  .main-wrap{grid-template-columns:1fr;padding:10px;gap:12px}
-  .player-col{order:1} .right-sidebar{order:2;position:static;display:flex;flex-direction:row;flex-wrap:wrap;gap:12px}
-  .sidebar-wrapper{order:3;position:static;height:auto} .custom-scroll-track{display:none}
-  .channel-sidebar{height:auto;overflow:visible;display:flex;flex-direction:column;gap:0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:0}
-  .cat-label{display:block;padding:10px 12px 4px;margin:0;border-top:1px solid var(--border)} .cat-label:first-child{border-top:none}
-  .cat-group{display:flex;flex-direction:column;gap:2px;padding:4px 8px 8px}
-  .ch-item{flex-direction:row;align-items:center;width:100%;padding:10px 12px;text-align:left;gap:12px}
-  .ch-icon-s{width:42px;height:42px;font-size:12px;border-radius:10px} .ch-name-s{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ch-desc-s{display:none}
-  .live-indicator{margin-left:auto}
-  .tg-overlay{position:fixed;z-index:9999} .tg-overlay-card{padding:24px 20px;max-width:300px}
-  .tg-cta-card{flex:1;min-width:220px} .tg-cta-live{display:flex}
-  nav{display:none} .lang-switcher{display:none}
-}
-@media (max-width:600px){
-  header{padding:0 12px;height:52px;gap:8px} .logo{font-size:20px} .live-count{display:none}
-  .tg-header-btn{padding:8px;font-size:12px;gap:5px;border-radius:50%;width:36px;height:36px;justify-content:center}
-  .tg-header-btn span:not(.tg-icon){display:none} .tg-icon{font-size:0;display:flex;align-items:center;justify-content:center}
-  .main-wrap{padding:8px;gap:8px} .right-sidebar{flex-direction:column}
-  .np-name{font-size:14px} .ctrl-btn{padding:6px 10px;font-size:11px}
-}
-
-.ch-tile{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;padding:12px 8px;border-radius:12px;transition:background .15s;background:none;border:none}
-.ch-tile:hover{background:var(--card)}
-.ch-tile-icon{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;flex-shrink:0}
-.ch-tile-name{font-size:13px;font-weight:700;text-align:center;color:var(--text);line-height:1.25;max-width:100%;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;padding:18px;width:100%;box-sizing:border-box;overflow-y:auto;max-height:100%}
-.player-wrap.grid-mode{aspect-ratio:auto;min-height:420px}
-.player-wrap.grid-mode .player-empty{position:static;height:auto;overflow:visible;border-radius:var(--radius)}
-.filter-bar{margin:14px 0 0}
-.filter-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
-.filter-tabs::-webkit-scrollbar{display:none}
-.filter-tab{background:var(--bg3);border:1px solid var(--border);color:var(--muted);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;font-family:inherit;flex-shrink:0}
-.filter-tab:hover{border-color:var(--border2);color:var(--text)}
-.filter-tab.active{background:var(--accent2);border-color:var(--accent2);color:#fff}
-.tg-banner-desk{display:none}
-@media (min-width:900px){
-.tg-banner-desk{display:flex;align-items:center;gap:10px;padding:10px 14px;margin-bottom:14px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:1px solid rgba(34,158,217,.35);border-radius:var(--radius);text-decoration:none;color:#fff;transition:.2s}
-.tg-banner-desk:hover{background:linear-gradient(135deg,#0d2540,#0c3050);border-color:rgba(34,158,217,.6)}
-}
-.tg-banner-desk-icon{width:30px;height:30px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.tg-banner-desk-text{flex:1;font-size:13px;color:rgba(255,255,255,.85)}
-.tg-banner-desk-text b{color:#fff}
-.tg-banner-desk-arrow{font-size:15px;opacity:.6;flex-shrink:0}
-</style>
+    :root {
+      --bg:#080810; --bg2:#0f0f1c; --bg3:#151525; --card:#12121f;
+      --border:#1e1e32; --border2:#252540;
+      --accent:#0047A0; --accent2:#1c66d4;
+      --red:#CD2E3A; --text:#e2e2f0; --muted:#8888a8; --muted2:#80809c;
+      --radius:14px; --radius-sm:8px; --shadow:0 4px 24px rgba(0,0,0,.6);
+      --tg-color:#229ED9;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; font-size:15px; line-height:1.5; min-height:100vh; }
+    a { color:inherit; text-decoration:none; }
+    ::-webkit-scrollbar { width:6px; height:6px; }
+    ::-webkit-scrollbar-track { background:var(--bg2); }
+    ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
+    ::-webkit-scrollbar-thumb:hover { background:var(--muted); }
+    .channel-sidebar::-webkit-scrollbar { display:none; }
+    .channel-sidebar { scrollbar-width:none; }
+    .sidebar-wrapper { position:static; height:auto; display:block; }
+    .custom-scroll-track { display:none; }
+    .custom-scroll-thumb { width:100%; min-height:28px; background:var(--red); border-radius:4px; position:absolute; top:0; left:0; cursor:grab; transition:background .15s; }
+    .custom-scroll-thumb:hover { background:#e53030; }
+    .custom-scroll-thumb:active { cursor:grabbing; background:#ff4444; }
+    header { position:sticky; top:0; z-index:100; background:rgba(8,8,16,.92); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:20px; padding:0 24px; height:60px; }
+    .logo { display:flex; align-items:center; gap:8px; font-size:33px; font-weight:900; flex-shrink:0; }
+    .logo-text { display:flex; align-items:center; gap:4px; }
+    .logo .r { color:var(--red); }
+    .logo .w { color:#ffffff; }
+    .logo .b { color:var(--accent2); }
+    .logo-flag { font-size:42px; }
+    nav { display:flex; gap:4px; margin-left:8px; }
+    nav a { padding:6px 14px; border-radius:20px; font-size:13px; font-weight:500; color:var(--muted); transition:all .2s; }
+    nav a:hover, nav a.active { background:var(--bg3); color:var(--text); }
+    .header-right { margin-left:auto; display:flex; align-items:center; gap:10px; }
+    .live-count { font-size:12px; color:var(--muted); background:var(--bg3); border:1px solid var(--border); padding:4px 10px; border-radius:20px; display:flex; align-items:center; gap:6px; }
+    .live-dot-sm { width:6px; height:6px; background:var(--red); border-radius:50%; animation:pulse 1.2s infinite; }
+    .tg-header-btn { display:flex; align-items:center; gap:7px; background:var(--tg-color); color:white; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:700; transition:all .2s; text-decoration:none; }
+    .tg-header-btn:hover { background:#1a8dc5; transform:translateY(-1px); }
+    .lang-switch { position:absolute; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:4px; background:var(--bg3); border:1px solid var(--border); border-radius:20px; padding:4px 6px; }
+    .lang-switch a { padding:3px 8px; border-radius:14px; font-size:12px; font-weight:700; color:var(--muted); transition:.15s; text-decoration:none; }
+    .lang-switch a.active { background:var(--accent2); color:#fff; }
+    .tg-icon { font-size:16px; }
+    .breadcrumb { padding:10px 20px; font-size:12px; color:var(--muted); border-bottom:1px solid var(--border); }
+    .breadcrumb span { color:var(--muted2); }
+    .page-title-wrap { max-width:1400px; margin:0 auto; padding:0 16px 12px; }
+    h1 { font-size:26px; font-weight:900; line-height:1.25; margin-bottom:6px; }
+    .page-meta { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--muted); }
+    .cnt-badge { background:var(--bg3); border:1px solid var(--border2); border-radius:6px; padding:3px 10px; font-size:12px; color:var(--accent2); }
+    .live-badge-main { display:flex; align-items:center; gap:5px; background:rgba(204,0,0,.1); border:1px solid rgba(204,0,0,.3); border-radius:6px; padding:3px 10px; font-size:12px; color:var(--red); }
+    .live-dot-main { width:6px; height:6px; background:var(--red); border-radius:50%; animation:pulse 1s infinite; }
+    .main-wrap { display:grid; grid-template-columns:1fr 300px; gap:16px; min-height:calc(100vh - 120px); max-width:1400px; margin:0 auto; padding:0 16px 16px; }
+    .player-col { grid-column:1/-1; grid-row:1; }
+    .sidebar-wrapper { grid-column:1; grid-row:2; }
+    .tg-col { grid-column:2; grid-row:1; }
+    .right-sidebar { grid-column:2; grid-row:2; }
+    .channel-sidebar { display:flex; flex-direction:column; gap:0; height:auto; overflow:visible; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:0; }
+    .sidebar-search { position:relative; margin-bottom:10px; flex-shrink:0; }
+    .sidebar-search input { width:100%; background:var(--bg3); border:1px solid var(--border); color:var(--text); border-radius:var(--radius-sm); padding:9px 12px 9px 36px; font-size:13px; font-family:inherit; outline:none; transition:border-color .2s; }
+    .sidebar-search input:focus { border-color:var(--accent2); }
+    .sidebar-search input::placeholder { color:var(--muted); }
+    .search-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); font-size:14px; }
+    .cat-label { display:block; padding:10px 12px 6px; margin:0; border-top:1px solid var(--border); font-size:12px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1px; flex-shrink:0; }
+    .cat-label:first-child { border-top:none; }
+    .cat-group { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; padding:4px 8px 10px; }
+    .ch-item { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:8px 6px 7px; gap:5px; text-align:center; background:var(--bg3); border:1px solid var(--border); border-radius:12px; cursor:pointer; transition:all .15s; flex-shrink:unset; }
+    .ch-item:hover { border-color:var(--accent2); background:rgba(26,95,217,.06); }
+    .ch-item.active { background:linear-gradient(135deg,rgba(0,53,128,.18),rgba(26,95,217,.1)); border-color:rgba(26,95,217,.4); }
+    .ch-item.active .ch-name-s { color:var(--accent2); }
+    .ch-icon-s { width:40px; height:40px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; flex-shrink:0; }
+    .ch-icon-s.ch-logo-s { background:var(--card,#12121f)!important; padding:5px; box-sizing:border-box; }
+    .ch-icon-s.ch-logo-s img { width:100%; height:100%; object-fit:contain; display:block; }
+    .ch-name-s { font-size:17px; font-weight:700; line-height:1.25; white-space:normal; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; width:100%; letter-spacing:-.01em; }
+    .ch-desc-s { display:none; }
+    .live-indicator { width:6px; height:6px; background:var(--red); border-radius:50%; animation:pulse 1.2s infinite; flex-shrink:0; }
+    .player-col { display:flex; flex-direction:column; gap:14px; min-width:0; }
+    .player-wrap { position:relative; background:#000; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); aspect-ratio:16/9; }
+    .player-wrap.grid-mode { aspect-ratio:auto; overflow:visible; }
+    .player-wrap.grid-mode video { display:none; }
+    video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+    .player-empty { position:absolute; inset:0; display:flex; flex-direction:column; background:var(--bg2); overflow-y:auto; }
+    .player-wrap.grid-mode .player-empty { position:static; height:auto; overflow:visible; border-radius:var(--radius); }
+    .player-empty .big-icon { font-size:56px; opacity:.3; }
+    .player-empty p { color:var(--muted); font-size:14px; }
+    .player-empty.hidden { display:none; }
+    .tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:14px; padding:18px; width:100%; box-sizing:border-box; }
+    .ch-tile { display:flex; flex-direction:column; align-items:center; gap:8px; cursor:pointer; padding:12px 8px; border-radius:12px; transition:background .15s; background:none; border:none; }
+    .ch-tile:hover { background:var(--card); }
+    .ch-tile-icon { width:80px; height:80px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:900; flex-shrink:0; }
+    .ch-tile-icon.ch-logo-s { background:var(--card,#12121f)!important; padding:8px; box-sizing:border-box; }
+    .ch-tile-icon.ch-logo-s img { width:100%; height:100%; object-fit:contain; display:block; }
+    .ch-tile-name { font-size:16px; font-weight:700; text-align:center; color:var(--text); line-height:1.25; max-width:100%; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+    .player-live-badge { position:absolute; top:14px; left:14px; z-index:20; background:var(--red); color:white; font-size:11px; font-weight:800; letter-spacing:1px; padding:4px 10px; border-radius:20px; display:none; align-items:center; gap:5px; }
+    .player-live-badge .dot { width:6px; height:6px; background:white; border-radius:50%; animation:pulse 1s infinite; }
+    .now-playing-bar { position:absolute; bottom:0; left:0; right:0; z-index:15; background:linear-gradient(transparent,rgba(0,0,0,.85)); padding:32px 16px 14px; display:none; }
+    .now-playing-bar.visible { display:block; }
+    .np-name { font-size:18px; font-weight:800; }
+    .np-desc { font-size:12px; color:rgba(255,255,255,.6); margin-top:2px; }
+    .player-controls { position:absolute; inset:0; z-index:25; display:flex; align-items:flex-end; justify-content:flex-end; padding:12px; opacity:0; transition:opacity .35s ease; pointer-events:none; }
+    .player-wrap.controls-visible .player-controls { opacity:1; pointer-events:all; }
+    .ctrl-btns { display:flex; gap:6px; }
+    .ctrl-btn { background:rgba(0,0,0,.7); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.15); color:white; border-radius:8px; padding:7px 12px; font-size:12px; cursor:pointer; transition:all .2s; }
+    .ctrl-btn:hover { background:rgba(255,255,255,.15); }
+    .unmute-banner { position:absolute; bottom:60px; left:50%; transform:translateX(-50%); z-index:30; display:block; opacity:0; pointer-events:none; transition:opacity .35s ease; }
+    .player-wrap.controls-visible .unmute-banner { opacity:1; pointer-events:all; }
+    .unmute-banner button { background:var(--accent); color:white; border:none; border-radius:24px; padding:10px 20px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 4px 20px rgba(0,53,128,.5); transition:all .2s; font-family:inherit; white-space:nowrap; }
+    .unmute-banner button:hover { background:var(--accent2); transform:scale(1.03); }
+    .player-banner { width:100%; min-height:90px; background:var(--bg2); border-radius:var(--radius); overflow:hidden; display:flex; align-items:center; justify-content:center; margin:6px 0; }
+    .player-banner:empty { display:none; min-height:0; margin:0; }
+    .player-status { font-size:13px; color:var(--muted); text-align:center; padding:6px 0; display:flex; align-items:center; justify-content:center; gap:6px; }
+    .status-dot { width:7px; height:7px; background:var(--accent2); border-radius:50%; animation:pulse 1.2s infinite; }
+    .channel-info-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px 20px; }
+    .ci-title { font-size:18px; font-weight:800; margin-bottom:4px; }
+    .ci-desc { font-size:13px; color:var(--muted); }
+    .ci-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+    .epg-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:none}
+    .epg-box.epg-ready{display:block}
+    .epg-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+    .epg-head h3{font-size:16px;margin:0}
+    .epg-updated{font-size:11px;color:var(--muted)}
+    .epg-current{background:rgba(0,53,128,0.08);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}
+    .epg-current-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+    .epg-current-title{font-size:15px;font-weight:600;margin-bottom:8px}
+    .epg-current-time{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-top:6px}
+    .epg-progress{height:6px;border-radius:4px;background:var(--border);overflow:hidden}
+    .epg-progress-bar{height:100%;background:#003580;border-radius:4px;transition:width 1s linear}
+    .epg-list{display:flex;flex-direction:column;gap:2px;max-height:280px;overflow-y:auto}
+    .epg-item{display:flex;gap:10px;padding:7px 4px;border-radius:6px;font-size:13px}
+    .epg-item.epg-item-now{background:rgba(0,53,128,0.08)}
+    .epg-item-time{color:var(--muted);flex-shrink:0;width:42px}
+    .epg-item-title{color:var(--text)}
+    .ci-tag { background:var(--bg3); border:1px solid var(--border); border-radius:20px; padding:4px 12px; font-size:12px; color:var(--muted); }
+    .tg-col { display:flex; flex-direction:column; gap:14px; position:sticky; top:76px; height:fit-content; align-self:start; }
+    .right-sidebar { display:flex; flex-direction:column; gap:14px; align-self:start; }
+    .tg-cta-card { background:linear-gradient(135deg,#0d1f3c 0%,#0a2a3f 100%); border:1px solid rgba(34,158,217,.25); border-radius:var(--radius); padding:20px; text-align:center; position:relative; overflow:hidden; }
+    .tg-cta-card::before { content:''; position:absolute; top:-40px; right:-40px; width:120px; height:120px; border-radius:50%; background:radial-gradient(circle,rgba(34,158,217,.2),transparent 70%); }
+    .tg-cta-live { display:none; align-items:center; justify-content:center; gap:6px; font-size:12px; color:var(--red); margin-bottom:10px; }
+    .tg-cta-live-dot { width:6px; height:6px; background:var(--red); border-radius:50%; animation:pulse 1s infinite; flex-shrink:0; }
+    .tg-cta-icon { font-size:40px; margin-bottom:10px; }
+    .tg-cta-title { font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3; }
+    .tg-cta-desc { font-size:12px; color:rgba(255,255,255,.55); margin-bottom:16px; line-height:1.5; }
+    .tg-cta-features { text-align:left; margin-bottom:16px; display:flex; flex-direction:column; gap:5px; }
+    .tg-cta-feat { font-size:12px; color:rgba(255,255,255,.7); display:flex; align-items:center; gap:6px; }
+    .feat-check { color:#4ade80; font-size:13px; }
+    .tg-cta-btn { display:flex; align-items:center; justify-content:center; gap:8px; background:var(--tg-color); color:white; padding:11px 16px; border-radius:12px; font-size:14px; font-weight:700; text-decoration:none; transition:all .2s; width:100%; }
+    .tg-cta-btn:hover { background:#1a8dc5; transform:translateY(-1px); }
+    .tg-sub-count { font-size:11px; color:rgba(255,255,255,.35); margin-top:8px; }
+    .about-section { max-width:1400px; margin:0 auto; padding:0 16px 40px; }
+    .about-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-bottom:24px; }
+    .about-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; text-align:center; }
+    .about-card .icon { font-size:28px; margin-bottom:8px; }
+    .about-card .num { font-size:24px; font-weight:900; color:var(--accent2); }
+    .about-card .lbl { font-size:12px; color:var(--muted); margin-top:2px; }
+    .seo-text { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:24px 28px; }
+    .seo-text p { font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:8px; }
+    footer { background:var(--bg2); border-top:1px solid var(--border); padding:28px 24px; }
+    .footer-inner { max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer-logo { font-size:16px; font-weight:900; }
+    .footer-links { display:flex; gap:20px; }
+    .footer-links a { font-size:13px; color:var(--muted); transition:color .2s; }
+    .footer-links a:hover { color:var(--text); }
+    .footer-copy { font-size:12px; color:var(--muted2); }
+    .footer-tg a { display:inline-flex; align-items:center; gap:7px; background:var(--tg-color); color:white; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:700; transition:all .2s; }
+    .footer-tg a:hover { background:#1a8dc5; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
+    @keyframes fadeIn { from{opacity:0;transform:scale(.97)} to{opacity:1;transform:scale(1)} }
+    @media (max-width:900px) {
+      .main-wrap { grid-template-columns:1fr; grid-template-rows:none; padding:10px; gap:12px; }
+      .player-col { grid-column:auto; grid-row:auto; order:1; }
+      .tg-col { grid-column:auto; grid-row:auto; order:2; position:static; }
+      .sidebar-wrapper { grid-column:auto; grid-row:auto; order:3; }
+      .right-sidebar { grid-column:auto; grid-row:auto; order:4; position:static; }
+      .cat-group { grid-template-columns:repeat(2,1fr); }
+      .ch-name-s { font-size:17px; }
+      nav { display:none; }
+      .about-grid { grid-template-columns:repeat(3,1fr); gap:8px; }
+      .about-card { padding:12px 8px; }
+      .about-card .icon { font-size:22px; margin-bottom:4px; }
+      .about-card .num { font-size:18px; }
+      .about-card .lbl { font-size:10px; }
+      .tile-grid { display:none; }
+      .player-wrap.grid-mode { aspect-ratio:auto; }
+      .player-wrap.grid-mode .player-empty { display:flex; align-items:center; justify-content:center; text-align:center; padding:32px 20px; min-height:120px; }
+      .player-wrap.grid-mode .player-empty::after { content:'아래 목록에서 채널을 선택하세요 ↓'; color:var(--accent2); font-size:20px; font-weight:800; letter-spacing:.01em; text-shadow:0 0 18px rgba(26,95,217,.45); }
+    }
+    @media (max-width:600px) {
+      header { padding:0 12px; height:52px; gap:8px; }
+      .logo { font-size:20px; letter-spacing:0; }
+      .logo-flag { font-size:22px; }
+      .live-count { display:none; }
+      .tg-header-btn { padding:8px; font-size:12px; gap:5px; border-radius:50%; width:36px; height:36px; justify-content:center; }
+      .tg-header-btn span:not(.tg-icon) { display:none; }
+      .main-wrap { padding:8px; gap:8px; }
+      .right-sidebar { flex-direction:column; }
+    }
+    @media (max-width:900px) {
+    }
+    @media (max-width:400px) {
+      .logo { font-size:17px; }
+      .logo-flag { font-size:19px; }
+      .main-wrap { padding:6px; gap:6px; }
+    }
+    .tg-banner-desk { display:none; }
+    @media(min-width:901px) {
+      .tg-col { display:none; }
+      .tg-banner-desk { display:flex; align-items:center; gap:10px; padding:10px 14px; margin-bottom:14px; background:linear-gradient(135deg,#0d1f3c,#0a2a3f); border:1px solid rgba(34,158,217,.35); border-radius:var(--radius); text-decoration:none; color:#fff; transition:.2s; }
+      .tg-banner-desk:hover { background:linear-gradient(135deg,#0d2540,#0c3050); border-color:rgba(34,158,217,.6); }
+      .tg-banner-desk-icon { width:30px; height:30px; background:#229ED9; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+      .tg-banner-desk-text { flex:1; font-size:13px; color:rgba(255,255,255,.85); }
+      .tg-banner-desk-text b { color:#fff; }
+      .tg-banner-desk-arrow { font-size:15px; opacity:.6; flex-shrink:0; }
+      .main-wrap { grid-template-columns:280px 1fr 300px; align-items:start; }
+      .sidebar-wrapper { grid-column:1; grid-row:1; position:sticky; top:76px; height:calc(100vh - 96px); }
+      .sidebar-wrapper .channel-sidebar { height:100%; overflow-y:auto; }
+      .player-col { grid-column:2; grid-row:1; }
+      .right-sidebar { grid-column:3; grid-row:1; }
+      /* ── smotret.tv-style sidebar: plain row list, no cards ── */
+      .sidebar-wrapper .cat-group { display:flex; flex-direction:column; gap:1px; padding:2px 6px 10px; }
+      .sidebar-wrapper .ch-item { flex-direction:row; align-items:center; justify-content:flex-start; text-align:left; padding:7px 8px; gap:10px; background:none; border:none; border-radius:8px; }
+      .sidebar-wrapper .ch-item:hover { background:var(--bg3); border-color:transparent; }
+      .sidebar-wrapper .ch-item.active { background:rgba(26,95,217,.14); border-color:transparent; }
+      .sidebar-wrapper .ch-icon-s { width:36px; height:36px; font-size:10px; }
+      .sidebar-wrapper .ch-name-s { font-size:15px; font-weight:600; -webkit-line-clamp:1; white-space:nowrap; text-overflow:ellipsis; }
+      .sidebar-wrapper .live-indicator { margin-left:auto; }
+      /* ── smotret.tv-style tile grid: pure logo cards, no name label ── */
+      .tile-grid { grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); }
+      .ch-tile { padding:0; border-radius:12px; overflow:hidden; background:var(--card); aspect-ratio:16/9; }
+      .ch-tile:hover { background:var(--bg3); }
+      .ch-tile-icon { width:100%; height:100%; border-radius:0; }
+      .ch-tile-icon.ch-logo-s { padding:14px; }
+      .ch-tile-icon:not(.ch-logo-s) { font-size:22px; }
+      .ch-tile-name { display:none; }
+    }
+    /* ── Filter bar ── */
+    .filter-bar { max-width:1400px; margin:0 auto; padding:0 16px 12px; }
+    .filter-bar-below { max-width:none; margin:14px 0 0; padding:0; }
+    .filter-tabs { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; }
+    .filter-tabs::-webkit-scrollbar { display:none; }
+    .filter-tab { background:var(--bg3); border:1px solid var(--border); color:var(--muted); border-radius:20px; padding:6px 16px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; transition:all .2s; font-family:inherit; flex-shrink:0; }
+    .filter-tab:hover { border-color:var(--border2); color:var(--text); }
+    .filter-tab.active { background:var(--accent2); border-color:var(--accent2); color:#fff; }
+    /* ── Popular / Recent boxes (right sidebar) ── */
+    .popular-box, .recent-box { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+    .pop-title, .rbox-title { font-size:11px; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1.2px; margin-bottom:10px; }
+    .pop-item, .recent-item { display:flex; align-items:center; gap:9px; padding:7px 8px; border-radius:8px; border:1px solid var(--border); margin-bottom:5px; cursor:pointer; transition:all .15s; }
+    .pop-item:last-child, .recent-item:last-child { margin-bottom:0; }
+    .pop-item:hover, .recent-item:hover { background:var(--bg3); border-color:var(--accent2); }
+    .pop-icon, .rec-icon { width:28px; height:28px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:900; flex-shrink:0; }
+    .pop-name, .rec-name { font-size:12px; font-weight:600; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .pop-live, .rec-live { font-size:9px; font-weight:800; color:var(--red); flex-shrink:0; }
+  .lang-switch a{position:relative}.lang-switch a::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}.tg-pulse-banner{display:flex;align-items:center;gap:10px;margin:14px 0;padding:13px 16px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:2px solid #229ED9;border-radius:14px;text-decoration:none;color:#fff;animation:tgPulse 2s ease-in-out infinite}@keyframes tgPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,158,217,.55)}50%{box-shadow:0 0 0 7px rgba(34,158,217,0)}}.tg-pulse-icon{width:38px;height:38px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.tg-pulse-text{flex:1;font-size:14px;font-weight:700}.tg-pulse-arrow{opacity:.6;flex-shrink:0;font-size:16px}</style>
+  <style>.footer-seo a{color:inherit;text-decoration:none;margin:0 7px;white-space:nowrap}.footer-seo a:hover{color:var(--text);text-decoration:underline}</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X503KNBLXB"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -214,21 +296,29 @@ gtag('config', 'G-X503KNBLXB');
 <body>
 
 <header>
-  <a href="https://korea-tv.uk/" class="logo"><span class="red">한</span><span class="blue">국</span><span class="red">·TV</span></a>
-  <nav><a href="#" class="active">채널</a><a href="https://korea-tv.uk/blog/">블로그</a><a href="#about">사이트 소개</a></nav>
+  <a href="https://korea-tv.uk/" class="logo">
+    <span class="logo-flag">🇰🇷</span>
+    <span class="logo-text"><span class="r">한</span><span class="b">국</span></span><span class="w">TV</span>
+  </a>
+  <nav>
+    <a href="#" class="active">채널</a>
+    <a href="https://korea-tv.uk/blog/">블로그</a>
+    <a href="#about">사이트 소개</a>
+  </nav>
   <div class="header-right">
-    <div class="lang-switcher">
-      <a href="https://korea-tv.uk/" class="lang-link active">🇰🇷 KO</a>
-      <a href="https://korea-tv.uk/en/" class="lang-link">🇬🇧 EN</a>
+    <div class="live-count">
+      <div class="live-dot-sm"></div>
+      31개 채널
     </div>
-    <div class="live-count"><div class="live-dot-sm"></div>31개 채널</div>
-    <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-header-btn">
+    <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-header-btn" aria-label="텔레그램에서 시청">
       <span class="tg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></span>
-      <span>텔레그램에서 시청</span>
+      <span>텔레그램</span>
     </a>
+    <div class="lang-switch"><a href="https://korea-tv.uk/" class="active">KO</a><a href="https://korea-tv.uk/en/">EN</a></div>
   </div>
 </header>
 
+<main>
 <div class="breadcrumb"><span>🇰🇷 한국 TV 온라인</span></div>
 <div class="page-title-wrap">
   <h1>한국 TV 온라인 무료 실시간 시청</h1>
@@ -239,41 +329,47 @@ gtag('config', 'G-X503KNBLXB');
   </div>
 </div>
 
-<div class="main-wrap">
+<div class="main-wrap" id="channels">
   <div class="sidebar-wrapper">
     <aside class="channel-sidebar" id="channel-sidebar">
-      <div class="sidebar-search"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="채널 검색..."/></div>
+      <div class="sidebar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="채널 검색..." />
+      </div>
     </aside>
-    <div class="custom-scroll-track" id="scroll-track"><div class="custom-scroll-thumb" id="scroll-thumb"></div></div>
+    <div class="custom-scroll-track" id="scroll-track">
+      <div class="custom-scroll-thumb" id="scroll-thumb"></div>
+    </div>
   </div>
 
   <div class="player-col">
     <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-banner-desk"><div class="tg-banner-desk-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></div><div class="tg-banner-desk-text"><b>텔레그램에서 시청하세요</b> — 31개 채널 전부를 하나의 앱으로, 무료</div><span class="tg-banner-desk-arrow">→</span></a>
     <div class="player-wrap grid-mode" id="player-wrap">
       <video id="video" autoplay playsinline webkit-playsinline muted></video>
-      <div class="player-empty" id="player-empty"><div class="tile-grid" id="tile-grid"></div></div>
+      <div class="player-empty" id="player-empty">
+        <div class="tile-grid" id="tile-grid"></div>
+      </div>
       <div class="player-live-badge" id="live-badge"><div class="dot"></div> 실시간</div>
-      <div class="now-playing-bar" id="now-playing-bar"><div class="np-name" id="np-name"></div><div class="np-desc" id="np-desc"></div></div>
+      <div class="now-playing-bar" id="now-playing-bar">
+        <div class="np-name" id="np-name"></div>
+        <div class="np-desc" id="np-desc"></div>
+      </div>
       <div class="player-controls">
         <div class="ctrl-btns">
           <button class="ctrl-btn" id="reload-btn" style="display:none">🔄 재연결</button>
           <button class="ctrl-btn" id="fullscreen-btn">⛶ 전체화면</button>
         </div>
       </div>
-      <div class="unmute-banner" id="unmute-banner"><button id="unmute-btn">🔊 소리 켜기</button></div>
-      <div class="tg-overlay" id="tg-overlay">
-        <div class="tg-overlay-card">
-          <div class="tg-overlay-icon">✈️</div>
-          <div class="tg-overlay-title">텔레그램에서 시청하세요</div>
-          <div class="tg-overlay-desc">31개 채널 전부를 텔레그램 앱 하나로 — 무료. iOS, Android, 데스크톱 지원.</div>
-          <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-overlay-btn">✈️ 텔레그램에서 열기</a>
-          <span class="tg-overlay-skip" id="overlay-skip">✕ 계속 시청하기</span>
-        </div>
+      <div class="unmute-banner" id="unmute-banner">
+        <button id="unmute-btn">🔊 소리 켜기</button>
       </div>
     </div>
+    <a href="https://t.me/Korea_TV_hub" target="_blank" rel="noopener" class="tg-pulse-banner"><div class="tg-pulse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></div><div class="tg-pulse-text">텔레그램에서 채널 보기</div><span class="tg-pulse-arrow">→</span></a>
     <div class="player-status" id="player-status">채널을 선택하세요</div>
     <div class="channel-info-card" id="channel-info-card" style="display:none">
-      <div class="ci-title" id="ci-title"></div><div class="ci-desc" id="ci-desc"></div>
+      <div class="ci-title" id="ci-title"></div>
+      <div class="ci-desc" id="ci-desc"></div>
+      <div class="ci-tags" id="ci-tags"></div>
     </div>
     <div class="filter-bar filter-bar-below">
       <div class="filter-tabs" id="filter-tabs">
@@ -282,6 +378,22 @@ gtag('config', 'G-X503KNBLXB');
     </div>
   </div>
 
+  <div class="tg-col">
+    <div class="tg-cta-card">
+      <div class="tg-cta-live"><span class="tg-cta-live-dot"></span>실시간 · 24/7 실시간 방송</div>
+      <div class="tg-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56"><circle cx="12" cy="12" r="12" fill="#2CA5E0"/><path fill="#fff" d="M5.2 11.4l12.6-4.9c.6-.2 1.1.1.9.9l-2.1 10c-.2.6-.6.8-1.1.5l-3-2.3-1.5 1.4c-.2.2-.3.3-.6.3l.2-3 5.5-5c.2-.2 0-.3-.3-.1L7.4 13.4l-2.9-.9c-.6-.2-.6-.6.7-1.1z"/></svg></div>
+      <div class="tg-cta-title">텔레그램에서 시청하세요</div>
+      <div class="tg-cta-desc">31개 한국 채널을 메신저에서 바로</div>
+      <div class="tg-cta-features">
+        <div class="tg-cta-feat"><span class="feat-check">✓</span> 회원가입 불필요</div>
+        <div class="tg-cta-feat"><span class="feat-check">✓</span> iOS · Android · Desktop</div>
+        <div class="tg-cta-feat"><span class="feat-check">✓</span> VPN 없이 어느 나라에서나</div>
+        <div class="tg-cta-feat"><span class="feat-check">✓</span> HD 화질 24/7</div>
+      </div>
+      <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-cta-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="vertical-align:middle;margin-right:6px"><circle cx="12" cy="12" r="12" fill="#fff"/><path fill="#2CA5E0" d="M5.2 11.4l12.6-4.9c.6-.2 1.1.1.9.9l-2.1 10c-.2.6-.6.8-1.1.5l-3-2.3-1.5 1.4c-.2.2-.3.3-.6.3l.2-3 5.5-5c.2-.2 0-.3-.3-.1L7.4 13.4l-2.9-.9c-.6-.2-.6-.6.7-1.1z"/></svg>Korea TV 열기</a>
+      <div class="tg-sub-count">@Korea_TV_hub</div>
+    </div>
+  </div>
   <aside class="right-sidebar">
     <div class="popular-box">
       <div class="pop-title">⭐ 인기 채널</div>
@@ -290,19 +402,6 @@ gtag('config', 'G-X503KNBLXB');
     <div class="recent-box" id="recent-box" style="display:none">
       <div class="rbox-title">🕐 최근 시청</div>
       <div id="recent-list"></div>
-    </div>
-    <div class="tg-cta-card">
-      <div class="tg-cta-live"><span class="tg-cta-live-dot"></span>실시간 &middot; 24/7 실시간 방송</div>
-      <div class="tg-cta-icon">✈️</div>
-      <div class="tg-cta-title">텔레그램에서 시청하세요</div>
-      <div class="tg-cta-desc">31개 한국 채널을 메신저에서 바로</div>
-      <div class="tg-cta-features">
-        <div class="tg-cta-feat"><span class="feat-check">✓</span> 회원가입 불필요</div>
-        <div class="tg-cta-feat"><span class="feat-check">✓</span> iOS · Android · Desktop</div>
-        <div class="tg-cta-feat"><span class="feat-check">✓</span> HD 화질 24/7</div>
-      </div>
-      <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-cta-btn">✈️ Korea TV 열기</a>
-      <div class="tg-sub-count">@Korea_TV_hub</div>
     </div>
   </aside>
 </div>
@@ -327,6 +426,7 @@ gtag('config', 'G-X503KNBLXB');
   </div>
 </div>
 
+</main>
 <footer>
   <div class="footer-inner">
     <div>
@@ -339,12 +439,50 @@ gtag('config', 'G-X503KNBLXB');
   <div style="text-align:center;margin-top:16px;font-size:11px;color:var(--muted2)">
     본 사이트는 영상을 저장하지 않습니다. 모든 방송은 제3자가 제공하며 인터넷상에 공개된 채널입니다.
   </div>
-<div class="legal-note" style="text-align:center;margin:14px auto 0;max-width:820px;font-size:11px;line-height:1.6;color:var(--muted2,#454560)">방송 링크는 인터넷에 공개된 출처에서 가져왔으며, Korea-TV.uk는 방송사와 제휴 관계가 없습니다. 권리자가 요청하고 권리를 증빙하면 해당 방송을 삭제합니다 — <a href="https://korea-tv.uk/privacy/#rightsholders">권리자 안내</a> · <a href="https://korea-tv.uk/privacy/">개인정보처리방침</a></div>
+<nav class="footer-seo" style="max-width:1100px;margin:18px auto 0;padding:0 12px;font-size:12px;line-height:2;color:#8b8ba0;text-align:center"><div><b>해외에서 보기:</b> <a href="https://korea-tv.uk/korean-tv-in-usa/">미국</a><a href="https://korea-tv.uk/korean-tv-in-japan/">일본</a><a href="https://korea-tv.uk/korean-tv-in-china/">중국</a><a href="https://korea-tv.uk/korean-tv-in-canada/">캐나다</a><a href="https://korea-tv.uk/korean-tv-in-australia/">호주</a></div><div><b>블로그:</b> <a href="https://korea-tv.uk/blog/watching-korean-tv-abroad/">한국 방송 해외에서 무료로 보는 방법: 완벽 가이드</a><a href="https://korea-tv.uk/blog/arirang-sbs-ebs-difference/">아리랑TV, SBS, EBS — 무엇이 다른가</a><a href="https://korea-tv.uk/blog/korean-regional-broadcasters-guide/">한국 지역 방송사란? 로컬 채널 가이드</a></div></nav>
+  <div class="legal-note" style="text-align:center;margin:14px auto 0;max-width:820px;font-size:11px;line-height:1.6;color:var(--muted2,#454560)">방송 링크는 인터넷에 공개된 출처에서 가져왔으며, Korea-TV.uk는 방송사와 제휴 관계가 없습니다. 권리자가 요청하고 권리를 증빙하면 해당 방송을 삭제합니다 — <a href="https://korea-tv.uk/privacy/#rightsholders">권리자 안내</a> · <a href="https://korea-tv.uk/privacy/">개인정보처리방침</a></div>
 </footer>
 
 <script>
-const PROXY = 'https://korea-worker.dyaltd.workers.dev';
+// Клик по ссылке на Telegram-канал — событие GA4 (как у russian-tv.com, без Яндекс.Метрики)
+(function(){
+  function tgTrack(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="t.me/Korea_TV_hub"]') : null;
+    if(!a) return;
+    var label = a.className || 'tg-link';
+    try{ if(typeof gtag==='function') gtag('event','telegram_click',{event_category:'engagement',event_label:label,link_url:a.href}); }catch(err){}
+  }
+  document.addEventListener('click', tgTrack, true);
+})();
+</script>
+<script>
+// ── Прокси: korea-worker (гибридный режим v1.6.0). Механизм ротации оставлен как у russian-tv.com — с одним адресом он повторяет его.
+var PROXIES = ['https://korea-worker.dyaltd.workers.dev'];
+var _proxyIdx = 0;
+var _proxyRetries = 0;
+var _fullCycles = 0; // сколько полных кругов по всем прокси прошли без успеха подряд — источник (для части каналов это cinerama.uz) периодически обрывает сессию просмотра примерно через 10-12 минут независимо от прокси; вместо разовой сдачи навсегда продолжаем циклически переподключаться с растущей паузой между кругами.
+var _netErrorCount = 0; // счётчик подряд идущих фатальных сетевых ошибок без успешной загрузки фрагмента
+var _sessionStart = Date.now(); // время последнего (пере)подключения — для профилактического реконнекта
+function _currentProxy(){ return PROXIES[_proxyIdx % PROXIES.length]; }
+var _proxyFailedAt = {};
+function _markProxyFailed(){ _proxyFailedAt[_proxyIdx % PROXIES.length] = Date.now(); }
+function _nextProxy(){
+  // Пропускаем прокси, которые сломались недавно (90 сек), если есть куда —
+  // иначе профилактическая ротация периодически сама заводит зрителя обратно
+  // на прокси, который прямо сейчас не работает.
+  var advanced = false;
+  for (var i = 1; i <= PROXIES.length; i++) {
+    var idx = (_proxyIdx + i) % PROXIES.length;
+    var failedAt = _proxyFailedAt[idx];
+    if (!failedAt || Date.now() - failedAt > 90000) { _proxyIdx += i; advanced = true; break; }
+  }
+  if (!advanced) _proxyIdx++;
+  _proxyRetries++;
+  return PROXIES[_proxyIdx % PROXIES.length];
+}
+const PROXY  = ''; // deprecated — используется _currentProxy()
 const TG_URL = 'https://t.me/Korea_TV_hub';
+
 const CHANNEL_GROUPS = [
   { label: '🌏 국제', channels: [
       { id:'arirang', name:'아리랑TV', desc:'해외 시청자를 위한 국제 방송사 — 영어 뉴스·문화 채널', icon:'ARI', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['intl'] },
@@ -393,38 +531,42 @@ const CHANNEL_GROUPS = [
     ] }
 ];
 
-let currentCh = null, hls = null, overlayTimer = null, userUnmuted = false, _overlayCount = 0;
-const video = document.getElementById('video');
-const playerEmpty = document.getElementById('player-empty');
-const liveBadge = document.getElementById('live-badge');
-const npBar = document.getElementById('now-playing-bar');
-const npName = document.getElementById('np-name');
-const npDesc = document.getElementById('np-desc');
-const reloadBtn = document.getElementById('reload-btn');
-const fsBtn = document.getElementById('fullscreen-btn');
-const unmuteBtn = document.getElementById('unmute-btn');
-const unmuteBanner = document.getElementById('unmute-banner');
-const tgOverlay = document.getElementById('tg-overlay');
-const overlaySkip = document.getElementById('overlay-skip');
-const statusEl = document.getElementById('player-status');
-const infoCard = document.getElementById('channel-info-card');
-const ciTitle = document.getElementById('ci-title');
-const ciDesc = document.getElementById('ci-desc');
-const searchInput = document.getElementById('search-input');
-const sidebar = document.getElementById('channel-sidebar');
+const TAG_NAMES = {"intl": "국제", "ebs": "EBS", "public": "공영·정부", "regional": "지역 방송", "religious": "종교", "business": "경제·쇼핑", "music": "음악·라디오"};
+function tagName(t) { return TAG_NAMES[t] || t; }
 
+// ── State ──────────────────────────────────────────────────
+let currentCh = null, hls = null, userUnmuted = false;
+const video        = document.getElementById('video');
+const playerEmpty  = document.getElementById('player-empty');
+const liveBadge    = document.getElementById('live-badge');
+const npBar        = document.getElementById('now-playing-bar');
+const npName       = document.getElementById('np-name');
+const npDesc       = document.getElementById('np-desc');
+const reloadBtn    = document.getElementById('reload-btn');
+const fsBtn        = document.getElementById('fullscreen-btn');
+const unmuteBtn    = document.getElementById('unmute-btn');
+const unmuteBanner = document.getElementById('unmute-banner');
+const statusEl     = document.getElementById('player-status');
+const infoCard     = document.getElementById('channel-info-card');
+const ciTitle      = document.getElementById('ci-title');
+const ciDesc       = document.getElementById('ci-desc');
+const ciTags       = document.getElementById('ci-tags');
+const searchInput  = document.getElementById('search-input');
+const sidebar      = document.getElementById('channel-sidebar');
+
+
+
+// ── Popular channels ───────────────────────────────────────
 const POPULAR_IDS = ['arirang', 'ebs1', 'ktv', 'tbs', 'ebs_kids'];
-const LS_RECENT = 'ktv_recent_v1';
-function getRecent() { try { return JSON.parse(localStorage.getItem(LS_RECENT) || '[]'); } catch { return []; } }
-function saveRecent(id) { let a=getRecent().filter(x=>x!==id); a.unshift(id); a=a.slice(0,5); try{localStorage.setItem(LS_RECENT, JSON.stringify(a));}catch{} }
-function findChannel(id) { for (const g of CHANNEL_GROUPS) { const ch=g.channels.find(c=>c.id===id); if (ch) return ch; } return null; }
+function allChannels() { return CHANNEL_GROUPS.flatMap(g => g.channels); }
+function findCh(id) { return allChannels().find(c => c.id === id); }
 
 function buildPopular() {
   const list = document.getElementById('pop-list');
   if (!list) return;
   list.innerHTML = '';
   POPULAR_IDS.forEach(function(id) {
-    const ch = findChannel(id);
+    const ch = findCh(id);
     if (!ch) return;
     const el = document.createElement('div');
     el.className = 'pop-item';
@@ -434,18 +576,31 @@ function buildPopular() {
     list.appendChild(el);
   });
 }
-function buildRecentBox() {
-  const ids = getRecent();
-  const box = document.getElementById('recent-box');
-  const list = document.getElementById('recent-list');
+
+// ── Recently viewed ────────────────────────────────────────
+const LS_RECENT = 'ktv_recent_v1';   // тот же ключ, что был на korea-tv.uk — история просмотров сохраняется
+function getRecent() {
+  try { return JSON.parse(localStorage.getItem(LS_RECENT) || '[]'); } catch(e) { return []; }
+}
+function addRecent(ch) {
+  var ids = getRecent().filter(function(id) { return id !== ch.id; });
+  ids.unshift(ch.id);
+  if (ids.length > 5) ids = ids.slice(0, 5);
+  localStorage.setItem(LS_RECENT, JSON.stringify(ids));
+  buildRecent();
+}
+function buildRecent() {
+  var ids = getRecent();
+  var box = document.getElementById('recent-box');
+  var list = document.getElementById('recent-list');
   if (!box || !list) return;
   if (!ids.length) { box.style.display = 'none'; return; }
   box.style.display = '';
   list.innerHTML = '';
   ids.forEach(function(id) {
-    const ch = findChannel(id);
+    var ch = findCh(id);
     if (!ch) return;
-    const el = document.createElement('div');
+    var el = document.createElement('div');
     el.className = 'recent-item';
     el.innerHTML = '<div class="rec-icon" style="background:' + ch.iconBg + ';color:' + ch.color + '">' + ch.icon + '</div>'
       + '<span class="rec-name">' + ch.name + '</span><span class="rec-live">▶</span>';
@@ -454,31 +609,66 @@ function buildRecentBox() {
   });
 }
 
-function renderMiniSection(labelText, ids) {
-  const channels = ids.map(findChannel).filter(Boolean);
-  if (!channels.length) return;
-  const label = document.createElement('div'); label.className='cat-label'; label.textContent=labelText; sidebar.appendChild(label);
-  const grid = document.createElement('div'); grid.className='sidebar-mini-grid';
-  channels.forEach(ch => {
-    const card = document.createElement('div');
-    card.className = 'mini-ch-card' + (currentCh?.id===ch.id ? ' active':'');
-    card.innerHTML = `<span class="mini-ch-dot"></span>${ch.name}`;
-    card.onclick = () => openChannel(ch);
-    grid.appendChild(card);
-  });
-  sidebar.appendChild(grid);
-}
-
+// ── Filter tabs ────────────────────────────────────────────
 let activeCat = '';
 document.getElementById('filter-tabs').addEventListener('click', function(e) {
-  const btn = e.target.closest('.filter-tab');
+  var btn = e.target.closest('.filter-tab');
   if (!btn) return;
-  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-tab').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
   activeCat = btn.dataset.cat;
   buildSidebar(searchInput.value);
 });
 
+// ── Открытие с фильтром по категории (?cat=novosti и т.п.) — на этот адрес
+// теперь ведут теги категорий на страницах каналов (раньше вели на
+// несуществующие /novosti/, /kino/ и т.д., которые отдавали 404).
+(function() {
+  var CAT_SLUGS = {
+    international:'🌏 국제', educational:'📚 EBS', public:'🏛️ 공영·정부', regional:'📍 지역 방송', religious:'⛪ 종교', business:'📈 경제·쇼핑', music:'🎵 음악·라디오'
+  };
+  var slug = new URLSearchParams(location.search).get('cat');
+  var label = slug && CAT_SLUGS[slug];
+  if (!label) return;
+  var btn = Array.prototype.find.call(document.querySelectorAll('.filter-tab'), function(b) { return b.dataset.cat === label; });
+  if (btn) setTimeout(function() {
+    btn.click();
+    var tabs = document.getElementById('filter-tabs');
+    if (tabs) tabs.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 0);
+})();
+
+// ── Build sidebar ──────────────────────────────────────────
+function buildSidebar(filter) {
+  filter = filter || '';
+  const q = filter.toLowerCase();
+  [...sidebar.children].forEach(el => { if (!el.classList.contains('sidebar-search')) el.remove(); });
+  CHANNEL_GROUPS.forEach(group => {
+    if (activeCat && group.label !== activeCat) return;
+    const chs = group.channels.filter(ch => !q || ch.name.toLowerCase().includes(q) || ch.tags.some(t => t.includes(q) || tagName(t).toLowerCase().includes(q)));
+    if (!chs.length) return;
+    const lbl = document.createElement('div');
+    lbl.className = 'cat-label'; lbl.textContent = group.label;
+    sidebar.appendChild(lbl);
+    const grp = document.createElement('div');
+    grp.className = 'cat-group'; sidebar.appendChild(grp);
+    chs.forEach(ch => {
+      const item = document.createElement('div');
+      item.className = 'ch-item' + (currentCh && currentCh.id === ch.id ? ' active' : '');
+      item.setAttribute('aria-label', ch.name + ' — 실시간 시청');
+      item.innerHTML = (ch.logo
+          ? '<div class="ch-icon-s ch-logo-s"><img src="' + ch.logo + '" alt="' + ch.icon + '" loading="lazy"></div>'
+          : '<div class="ch-icon-s" style="background:' + ch.iconBg + ';color:' + ch.color + '">' + ch.icon + '</div>')
+        + '<div><div class="ch-name-s">' + ch.name + '</div><div class="ch-desc-s">' + ch.desc + '</div></div>'
+        + '<div class="live-indicator"></div>';
+      item.onclick = () => openChannel(ch);
+      grp.appendChild(item);
+    });
+  });
+}
+searchInput.addEventListener('input', function(e) { buildSidebar(e.target.value); });
+
+// ── Build tile grid (shown before a channel is selected) ────
 function buildTileGrid() {
   const gridEl = document.getElementById('tile-grid');
   if (!gridEl) return;
@@ -487,167 +677,328 @@ function buildTileGrid() {
     group.channels.forEach(ch => {
       const tile = document.createElement('div');
       tile.className = 'ch-tile';
-      tile.innerHTML = `<div class="ch-tile-icon" style="background:${ch.iconBg};color:${ch.color}">${ch.icon}</div><div class="ch-tile-name">${ch.name}</div>`;
+      tile.setAttribute('aria-label', ch.name + ' — 실시간 시청');
+      tile.innerHTML = (ch.logo
+          ? '<div class="ch-tile-icon ch-logo-s"><img src="' + ch.logo + '" alt="' + ch.icon + '" loading="lazy"></div>'
+          : '<div class="ch-tile-icon" style="background:' + ch.iconBg + ';color:' + ch.color + '">' + ch.icon + '</div>')
+        + '<div class="ch-tile-name">' + ch.name + '</div>';
       tile.onclick = () => openChannel(ch);
       gridEl.appendChild(tile);
     });
   });
 }
+buildTileGrid();
 
-function buildSidebar(filter='') {
-  [...sidebar.children].forEach(el => { if (!el.classList.contains('sidebar-search')) el.remove(); });
-  const q = filter.toLowerCase();
-  if (!q) {
-    const recentIds = getRecent();
-    if (recentIds.length) renderMiniSection('🕐 최근 시청', recentIds);
-    renderMiniSection('⭐ 인기 채널', POPULAR_IDS);
-  }
-  CHANNEL_GROUPS.forEach(group => {
-    if (activeCat && group.label !== activeCat) return;
-    const matching = group.channels.filter(ch => !q || ch.name.toLowerCase().includes(q) || ch.tags.some(t=>t.includes(q)));
-    if (!matching.length) return;
-    const label = document.createElement('div'); label.className='cat-label'; label.textContent=group.label; sidebar.appendChild(label);
-    const catGroup = document.createElement('div'); catGroup.className='cat-group'; sidebar.appendChild(catGroup);
-    matching.forEach(ch => {
-      const item = document.createElement('div');
-      item.className = 'ch-item' + (currentCh?.id===ch.id ? ' active':'');
-      item.innerHTML = `<div class="ch-icon-s" style="background:${ch.iconBg};color:${ch.color}">${ch.icon}</div><div><div class="ch-name-s">${ch.name}</div><div class="ch-desc-s">${ch.desc}</div></div><div class="live-indicator"></div>`;
-      item.onclick = () => openChannel(ch);
-      catGroup.appendChild(item);
-    });
-  });
-}
-searchInput.addEventListener('input', e => buildSidebar(e.target.value));
-
+// ── Open channel ───────────────────────────────────────────
 function openChannel(ch) {
-  currentCh = ch; saveRecent(ch.id); buildSidebar(searchInput.value); buildRecentBox();
+  currentCh = ch;
+  buildSidebar(searchInput.value);
   playerEmpty.classList.add('hidden');
-  document.getElementById('player-wrap').classList.remove('grid-mode');
-  npName.textContent = ch.name; npDesc.textContent = ch.desc; npBar.classList.add('visible');
+  var pw0 = document.getElementById('player-wrap');
+  if (pw0) pw0.classList.remove('grid-mode');
+  setTimeout(function() {
+    var el = document.getElementById('player-wrap');
+    var headerH = (document.querySelector('header') || {}).offsetHeight || 60;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }, 80);
+  npName.textContent = ch.name; npDesc.textContent = ch.desc;
+  npBar.classList.add('visible');
   liveBadge.style.setProperty('background', ch.color);
-  infoCard.style.display = 'block'; ciTitle.textContent = ch.name; ciDesc.textContent = ch.desc;
+  infoCard.style.display = 'block';
+  ciTitle.textContent = ch.name; ciDesc.textContent = ch.desc;
+  ciTags.innerHTML = ch.tags.map(function(t) { return '<span class="ci-tag">' + tagName(t) + '</span>'; }).join('');
   const activeItem = sidebar.querySelector('.ch-item.active');
-  if (activeItem) activeItem.scrollIntoView({behavior:'smooth', block:'nearest'});
-  clearTimeout(overlayTimer); tgOverlay.classList.remove('show');
-  // Soft Telegram overlay disabled — no longer shown during playback.
+  if (activeItem) activeItem.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  // Overlay: 1st show — 2min after stream start
+  addRecent(ch);
   loadStream(ch);
 }
 
-function setStatus(msg, isError=false) {
-  statusEl.innerHTML = isError ? `⚠️ ${msg}` : `<span class="status-dot"></span>${msg}`;
+// ── Stream ─────────────────────────────────────────────────
+function setStatus(msg, isError) {
+  statusEl.innerHTML = isError ? '⚠️ ' + msg : '<span class="status-dot"></span>' + msg;
   reloadBtn.style.display = isError ? 'block' : 'none';
 }
-function stopStream() { if (hls) { hls.destroy(); hls=null; } if (_stallTimer) { clearInterval(_stallTimer); _stallTimer = null; } _lastTime = -1; _stallCount = 0; video.src=''; liveBadge.style.display='none'; }
-
-let _fullCycles = 0, _netErrorCount = 0;
-let _stallTimer = null, _lastTime = -1, _stallCount = 0;
-async function loadStream(ch) {
+function stopStream() {
+  if (hls) { hls.destroy(); hls = null; }
+  try { video.removeAttribute('src'); video.load(); } catch(e) {}
+  liveBadge.style.display = 'none';
+}
+var _lastLoadStreamAt = 0;
+async function loadStream(ch, isRetry) {
+  var _nowTs = Date.now();
+  if (isRetry && _nowTs - _lastLoadStreamAt < 1500) return; // защита от шторма повторных пересозданий подряд
+  _lastLoadStreamAt = _nowTs;
   stopStream();
-  setStatus(_fullCycles > 0 ? '재연결 시도 중... (' + _fullCycles + ')' : '불러오는 중...');
-  _netErrorCount = 0;
-  const streamUrl = PROXY + '/stream?channel=' + ch.id;
+  _sessionStart = _nowTs; // отсчёт до профилактического реконнекта — заново с каждого (пере)подключения
+  _lastFrameCount = 0; _lastFrameProgressTime = _nowTs; // сброс счётчика кадров — video.load() обнуляет totalVideoFrames браузера
+  if (!isRetry) { _proxyRetries = 0; _fullCycles = 0; } // сброс счётчиков при ручном переключении канала
+  _netErrorCount = 0; // сброс счётчика сетевых ошибок при (пере)загрузке потока
+  var proxyUrl = _currentProxy();
+  setStatus('스트림 불러오는 중...');
+  const streamUrl = proxyUrl + '/stream?channel=' + ch.id;
+
   async function tryPlay() {
     video.muted = false; video.volume = 1;
-    try { await video.play(); userUnmuted = true; unmuteBtn.textContent = '🔇 소리 끄기'; }
-    catch(e) {
+    try {
+      await video.play();
+      userUnmuted = true; unmuteBtn.textContent = '🔇 소리 끄기';
+    } catch(e) {
       video.muted = true; userUnmuted = false; unmuteBtn.textContent = '🔊 소리 켜기';
-      try { await video.play(); } catch(e2) { setStatus('재생 버튼을 누르세요'); }
+      try { await video.play(); } catch(e2) { setStatus('▶ 버튼을 눌러 재생하세요'); }
     }
   }
+
   function onFatalError() {
-    _fullCycles++;
-    const delay = Math.min(3000 + (_fullCycles - 1) * 3000, 15000);
-    setStatus('연결 오류. 재연결 중...', true);
-    setTimeout(() => { if (currentCh === ch) loadStream(ch); }, delay);
+    // Циклически пробуем следующий прокси. Раньше после исчерпания всех прокси
+    // (PROXIES.length попыток) трансляция останавливалась навсегда с сообщением
+    // «недоступна» — если источник (например, cinerama.uz) сам обрывает сессию
+    // просмотра примерно через 10-12 минут независимо от прокси, зритель терял канал
+    // без возможности восстановления без ручной перезагрузки страницы. Теперь после
+    // полного круга начинаем заново с первого прокси (он к тому времени уже мог
+    // «остыть»), с растущей паузой между кругами, чтобы не долбить источник впустую.
+    _markProxyFailed();
+    _nextProxy();
+    if (_proxyIdx % PROXIES.length === 0) _fullCycles++;
+    var delay = _fullCycles > 0 ? Math.min(5000 + (_fullCycles - 1) * 3000, 15000) : 800;
+    setStatus(_fullCycles > 0 ? '재연결 중...' : '스트림 불러오는 중...', _fullCycles > 0);
+    setTimeout(function() { loadStream(ch, true); }, delay);
   }
-  _stallTimer = setInterval(() => {
-    if (video.paused || video.ended) return;
-    if (Math.abs(video.currentTime - _lastTime) < 0.05) {
-      _stallCount++;
-      if (_stallCount >= 2) { clearInterval(_stallTimer); _stallTimer = null; onFatalError(); }
-    } else { _stallCount = 0; }
-    _lastTime = video.currentTime;
-  }, 5000);
+
   if (Hls.isSupported()) {
-    hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true, backBufferLength:30, capLevelToPlayerSize:true, maxBufferLength:20});
-    hls.loadSource(streamUrl); hls.attachMedia(video);
-    try { if (window.rtvQuality) rtvQuality.attach(hls, video); } catch (e) {}
-    hls.on(Hls.Events.MANIFEST_PARSED, async () => { _fullCycles = 0; setStatus('실시간 — ' + ch.name); liveBadge.style.display='flex'; await tryPlay(); });
-    hls.on(Hls.Events.FRAG_LOADED, () => { _netErrorCount = 0; });
-    hls.on(Hls.Events.ERROR, (e,data) => {
-      if (!data.fatal) return;
-      if (data.type===Hls.ErrorTypes.NETWORK_ERROR) {
-        _netErrorCount++;
-        try{hls.startLoad();}catch(e){}
-        setTimeout(() => { if (hls && _netErrorCount >= 3) onFatalError(); }, 3000);
+    hls = new Hls({ startLevel:0, liveSyncDurationCount:3, enableWorker:true, backBufferLength:30, manifestLoadingMaxRetry:2, fragLoadingMaxRetry:3, levelLoadingMaxRetry:2 });
+    hls.loadSource(streamUrl);
+    hls.attachMedia(video);
+    try { window.rtvQuality && rtvQuality.attach(hls, video); } catch (e) {}
+    hls.on(Hls.Events.MANIFEST_PARSED, async function() {
+      _fullCycles = 0; // успешное переподключение — сбрасываем нарастающую паузу
+      setStatus('실시간 — ' + ch.name);
+      liveBadge.style.display = 'flex';
+      await tryPlay();
+    });
+    // Успешная загрузка фрагмента — доказательство, что поток жив: сбрасываем счётчик ошибок
+    hls.on(Hls.Events.FRAG_LOADED, function() { _netErrorCount = 0; });
+    var _nonFatalErrCount = 0, _nonFatalErrWinStart = Date.now();
+    hls.on(Hls.Events.ERROR, function(e, data) {
+      if (!data.fatal) {
+        // Шквал некритичных ошибок подряд — признак реально сломанного
+        // подключения, даже если ни одна из них не помечена как fatal.
+        var _now2 = Date.now();
+        if (_now2 - _nonFatalErrWinStart > 5000) { _nonFatalErrWinStart = _now2; _nonFatalErrCount = 0; }
+        _nonFatalErrCount++;
+        if (_nonFatalErrCount > 15) { _nonFatalErrCount = 0; onFatalError(); }
         return;
       }
-      if (data.type===Hls.ErrorTypes.MEDIA_ERROR) { try{hls.recoverMediaError();}catch(e){} return; }
+      if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+        // Ошибка на уровне плейлиста (не отдельного сегмента) — источник/прокси
+        // сломан целиком, ждать 3 сетевые ошибки подряд бессмысленно, сразу
+        // переключаем прокси.
+        if (data.details === 'manifestLoadError' || data.details === 'manifestLoadTimeOut'
+          || data.details === 'levelLoadError' || data.details === 'levelLoadTimeOut') {
+          onFatalError();
+          return;
+        }
+        _netErrorCount++;
+        try { hls.startLoad(); } catch(e) {}
+        // Переключаем прокси только если несколько сетевых ошибок подряд НЕ были
+        // перекрыты успешной загрузкой фрагмента (FRAG_LOADED сбрасывает счётчик выше).
+        // Раньше здесь проверялось устаревшее значение data.fatal, которое всегда true —
+        // из-за этого один-единственный кратковременный сбой сети гарантированно рвал
+        // трансляцию через 3 секунды, даже если startLoad() уже всё восстановил.
+        setTimeout(function() {
+          if (hls && _netErrorCount >= 3) onFatalError();
+        }, 3000);
+        return;
+      }
+      if (data.type === Hls.ErrorTypes.MEDIA_ERROR) { try { hls.recoverMediaError(); } catch(e) {} return; }
       onFatalError();
     });
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
     video.src = streamUrl;
-    try { if (window.rtvQuality) rtvQuality.attachNative(video, streamUrl); } catch (e) {}
-    video.addEventListener('loadedmetadata', async () => { _fullCycles = 0; setStatus('실시간 — ' + ch.name); liveBadge.style.display='flex'; await tryPlay(); }, {once:true});
-    video.addEventListener('error', () => onFatalError(), {once:true});
+    try { window.rtvQuality && rtvQuality.attachNative(video, streamUrl); } catch (e) {}
+    video.addEventListener('loadedmetadata', async function() {
+      setStatus('실시간 — ' + ch.name);
+      liveBadge.style.display = 'flex';
+      await tryPlay();
+    }, { once:true });
+    video.addEventListener('error', function() { onFatalError(); }, { once:true });
   } else {
     setStatus('브라우저가 HLS를 지원하지 않습니다', true);
   }
 }
 
-unmuteBtn.addEventListener('click', () => {
-  if (video.muted) { video.muted=false; video.volume=1; userUnmuted=true; unmuteBtn.textContent='🔇 소리 끄기'; }
-  else { video.muted=true; userUnmuted=false; unmuteBtn.textContent='🔊 소리 켜기'; }
+// ── Сторож зависания + профилактический реконнект ───────────
+// На страницах отдельных каналов такая защита уже была, но на главной
+// странице (где реально смотрит большинство пользователей — через плитки
+// каналов) её не было вовсе. Если источник (например, cinerama.uz) молча
+// переставал отдавать новые сегменты без fatal-ошибки HLS.js, трансляция
+// зависала навсегда без возможности восстановления без ручной перезагрузки —
+// а перезагрузка не помогала, если источник ещё не отошёл сам.
+// Дополнительно: cinerama.uz обрывает сессию просмотра примерно через
+// 10-15 минут независимо от прокси — вместо ожидания видимого зависания
+// профилактически пересоздаём подключение заранее, пока поток ещё идёт
+// нормально, чтобы разрыв прошёл незаметно, одной короткой буферизацией.
+var _lastProgressTime = Date.now();
+var _lastVideoTime = 0;
+var _lastFrameCount = 0;
+var _lastFrameProgressTime = Date.now();
+var PREEMPTIVE_REFRESH_MS = 6 * 60 * 1000; // с запасом ниже наблюдаемых сбоев cinerama.uz (иногда раньше 10 мин)
+video.addEventListener('timeupdate', function() {
+  if (video.currentTime !== _lastVideoTime) {
+    _lastVideoTime = video.currentTime;
+    _lastProgressTime = Date.now();
+  }
 });
-reloadBtn.addEventListener('click', () => { if (currentCh) loadStream(currentCh); });
+setInterval(function() {
+  if (!hls || !currentCh || video.seeking) return;
+  if (video.readyState >= 3 && typeof video.getVideoPlaybackQuality === 'function') {
+    var _vpq = video.getVideoPlaybackQuality();
+    if (_vpq.totalVideoFrames > _lastFrameCount) {
+      _lastFrameCount = _vpq.totalVideoFrames;
+      _lastFrameProgressTime = Date.now();
+    } else if (!video.paused && Date.now() - _lastFrameProgressTime > 9000) {
+      // currentTime может тикать (аудио/системные часы), пока сам видеокадр не
+      // обновляется — картинка визуально замирает/чернеет при формально "живом"
+      // потоке. Проверка по currentTime это не ловит.
+      _lastFrameProgressTime = Date.now();
+      _lastProgressTime = Date.now();
+      setStatus('화면 멈춤 감지, 재연결 중...', true);
+      loadStream(currentCh, true);
+      return;
+    }
+  }
+  if (video.paused && video.readyState < 3) {
+    // На главной нет пользовательского контрола паузы — остановка без буфера
+    // означает зависание/сбой, а не намеренную паузу зрителя.
+    if (Date.now() - _lastProgressTime > 12000) {
+      _lastProgressTime = Date.now();
+      setStatus('재생 복구 중...', true);
+      loadStream(currentCh, true);
+    }
+    return;
+  }
+  if (Date.now() - _lastProgressTime > 18000) {
+    _lastProgressTime = Date.now();
+    setStatus('멈춤 감지, 재연결 중...', true);
+    loadStream(currentCh, true);
+    return;
+  }
+  if (video.readyState >= 3 && Date.now() - _sessionStart > PREEMPTIVE_REFRESH_MS) {
+    // Прокси тоже переключаем: если фриз связан с переиспользуемым сетевым
+    // соединением конкретного прокси, новый прокси — это реально другое
+    // соединение, а не просто повторный запрос по тому же пути.
+    _nextProxy();
+    loadStream(currentCh, true);
+  }
+}, 5000);
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'visible' && hls && currentCh) {
+    if (Date.now() - _lastProgressTime > 15000) {
+      _lastProgressTime = Date.now();
+      setStatus('일시정지 후 복구 중...', true);
+      loadStream(currentCh, true);
+    }
+  }
+});
 
+// ── Unmute ─────────────────────────────────────────────────
+unmuteBtn.addEventListener('click', function() {
+  if (video.muted) {
+    video.muted = false; video.volume = 1; userUnmuted = true;
+    unmuteBtn.textContent = '🔇 소리 끄기';
+  } else {
+    video.muted = true; userUnmuted = false;
+    unmuteBtn.textContent = '🔊 소리 켜기';
+  }
+});
+reloadBtn.addEventListener('click', function() { if (currentCh) loadStream(currentCh); });
+
+// ── Fullscreen ─────────────────────────────────────────────
 const playerWrap = document.getElementById('player-wrap');
-fsBtn.addEventListener('click', () => {
+fsBtn.addEventListener('click', function() {
   const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
-  if (fsEl) { if (document.exitFullscreen) document.exitFullscreen(); else if (document.webkitExitFullscreen) document.webkitExitFullscreen(); fsBtn.textContent='⛶ 전체화면'; }
-  else { if (playerWrap.requestFullscreen) playerWrap.requestFullscreen().catch(()=>{}); else if (playerWrap.webkitRequestFullscreen) playerWrap.webkitRequestFullscreen(); else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen(); fsBtn.textContent='✕ 나가기'; }
+  if (fsEl) {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    fsBtn.textContent = '⛶ 전체화면';
+  } else {
+    if (playerWrap.requestFullscreen) playerWrap.requestFullscreen().catch(function(){});
+    else if (playerWrap.webkitRequestFullscreen) playerWrap.webkitRequestFullscreen();
+    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+    fsBtn.textContent = '✕ 나가기';
+  }
 });
-document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) fsBtn.textContent='⛶ 전체화면'; });
-document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) fsBtn.textContent='⛶ 전체화면'; });
-video.addEventListener('webkitbeginfullscreen', () => { fsBtn.textContent='✕ 나가기'; });
-video.addEventListener('webkitendfullscreen', () => { fsBtn.textContent='⛶ 전체화면'; });
+document.addEventListener('fullscreenchange', function() { if (!document.fullscreenElement) fsBtn.textContent = '⛶ 전체화면'; });
+document.addEventListener('webkitfullscreenchange', function() { if (!document.webkitFullscreenElement) fsBtn.textContent = '⛶ 전체화면'; });
+video.addEventListener('webkitbeginfullscreen', function() { fsBtn.textContent = '✕ 나가기'; });
+video.addEventListener('webkitendfullscreen', function() { fsBtn.textContent = '⛶ 전체화면'; });
 
-overlaySkip.addEventListener('click', () => { tgOverlay.classList.remove('show'); clearTimeout(overlayTimer); video.play().catch(()=>{}); });
-
-(function initControlsFade() {
-  const wrap = document.getElementById('player-wrap'); let hideTimer=null;
-  function showControls() { wrap.classList.add('controls-visible'); clearTimeout(hideTimer); hideTimer=setTimeout(()=>wrap.classList.remove('controls-visible'),3000); }
-  wrap.addEventListener('mousemove', showControls); wrap.addEventListener('mouseenter', showControls);
-  wrap.addEventListener('mouseleave', () => { clearTimeout(hideTimer); hideTimer=setTimeout(()=>wrap.classList.remove('controls-visible'),600); });
-  wrap.addEventListener('touchstart', () => { showControls(); }, {passive:true});
+// ── Controls fade ──────────────────────────────────────────
+(function() {
+  const wrap = document.getElementById('player-wrap');
+  let hideTimer = null;
+  function showControls() {
+    wrap.classList.add('controls-visible');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function() { wrap.classList.remove('controls-visible'); }, 3000);
+  }
+  wrap.addEventListener('mousemove', showControls);
+  wrap.addEventListener('mouseenter', showControls);
+  wrap.addEventListener('mouseleave', function() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function() { wrap.classList.remove('controls-visible'); }, 600);
+  });
+  wrap.addEventListener('touchstart', function() { showControls(); }, { passive:true });
 })();
 
-(function initCustomScrollbar() {
-  const sb = document.getElementById('channel-sidebar'); const track=document.getElementById('scroll-track'); const thumb=document.getElementById('scroll-thumb');
+// ── Custom scrollbar ───────────────────────────────────────
+(function() {
+  const sb = document.getElementById('channel-sidebar');
+  const track = document.getElementById('scroll-track');
+  const thumb = document.getElementById('scroll-thumb');
   if (!sb || !track || !thumb) return;
   function updateThumb() {
-    const trackH=track.clientHeight; const ratio=sb.clientHeight/sb.scrollHeight; const thumbH=Math.max(28, ratio*trackH); const maxTop=trackH-thumbH;
-    const scrollR = sb.scrollHeight>sb.clientHeight ? sb.scrollTop/(sb.scrollHeight-sb.clientHeight) : 0;
-    thumb.style.height=thumbH+'px'; thumb.style.top=(scrollR*maxTop)+'px';
+    const trackH = track.clientHeight;
+    const ratio = sb.clientHeight / sb.scrollHeight;
+    const thumbH = Math.max(28, ratio * trackH);
+    const maxTop = trackH - thumbH;
+    const scrollR = sb.scrollHeight > sb.clientHeight ? sb.scrollTop / (sb.scrollHeight - sb.clientHeight) : 0;
+    thumb.style.height = thumbH + 'px'; thumb.style.top = (scrollR * maxTop) + 'px';
   }
-  sb.addEventListener('scroll', updateThumb, {passive:true}); window.addEventListener('resize', updateThumb);
-  new MutationObserver(updateThumb).observe(sb, {childList:true, subtree:false});
-  let dragging=false, startY=0, startTop=0;
-  thumb.addEventListener('mousedown', e => { dragging=true; startY=e.clientY; startTop=sb.scrollTop; e.preventDefault(); });
-  document.addEventListener('mousemove', e => { if(!dragging) return; const trackH=track.clientHeight; const thumbH=thumb.clientHeight; const delta=(e.clientY-startY)/(trackH-thumbH); sb.scrollTop=startTop+delta*(sb.scrollHeight-sb.clientHeight); });
-  document.addEventListener('mouseup', () => { dragging=false; });
-  track.addEventListener('click', e => {
-    if (e.target===thumb) return;
-    const rect=track.getBoundingClientRect(); const clickY=e.clientY-rect.top; const thumbH=thumb.clientHeight; const trackH=track.clientHeight;
-    const ratio=Math.max(0, Math.min(1, (clickY-thumbH/2)/(trackH-thumbH))); sb.scrollTop=ratio*(sb.scrollHeight-sb.clientHeight);
+  sb.addEventListener('scroll', updateThumb, { passive:true });
+  window.addEventListener('resize', updateThumb);
+  new MutationObserver(updateThumb).observe(sb, { childList:true, subtree:false });
+  let dragging = false, startY = 0, startTop = 0;
+  thumb.addEventListener('mousedown', function(e) { dragging = true; startY = e.clientY; startTop = sb.scrollTop; e.preventDefault(); });
+  document.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    const delta = (e.clientY - startY) / (track.clientHeight - thumb.clientHeight);
+    sb.scrollTop = startTop + delta * (sb.scrollHeight - sb.clientHeight);
+  });
+  document.addEventListener('mouseup', function() { dragging = false; });
+  track.addEventListener('click', function(e) {
+    if (e.target === thumb) return;
+    const rect = track.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (e.clientY - rect.top - thumb.clientHeight / 2) / (track.clientHeight - thumb.clientHeight)));
+    sb.scrollTop = ratio * (sb.scrollHeight - sb.clientHeight);
   });
   setTimeout(updateThumb, 150);
 })();
 
 buildSidebar();
 buildPopular();
-buildRecentBox();
-buildTileGrid();
+buildRecent();
+
+// Авто-открытие канала по хэшу URL (переход со страниц категорий)
+(function(){
+  var h = location.hash.replace('#','');
+  if(!h) return;
+  var all = CHANNEL_GROUPS.reduce(function(a,g){return a.concat(g.channels);}, []);
+  var ch = all.find(function(c){return c.id===h;});
+  if(ch) openChannel(ch);
+})();
+
 </script>
 </body>
 </html>
