@@ -43,152 +43,174 @@
   ]}
   </script>
   <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#080810;--bg2:#0f0f1c;--bg3:#151525;--card:#12121f;--border:#1e1e32;--border2:#252540;
-      --accent:#0047A0;--accent2:#1c66d4;--red:#CD2E3A;--text:#e2e2f0;--muted:#8a8aa5;
-      --tg:#229ED9;--radius:14px;--radius-sm:8px}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
-a{color:inherit;text-decoration:none}
-header{position:sticky;top:0;z-index:100;background:rgba(8,8,16,.95);backdrop-filter:blur(16px);
-        border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;padding:0 24px;height:60px}
-.logo{display:flex;align-items:center;gap:8px;font-size:24px;font-weight:900;letter-spacing:1px;flex-shrink:0}
-.logo .red{color:var(--red)} .logo .blue{color:var(--accent2)}
-.header-right{margin-left:auto;display:flex;align-items:center;gap:10px}
-.tg-btn{display:flex;align-items:center;gap:7px;background:var(--tg);color:#fff;
-        padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;transition:.2s}
-.tg-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
-.back-btn{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);
-           color:var(--muted);padding:7px 14px;border-radius:20px;font-size:13px;transition:.2s}
-.back-btn:hover{color:var(--text);border-color:var(--border2)}
-.hero{background:linear-gradient(135deg,#060612 0%,#0a0a20 50%,#08081a 100%);
-      border-bottom:1px solid var(--border);padding:44px 24px 32px;text-align:center}
-.hero-icon{font-size:48px;margin-bottom:10px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(229,57,53,.1);
-            border:1px solid rgba(229,57,53,.3);border-radius:20px;padding:5px 14px;
-            font-size:12px;font-weight:700;color:var(--red);margin-bottom:14px}
-.live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1s infinite;flex-shrink:0}
-.hero h1{font-size:clamp(24px,4.4vw,38px);font-weight:900;line-height:1.2;margin-bottom:8px}
-.hero-count{font-size:14px;color:var(--muted);margin-bottom:22px}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;
-             padding:13px 26px;border-radius:28px;font-size:15px;font-weight:800;transition:.2s}
-.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
-.cat-nav{max-width:1100px;margin:0 auto;padding:22px 24px 0;display:flex;gap:8px;flex-wrap:wrap}
-.cat-pill{background:var(--card);border:1px solid var(--border);border-radius:20px;
-          padding:7px 14px;font-size:13px;font-weight:600;transition:.2s;white-space:nowrap}
-.cat-pill:hover{border-color:var(--border2);background:var(--bg3)}
-.cat-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.intro-block{max-width:900px;margin:22px auto 0;padding:0 24px}
-.intro-tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.itab{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 14px;
-      font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
-.itab.active{background:var(--border2);border-color:var(--border2)}
-.intro-text{font-size:14px;color:var(--muted);line-height:1.7;display:none}
-.intro-text.active{display:block}
-.channels-section{max-width:1100px;margin:22px auto;padding:0 24px}
-.channels-section h2{font-size:18px;font-weight:800;margin-bottom:16px}
-.ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-.ch-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);
-         padding:16px 14px;transition:.2s;display:flex;flex-direction:column;gap:6px}
-.ch-card:hover{border-color:var(--accent);background:var(--bg3);transform:translateY(-2px)}
-.ch-name{font-size:15px;font-weight:700;line-height:1.3}
-.ch-desc{font-size:11px;color:var(--muted)}
-.ch-live{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--red);font-weight:700}
-.player-wrap{position:relative;background:#000;border-radius:var(--radius);overflow:hidden;
-             border:1px solid var(--border);aspect-ratio:16/9;max-width:900px;margin:20px auto 0}
-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.player-status{font-size:13px;color:var(--muted);text-align:center;padding:10px 0}
-.seo-block{max-width:900px;margin:22px auto;padding:0 24px 24px}
-.seo-block .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px}
-.seo-block h2{font-size:17px;font-weight:800;margin-bottom:10px}
-.seo-block p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:8px}
-.similar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:10px}
-.faq details{margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:10px}
-.faq summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none}
-.faq p{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6}
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px;text-align:center;margin-top:40px}
-.footer-logo{font-size:17px;font-weight:900;margin-bottom:8px}
-.footer-links{display:flex;gap:18px;justify-content:center;margin-bottom:8px;flex-wrap:wrap}
-.footer-links a{font-size:13px;color:var(--muted)}
-.footer-links a:hover{color:var(--text)}
-.footer-copy{font-size:12px;color:var(--muted)}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-@media(max-width:600px){header{padding:0 12px;height:52px}.logo{font-size:19px}
-  .ch-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
-
-/* Left channel sidebar — same look as the homepage, but plain navigational links
-   (each page here is its own SEO-indexed URL, so no JS-driven player switching). */
-.layout-wrap{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;gap:20px;align-items:flex-start}
-.layout-wrap>.channel-sidebar,.layout-wrap>.content-col{min-width:0}
-.channel-sidebar{width:280px;flex-shrink:0;background:var(--card);border:1px solid var(--border);
-                  border-radius:var(--radius);padding:14px;max-height:80vh;overflow-y:auto;
-                  position:sticky;top:76px}
-.channel-sidebar::-webkit-scrollbar{width:5px}
-.channel-sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
-.sidebar-search{position:relative;margin-bottom:10px}
-.sidebar-search input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);
-                       border-radius:var(--radius-sm);padding:9px 12px 9px 36px;font-size:13px;
-                       font-family:inherit;outline:none}
-.sidebar-search input:focus{border-color:var(--accent)}
-.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px}
-.cat-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;
-           letter-spacing:1.5px;padding:12px 6px 4px}
-.cat-label:first-child{padding-top:0}
-.cat-group{display:flex;flex-direction:column;gap:2px;margin-bottom:4px}
-.ch-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;transition:all .15s;border:1px solid transparent}
-.ch-item:hover{background:var(--bg3);border-color:var(--border)}
-.ch-item.active{background:linear-gradient(135deg,rgba(0,71,160,.15),rgba(28,102,212,.08));border-color:rgba(28,102,212,.3)}
-.ch-item.active .ch-name-s{color:var(--accent2)}
-.ch-icon-s{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-           font-size:9px;font-weight:900;flex-shrink:0}
-.ch-name-s{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ch-desc-s{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.live-indicator{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;
-                 flex-shrink:0;margin-left:auto}
-.content-col{flex:1;min-width:0}
-@media(max-width:900px){.layout-wrap{flex-direction:column;padding:0 12px}
-  .channel-sidebar{width:100%;max-height:320px;position:static}}
-
-.cat-tag-wrap{margin:10px 0 2px}
-.cat-tag{display:inline-block;background:var(--bg3);border:1px solid var(--border);color:var(--accent2);font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;transition:.2s}
-.cat-tag:hover{border-color:var(--accent)}
-.faq-box details{margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:10px}
-.faq-box details:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.faq-box summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.faq-box summary::-webkit-details-marker{display:none}
-.faq-box p{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6}
-.tg-card-mob{background:linear-gradient(135deg,#0d1f3c 0%,#0a2a3f 100%);border:1px solid rgba(34,158,217,.25);text-align:center}
-.tg-card-mob .tg-card-icon{width:52px;height:52px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
-.tg-card-mob h3{font-size:16px;font-weight:800;margin-bottom:6px}
-.tg-card-mob p{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:14px}
-.tg-btn-card{display:inline-flex;align-items:center;gap:8px;background:#229ED9;color:#fff;padding:11px 20px;border-radius:24px;font-size:14px;font-weight:700;transition:.2s}
-.tg-btn-card:hover{background:#1a8dc5}
-.tg-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:10px}
-.all-channels-cta{display:flex;align-items:center;gap:10px;max-width:1200px;margin:0 auto;padding:10px 24px;background:var(--card);border-bottom:1px solid var(--border);font-size:13px;font-weight:700;color:var(--accent2);transition:.2s}
-.all-channels-cta:hover{background:var(--bg3)}
-.all-channels-cta-arrow{margin-left:auto}
-.breadcrumb{max-width:1200px;margin:0 auto;padding:10px 24px 0;font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.breadcrumb a{color:var(--muted)}
-.breadcrumb a:hover{color:var(--text)}
-@media(max-width:900px){.all-channels-cta,.breadcrumb{padding-left:12px;padding-right:12px}}
-
-.cat-tag-wrap{margin:10px 0}
-.cat-tag{display:inline-block;background:#f0f2f5;color:#333;font-size:13px;padding:4px 10px;border-radius:20px;text-decoration:none}
-.cat-tag:hover{background:#e2e5ea}
-.card.faq-box details{border-bottom:1px solid #eee;padding:10px 0}
-.card.faq-box details:last-child{border-bottom:none}
-.card.faq-box summary{cursor:pointer;font-weight:600;list-style:none}
-.card.faq-box summary::-webkit-details-marker{display:none}
-.card.faq-box summary:before{content:'❯ ';color:#999}
-.card.faq-box p{margin-top:6px;color:#555;font-size:14px;line-height:1.6}
-.card.tg-card-mob{display:none}
-.card.tg-card-mob .tg-btn-card{display:inline-block;margin-top:8px;background:#229ED9;color:#fff;padding:8px 16px;border-radius:8px;text-decoration:none;font-weight:600}
-.card.tg-card-mob .tg-sub{font-size:13px;color:#777;margin-top:4px}
-@media (max-width:768px){
-.card.tg-card-mob{display:block}
-}
-</style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#080810;--bg2:#0f0f1c;--bg3:#151525;--card:#12121f;--border:#1e1e32;--border2:#252540;
+      --text:#e2e2f0;--muted:#555570;--muted2:#383855;
+      --accent:#0047A0;--accent2:#1c66d4;--red:#CD2E3A;
+      --tg-color:#229ED9;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.6)}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    ::-webkit-scrollbar{width:6px;height:6px}
+    ::-webkit-scrollbar-track{background:var(--bg2)}
+    ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+    header{background:rgba(8,8,16,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+      padding:0 20px;height:60px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+    .logo-text{display:flex;align-items:center}
+    .logo{font-size:30px;font-weight:900;display:flex;align-items:center;gap:6px}
+    .logo .r{color:#CC0000}.logo .w{color:#ffffff}.logo .b{color:var(--accent2)}
+    .logo-flag{font-size:38px}
+    nav a{color:var(--muted);font-size:14px;font-weight:500;padding:6px 10px;border-radius:8px;transition:.15s}
+    nav a:hover{color:var(--text);background:var(--bg3)}
+    .h-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+    .lang-switch{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:4px 6px}
+    .lang-switch a{padding:3px 8px;border-radius:14px;font-size:12px;font-weight:700;color:var(--muted);transition:.15s}
+    .lang-switch a.active{background:var(--accent2);color:#fff}
+    .tg-btn{display:flex;align-items:center;gap:7px;background:var(--tg-color);color:#fff;
+      padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
+    .tg-btn:hover{background:#1a8dc5}
+    .breadcrumb{padding:10px 20px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border);display:flex;gap:6px;align-items:center}
+    .breadcrumb a{color:var(--muted);transition:.15s}.breadcrumb a:hover{color:var(--accent2)}
+    .breadcrumb span{color:var(--muted2)}
+    .page-title-wrap{max-width:1400px;margin:0 auto;padding:14px 16px 12px}
+    h1{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:8px}
+    .channel-meta{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+    .cat-badge{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--accent2)}
+    .live-badge{display:flex;align-items:center;gap:5px;background:rgba(204,0,0,.12);border:1px solid rgba(204,0,0,.3);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--red)}
+    .live-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .page-wrap{max-width:1400px;margin:0 auto;padding:0 16px 16px;display:grid;
+      grid-template-columns:268px 1fr;gap:16px;align-items:start}
+    .main-col{display:flex;flex-direction:column;gap:16px}
+    .side-col{display:flex;flex-direction:column;gap:16px}
+    .left-sidebar{position:sticky;top:76px;height:calc(100vh - 96px);
+      display:flex;flex-direction:column;gap:0;overflow:hidden;
+      background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius)}
+    .sidebar-search-wrap{padding:12px 12px 8px;flex-shrink:0;position:relative}
+    .sidebar-search-wrap input{width:100%;background:var(--bg3);border:1px solid var(--border);
+      color:var(--text);border-radius:8px;padding:8px 12px 8px 34px;font-size:13px;
+      font-family:inherit;outline:none;transition:border-color .2s}
+    .sidebar-search-wrap input:focus{border-color:var(--accent2)}
+    .sidebar-search-wrap input::placeholder{color:var(--muted)}
+    .s-icon{position:absolute;left:22px;top:50%;transform:translateY(-50%);font-size:13px;pointer-events:none}
+    .ch-list-scroll{flex:1;overflow-y:auto;padding:4px 8px 12px;scrollbar-width:thin;scrollbar-color:var(--border2) transparent}
+    .ch-list-scroll::-webkit-scrollbar{width:4px}
+    .ch-list-scroll::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+    .cat-label-s{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;padding:12px 4px 4px}
+    .cat-label-s:first-child{padding-top:4px}
+    .ch-item-s{display:flex;align-items:center;gap:9px;padding:8px;border-radius:10px;cursor:pointer;transition:all .15s;border:1px solid transparent;text-decoration:none;color:var(--text)}
+    .ch-item-s:hover{background:var(--bg3);border-color:var(--border)}
+    .ch-item-s.active{background:linear-gradient(135deg,rgba(0,53,128,.18),rgba(26,95,217,.09));border-color:rgba(26,95,217,.35)}
+    .ch-item-s.active .ch-name-s{color:var(--accent2)}
+    .ch-icon-s{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0}.ch-logo-s{background:var(--card,#12121f)!important;padding:5px;box-sizing:border-box}.ch-logo-s img{width:100%;height:100%;object-fit:contain;display:block}
+    .ch-name-s{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ch-desc-s{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .live-dot-s{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;flex-shrink:0;margin-left:auto}
+    .player-wrap{position:relative;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);aspect-ratio:16/9}
+    video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+    .player-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg2);flex-direction:column;gap:12px;cursor:pointer}
+    .play-btn{width:70px;height:70px;background:var(--accent2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;transition:.2s}
+    .play-btn:hover{transform:scale(1.08);background:#1565c0}
+    .fs-btn{position:absolute;bottom:10px;right:10px;z-index:50;background:rgba(0,0,0,.65);color:#fff;border:none;border-radius:5px;width:34px;height:34px;font-size:17px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .2s;line-height:1}
+    .fs-btn:hover{background:rgba(0,0,0,.9)}
+    .player-wrap:hover .fs-btn{display:flex}
+    @media(hover:none),(pointer:coarse){.fs-btn{display:flex}}
+    .player-status{font-size:13px;color:var(--muted);text-align:center;padding:6px 0;display:flex;align-items:center;justify-content:center;gap:6px}
+    .status-dot{width:7px;height:7px;background:var(--accent2);border-radius:50%;animation:pulse 1.2s infinite}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .pop-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+    .pop-title{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+    .pop-item{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:8px;border:1px solid var(--border);margin-bottom:5px;cursor:pointer;transition:all .15s;text-decoration:none;color:inherit}
+    .pop-item:last-child{margin-bottom:0}
+    .pop-item:hover{background:var(--bg3);border-color:var(--accent2)}
+    .pop-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0}
+    .pop-name{font-size:12px;font-weight:600;flex:1}
+    .pop-live{font-size:9px;font-weight:800;color:var(--red)}
+    .desc-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+    .desc-box h2{font-size:18px;font-weight:800;margin-bottom:8px}
+    .desc-box p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:10px}
+    .desc-box p:last-child{margin-bottom:0}
+    .cat-tag-wrap{margin-bottom:12px}
+    .cat-tag{display:inline-flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:3px 12px;font-size:12px;color:var(--accent);text-decoration:none;font-weight:600;transition:.2s}
+    .cat-tag:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .faq-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+    .faq-box h2{font-size:16px;font-weight:800;margin-bottom:14px}
+    details{margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:10px}
+    details:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    summary{cursor:pointer;font-weight:700;font-size:13px;list-style:none;display:flex;justify-content:space-between}
+    details p{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6}
+    .tg-card{background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:1px solid rgba(34,158,217,.3);border-radius:var(--radius);padding:20px;text-align:center}
+    .tg-card-live{display:none;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--red);margin-bottom:12px}
+    .tg-card-live-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite;flex-shrink:0}
+    .tg-card h3{font-size:15px;font-weight:800;margin-bottom:8px}
+    .tg-card p{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:14px;line-height:1.5}
+    .tg-card a.tg-btn-card{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--tg-color);color:#fff;padding:10px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:.2s}
+    .tg-card a.tg-btn-card:hover{background:#1a8dc5}
+    .tg-sub{font-size:11px;color:rgba(255,255,255,.25);margin-top:8px}
+    .tg-mob-banner{display:none;align-items:center;gap:12px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:2px solid #229ED9;border-radius:10px;padding:13px 16px;text-decoration:none;color:#fff;transition:.2s;animation:tgPulse 2s ease-in-out infinite}
+    .tg-mob-banner:hover{background:linear-gradient(135deg,#0d2540,#0c3050);border-color:rgba(34,158,217,.6)}
+    .tg-mob-banner-icon{width:40px;height:40px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .tg-mob-banner-text{flex:1}
+    .tg-mob-banner-title{font-size:14px;font-weight:700;margin-bottom:2px}
+    .tg-mob-banner-sub{font-size:11px;color:rgba(255,255,255,.55)}
+    .tg-banner-desk{display:none}
+    @media(min-width:1025px){.tg-banner-desk{display:flex;align-items:center;gap:10px;padding:10px 14px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:1px solid rgba(34,158,217,.35);border-radius:var(--radius);text-decoration:none;color:#fff;transition:.2s}.tg-banner-desk:hover{background:linear-gradient(135deg,#0d2540,#0c3050);border-color:rgba(34,158,217,.6)}.tg-banner-desk-icon{width:30px;height:30px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.tg-banner-desk-text{flex:1;font-size:13px;color:rgba(255,255,255,.85)}.tg-banner-desk-text b{color:#fff}.tg-banner-desk-arrow{font-size:15px;opacity:.6;flex-shrink:0}}
+    .related-section{max-width:1400px;margin:0 auto;padding:0 16px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    @media(min-width:1025px){.main-col{max-width:960px;margin:0 auto;width:100%}}
+    .sim-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+    .sim-box h3{font-size:14px;font-weight:800;margin-bottom:12px;color:var(--muted)}
+    .sim-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;border:1px solid var(--border);margin-bottom:6px;text-decoration:none;color:var(--text);transition:.15s}
+    .sim-item:hover{background:var(--bg3);border-color:var(--accent2)}
+    .sim-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0}
+    .sim-name{font-size:13px;font-weight:600}
+    .sim-cat{font-size:11px;color:var(--muted)}
+    .sim-live{margin-left:auto;font-size:10px;font-weight:800;color:var(--red);flex-shrink:0}
+    .tg-card-mob{display:none}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 24px}
+    .footer-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-logo{font-size:16px;font-weight:900}
+    .footer-links{display:flex;gap:20px}
+    .footer-links a{font-size:13px;color:var(--muted);transition:color .2s}
+    .footer-links a:hover{color:var(--text)}
+    .footer-copy{font-size:12px;color:var(--muted2)}
+    .footer-tg a{display:inline-flex;align-items:center;gap:7px;background:var(--tg-color);color:white;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;transition:all .2s}
+    .footer-tg a:hover{background:#1a8dc5}
+    .all-channels-cta{display:none}
+    @media(max-width:1024px){.page-wrap{grid-template-columns:1fr}.left-sidebar{display:none}.all-channels-cta{display:flex;align-items:center;gap:10px;max-width:1400px;margin:0 auto 12px;padding:12px 16px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:var(--radius);color:#fff;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 4px 16px rgba(26,95,217,.25);transition:transform .15s,box-shadow .15s}.all-channels-cta:hover,.all-channels-cta:active{transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,95,217,.35)}.all-channels-cta-icon{font-size:18px;flex-shrink:0}.all-channels-cta-text{flex:1}.all-channels-cta-arrow{font-size:16px;opacity:.8;flex-shrink:0}}
+    @media(max-width:640px){
+      .page-wrap{grid-template-columns:1fr;padding:10px}
+      h1{font-size:20px}
+      .side-col{order:3}
+      .live-badge{display:none}nav{display:none}
+      .tg-card-mob{display:block}
+      .tg-card-live{display:flex}
+      .tg-mob-banner{display:flex}
+      .tg-card-desk{display:none}
+      .logo{font-size:20px}
+      .logo-flag{font-size:24px}
+      .tg-btn span{display:none}
+      .tg-btn{border-radius:50%;width:36px;height:36px;justify-content:center;padding:0}
+      .footer-inner{flex-direction:column;text-align:center}
+      .footer-links{flex-wrap:wrap;justify-content:center}
+    }
+  
+    .epg-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:none}
+    .epg-box.epg-ready{display:block}
+    .epg-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+    .epg-head h3{font-size:16px;margin:0}
+    .epg-updated{font-size:11px;color:var(--muted)}
+    .epg-current{background:rgba(0,53,128,0.08);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}
+    .epg-current-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+    .epg-current-title{font-size:15px;font-weight:600;margin-bottom:8px}
+    .epg-current-time{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-top:6px}
+    .epg-progress{height:6px;border-radius:4px;background:var(--border);overflow:hidden}
+    .epg-progress-bar{height:100%;background:#003580;border-radius:4px;transition:width 1s linear}
+    .epg-list{display:flex;flex-direction:column;gap:2px;max-height:280px;overflow-y:auto}
+    .epg-item{display:flex;gap:10px;padding:7px 4px;border-radius:6px;font-size:13px}
+    .epg-item.epg-item-now{background:rgba(0,53,128,0.08)}
+    .epg-item-time{color:var(--muted);flex-shrink:0;width:42px}
+    .epg-item-title{color:var(--text)}
+  .lang-switch a{position:relative}.lang-switch a::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}.tg-pulse-banner{display:flex;align-items:center;gap:10px;margin:14px 0;padding:13px 16px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:2px solid #229ED9;border-radius:14px;text-decoration:none;color:#fff;animation:tgPulse 2s ease-in-out infinite}@keyframes tgPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,158,217,.55)}50%{box-shadow:0 0 0 7px rgba(34,158,217,0)}}.tg-pulse-icon{width:38px;height:38px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.tg-pulse-text{flex:1;font-size:14px;font-weight:700}.tg-pulse-arrow{opacity:.6;flex-shrink:0;font-size:16px}</style>
+  <style>@media(max-width:1024px){.page-wrap{grid-template-columns:minmax(0,1fr)!important}.main-col,.related-section{min-width:0}.related-section{width:100%}}@media(max-width:480px){.lang-switch{position:static;transform:none;margin:0 8px 0 auto}}</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X503KNBLXB"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -198,137 +220,500 @@ gtag('config', 'G-X503KNBLXB');
 </script>
 </head>
 <body>
+
 <header>
-  <a href="https://korea-tv.uk/" class="logo"><span class="red">한</span><span class="blue">국</span><span class="red">·TV</span></a>
-  <div class="header-right">
-    <a href="https://korea-tv.uk/" class="back-btn">← All Channels</a>
+  <a href="https://korea-tv.uk/en/" class="logo"><span class="logo-flag">🇰🇷</span><span class="logo-text"><span class="r">한</span><span class="b">국</span></span><span class="w">TV</span></a>
+  <nav><a href="https://korea-tv.uk/en/">← All channels</a></nav>
+  <div class="h-right">
     <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg>
       <span>Telegram</span>
     </a>
+    <div class="lang-switch"><a href="https://korea-tv.uk/ktv-live/">KO</a><a href="https://korea-tv.uk/en/ktv-live/" class="active">EN</a></div>
   </div>
 </header>
-<div class="breadcrumb"><a href="https://korea-tv.uk/en/">Home</a><span>›</span><a href="https://korea-tv.uk/en/#channels">Channels</a><span>›</span><span>KTV</span></div>
-<a href="https://korea-tv.uk/en/" class="all-channels-cta" aria-label="View all 31 channels"><span class="all-channels-cta-icon">📺</span><span class="all-channels-cta-text">All 31 Channels — Switch to Another</span><span class="all-channels-cta-arrow">→</span></a>
-<div class="layout-wrap">
-  <aside class="channel-sidebar" id="channel-sidebar"><div class="sidebar-search"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="Search channel..."/></div><div class="cat-label">🌏 International</div><div class="cat-group"><a href="https://korea-tv.uk/en/arirang-live/" class="ch-item" data-name="arirang tv"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARI</div><div style="flex:1;min-width:0"><div class="ch-name-s">Arirang TV</div><div class="ch-desc-s">International broadcaster in English for global audiences — news and culture.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/arirang-radio-live/" class="ch-item" data-name="arirang radio"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARR</div><div style="flex:1;min-width:0"><div class="ch-name-s">Arirang Radio</div><div class="ch-desc-s">English-language radio from Arirang — music and lifestyle programming.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📚 EBS Educational</div><div class="cat-group"><a href="https://korea-tv.uk/en/ebs1-live/" class="ch-item" data-name="ebs 1tv"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E1</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS 1TV</div><div class="ch-desc-s">EBS&#39;s flagship channel — education, documentaries, children&#39;s programming.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs2-live/" class="ch-item" data-name="ebs 2tv"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E2</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS 2TV</div><div class="ch-desc-s">EBS&#39;s second channel — school and lecture programming.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-plus1-live/" class="ch-item" data-name="ebs plus1"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P1</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Plus1</div><div class="ch-desc-s">EBS supplementary channel — learning content.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-plus2-live/" class="ch-item" data-name="ebs plus2"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P2</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Plus2</div><div class="ch-desc-s">EBS supplementary channel — educational programming.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-kids-live/" class="ch-item" data-name="ebs kids"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">KID</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Kids</div><div class="ch-desc-s">EBS&#39;s children&#39;s channel — animation and educational content.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ebs-english-live/" class="ch-item" data-name="ebs english"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">ENG</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS English</div><div class="ch-desc-s">EBS&#39;s English-language learning channel.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">🏛️ Public & Government</div><div class="cat-group"><a href="https://korea-tv.uk/en/ktv-live/" class="ch-item active" data-name="ktv"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">KTV</div><div style="flex:1;min-width:0"><div class="ch-name-s">KTV</div><div class="ch-desc-s">South Korea&#39;s government-run public policy and information channel.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/gugak-live/" class="ch-item" data-name="gugak tv"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">GUG</div><div style="flex:1;min-width:0"><div class="ch-name-s">Gugak TV</div><div class="ch-desc-s">Traditional Korean music channel run by the National Gugak Center.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/oun-live/" class="ch-item" data-name="oun"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">OUN</div><div style="flex:1;min-width:0"><div class="ch-name-s">OUN</div><div class="ch-desc-s">Korea National Open University&#39;s distance-education channel.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/nbs-live/" class="ch-item" data-name="nbs"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">NBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">NBS</div><div class="ch-desc-s">Agriculture and fisheries information broadcasting.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/tbs-live/" class="ch-item" data-name="tbs"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">TBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS</div><div class="ch-desc-s">Seoul&#39;s public broadcaster — traffic info and current affairs.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📍 Regional Channels</div><div class="cat-group"><a href="https://korea-tv.uk/en/mbc-jeju-live/" class="ch-item" data-name="mbc jeju"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JEJ</div><div style="flex:1;min-width:0"><div class="ch-name-s">MBC Jeju</div><div class="ch-desc-s">Regional MBC affiliate for Jeju Island.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/sbs-kbc-live/" class="ch-item" data-name="kbc gwangju"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KBC</div><div style="flex:1;min-width:0"><div class="ch-name-s">KBC Gwangju</div><div class="ch-desc-s">SBS regional affiliate for Gwangju/Jeonnam.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/sbs-ubc-live/" class="ch-item" data-name="ubc ulsan"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">UBC</div><div style="flex:1;min-width:0"><div class="ch-name-s">UBC Ulsan</div><div class="ch-desc-s">SBS regional affiliate for Ulsan.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/nhtv-live/" class="ch-item" data-name="nhtv"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NH</div><div style="flex:1;min-width:0"><div class="ch-name-s">NHTV</div><div class="ch-desc-s">Agricultural broadcasting channel affiliated with Nonghyup (NACF).</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/mbc-chuncheon-live/" class="ch-item" data-name="mbc chuncheon"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">CHN</div><div style="flex:1;min-width:0"><div class="ch-name-s">MBC Chuncheon</div><div class="ch-desc-s">Regional MBC affiliate for Gangwon (Chuncheon).</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/mbc-daejeon-live/" class="ch-item" data-name="mbc daejeon"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">DJ</div><div style="flex:1;min-width:0"><div class="ch-name-s">MBC Daejeon</div><div class="ch-desc-s">Regional MBC affiliate for Daejeon/Chungnam.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/nib-live/" class="ch-item" data-name="nib"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NIB</div><div style="flex:1;min-width:0"><div class="ch-name-s">NIB</div><div class="ch-desc-s">Local cable broadcaster in the Incheon area.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/jjctv-live/" class="ch-item" data-name="jjctv"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JJC</div><div style="flex:1;min-width:0"><div class="ch-name-s">JJCTV</div><div class="ch-desc-s">Local government and municipal-affairs channel.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/kcn-live/" class="ch-item" data-name="kcn"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KCN</div><div style="flex:1;min-width:0"><div class="ch-name-s">KCN</div><div class="ch-desc-s">Regional cable broadcaster in the Geumgang (Chungcheong) area.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">⛪ Religious Channels</div><div class="cat-group"><a href="https://korea-tv.uk/en/btn-live/" class="ch-item" data-name="btn"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">BTN</div><div style="flex:1;min-width:0"><div class="ch-name-s">BTN</div><div class="ch-desc-s">Buddhist religious broadcaster.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/abn-live/" class="ch-item" data-name="abn"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">ABN</div><div style="flex:1;min-width:0"><div class="ch-name-s">ABN</div><div class="ch-desc-s">Christian religious broadcaster.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/fgtv-live/" class="ch-item" data-name="fgtv"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">FG</div><div style="flex:1;min-width:0"><div class="ch-name-s">FGTV</div><div class="ch-desc-s">Christian broadcaster affiliated with Yoido Full Gospel Church.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/rutc-live/" class="ch-item" data-name="rutc tv"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">RUT</div><div style="flex:1;min-width:0"><div class="ch-name-s">RUTC TV</div><div class="ch-desc-s">Christian gospel broadcasting channel.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📈 Business & Shopping</div><div class="cat-group"><a href="https://korea-tv.uk/en/wowtv-live/" class="ch-item" data-name="wowtv"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">WOW</div><div style="flex:1;min-width:0"><div class="ch-name-s">WOWTV</div><div class="ch-desc-s">Korea Economic TV — stock market and business news.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/mkmoney-live/" class="ch-item" data-name="mk money"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">MK</div><div style="flex:1;min-width:0"><div class="ch-name-s">MK Money</div><div class="ch-desc-s">Maeil Business TV — business and finance news.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/ktalpha-live/" class="ch-item" data-name="kt alpha shopping"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">KTA</div><div style="flex:1;min-width:0"><div class="ch-name-s">KT Alpha Shopping</div><div class="ch-desc-s">TV home shopping channel.</div></div><div class="live-indicator"></div></a></div><div class="cat-label">🎵 Music & Radio</div><div class="cat-group"><a href="https://korea-tv.uk/en/tbs-efm-live/" class="ch-item" data-name="tbs efm"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">eFM</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS eFM</div><div class="ch-desc-s">Seoul&#39;s English-language radio station — news and talk.</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/en/tbs-fm-live/" class="ch-item" data-name="tbs fm"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">FM</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS FM</div><div class="ch-desc-s">Seoul&#39;s Korean-language traffic and talk radio station.</div></div><div class="live-indicator"></div></a></div></aside>
-  <div class="content-col">
-    <section class="hero">
-      <div class="hero-icon">📺</div>
-      <div class="hero-badge"><span class="live-dot"></span> LIVE</div>
-      <h1>KTV</h1>
-      <p class="hero-count">South Korea's government-run public policy and information channel.</p>
-    </section>
-    <div class="player-wrap" id="player-wrap">
-      <video id="video" playsinline muted autoplay poster="https://korea-tv.uk/thumbnails/ktv-live.jpg"></video>
-    </div>
-    <div class="player-status" id="player-status">Loading stream...</div>
-    <div class="seo-block">
-      <div class="card">
-        <h2>KTV</h2>
-        <p>South Korea's government-run public policy and information channel.</p>
-        <p><a href="https://korea-tv.uk/" class="btn-primary" style="margin-top:8px">📺 Watch All Channels</a></p><div class="cat-tag-wrap"><a href="https://korea-tv.uk/korean-public-broadcasting/" class="cat-tag">🏛️ Public & Government</a></div><p>KTV is part of our Public & Government category, streaming free on Korea-TV.uk with no registration required.</p><p>It plays directly in your desktop or mobile browser with no app to install, and the player automatically attempts to reconnect if the connection is briefly interrupted.</p>
-      </div>
-      <div class="card" style="margin-top:14px">
-        <h2>Similar Channels</h2>
-        <div class="similar-grid">
-          <a class="ch-card" href="https://korea-tv.uk/en/gugak-live/"><div class="ch-name">Gugak TV</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/oun-live/"><div class="ch-name">OUN</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/nbs-live/"><div class="ch-name">NBS</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a class="ch-card" href="https://korea-tv.uk/en/tbs-live/"><div class="ch-name">TBS</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a>
-        </div>
-      </div><div class="card tg-card-mob" style="margin-top:14px"><h2>📱 Watch via Telegram</h2><p class="tg-sub">For a smoother mobile experience, try our Telegram channel.</p><a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-btn-card">Open on Telegram</a></div><div class="card faq-box" style="margin-top:14px"><h2>Frequently Asked Questions</h2><details><summary>Is KTV free to watch?</summary><p>Yes, you can watch the live stream for free without registration or payment.</p></details><details><summary>Do I need a VPN to watch KTV?</summary><p>No, you can access the stream directly from anywhere without a VPN.</p></details><details><summary>Can I watch on mobile?</summary><p>Yes, the player is optimized for phones and tablets — no app install needed, just use your browser.</p></details><details><summary>What if the stream freezes or buffers?</summary><p>Temporary interruptions can happen depending on your network; the player automatically attempts to reconnect. Refresh the page if it continues.</p></details><details><summary>Can I watch other Korean channels here?</summary><p>Yes, use the channel list at the top or the homepage to watch other Korean TV channels for free.</p></details></div>
-    </div>
+
+<div class="breadcrumb">
+  <a href="https://korea-tv.uk/en/">Home</a><span>›</span>
+  <a href="https://korea-tv.uk/korean-public-broadcasting/">Public &amp; Government</a><span>›</span>
+  <span>KTV Live</span>
+</div>
+
+<div class="page-title-wrap">
+  <h1>Watch KTV Live Online Free</h1>
+  <div class="channel-meta">
+    <span class="cat-badge">Public &amp; Government</span>
+    <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+    <span>Live broadcast 24/7</span>
   </div>
 </div>
-<footer>
-  <div class="footer-logo"><span style="color:#CD2E3A">한</span><span style="color:#0047A0">국</span>·TV</div>
-  <div class="footer-links">
-    <a href="https://korea-tv.uk/">Home</a>
-    <a href="https://korea-tv.uk/korean-international-channels/">🌏 International</a><a href="https://korea-tv.uk/korean-educational-channels/">📚 EBS Educational</a><a href="https://korea-tv.uk/korean-public-broadcasting/">🏛️ Public & Government</a><a href="https://korea-tv.uk/korean-regional-channels/">📍 Regional Channels</a><a href="https://korea-tv.uk/korean-religious-channels/">⛪ Religious Channels</a><a href="https://korea-tv.uk/korean-business-shopping-channels/">📈 Business & Shopping</a><a href="https://korea-tv.uk/korean-music-radio-channels/">🎵 Music & Radio</a>
-    <a href="https://korea-tv.uk/en/blog/">Blog</a><a href="https://t.me/Korea_TV_hub" target="_blank">Telegram</a>
+
+<a href="https://korea-tv.uk/en/#channels" class="all-channels-cta" aria-label="All channels — back to the list of all 31 channels"><span class="all-channels-cta-icon">📺</span><span class="all-channels-cta-text">All 31 channels — pick another</span><span class="all-channels-cta-arrow">→</span></a>
+
+<div class="page-wrap">
+
+  <aside class="left-sidebar">
+    <div class="sidebar-search-wrap">
+      <span class="s-icon">🔍</span>
+      <input type="text" id="ch-search" placeholder="Search channel...">
+    </div>
+    <div class="ch-list-scroll" id="ch-list">
+      <div class="cat-label-s">International</div>
+<a href="/en/arirang-live/" class="ch-item-s" data-name="Arirang TV" aria-label="Arirang TV"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARI</div><div><div class="ch-name-s">Arirang TV</div><div class="ch-desc-s">International broadcaster in English for global audiences — news and culture.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/arirang-radio-live/" class="ch-item-s" data-name="Arirang Radio" aria-label="Arirang Radio"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARR</div><div><div class="ch-name-s">Arirang Radio</div><div class="ch-desc-s">English-language radio from Arirang — music and lifestyle programming.</div></div><div class="live-dot-s"></div></a>
+      <div class="cat-label-s">EBS Educational</div>
+<a href="/en/ebs1-live/" class="ch-item-s" data-name="EBS 1TV" aria-label="EBS 1TV"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E1</div><div><div class="ch-name-s">EBS 1TV</div><div class="ch-desc-s">EBS&#x27;s flagship channel — education, documentaries, children&#x27;s programming.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/ebs2-live/" class="ch-item-s" data-name="EBS 2TV" aria-label="EBS 2TV"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E2</div><div><div class="ch-name-s">EBS 2TV</div><div class="ch-desc-s">EBS&#x27;s second channel — school and lecture programming.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/ebs-plus1-live/" class="ch-item-s" data-name="EBS Plus1" aria-label="EBS Plus1"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P1</div><div><div class="ch-name-s">EBS Plus1</div><div class="ch-desc-s">EBS supplementary channel — learning content.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/ebs-plus2-live/" class="ch-item-s" data-name="EBS Plus2" aria-label="EBS Plus2"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P2</div><div><div class="ch-name-s">EBS Plus2</div><div class="ch-desc-s">EBS supplementary channel — educational programming.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/ebs-kids-live/" class="ch-item-s" data-name="EBS Kids" aria-label="EBS Kids"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">KID</div><div><div class="ch-name-s">EBS Kids</div><div class="ch-desc-s">EBS&#x27;s children&#x27;s channel — animation and educational content.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/ebs-english-live/" class="ch-item-s" data-name="EBS English" aria-label="EBS English"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">ENG</div><div><div class="ch-name-s">EBS English</div><div class="ch-desc-s">EBS&#x27;s English-language learning channel.</div></div><div class="live-dot-s"></div></a>
+      <div class="cat-label-s">Public &amp; Government</div>
+<a href="/en/ktv-live/" class="ch-item-s active" data-name="KTV" aria-label="KTV"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">KTV</div><div><div class="ch-name-s">KTV</div><div class="ch-desc-s">South Korea&#x27;s government-run public policy and information channel.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/gugak-live/" class="ch-item-s" data-name="Gugak TV" aria-label="Gugak TV"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">GUG</div><div><div class="ch-name-s">Gugak TV</div><div class="ch-desc-s">Traditional Korean music channel run by the National Gugak Center.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/oun-live/" class="ch-item-s" data-name="OUN" aria-label="OUN"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">OUN</div><div><div class="ch-name-s">OUN</div><div class="ch-desc-s">Korea National Open University&#x27;s distance-education channel.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/nbs-live/" class="ch-item-s" data-name="NBS" aria-label="NBS"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">NBS</div><div><div class="ch-name-s">NBS</div><div class="ch-desc-s">Agriculture and fisheries information broadcasting.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/tbs-live/" class="ch-item-s" data-name="TBS" aria-label="TBS"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">TBS</div><div><div class="ch-name-s">TBS</div><div class="ch-desc-s">Seoul&#x27;s public broadcaster — traffic info and current affairs.</div></div><div class="live-dot-s"></div></a>
+      <div class="cat-label-s">Regional Channels</div>
+<a href="/en/mbc-jeju-live/" class="ch-item-s" data-name="MBC Jeju" aria-label="MBC Jeju"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JEJ</div><div><div class="ch-name-s">MBC Jeju</div><div class="ch-desc-s">Regional MBC affiliate for Jeju Island.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/sbs-kbc-live/" class="ch-item-s" data-name="KBC Gwangju" aria-label="KBC Gwangju"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KBC</div><div><div class="ch-name-s">KBC Gwangju</div><div class="ch-desc-s">SBS regional affiliate for Gwangju/Jeonnam.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/sbs-ubc-live/" class="ch-item-s" data-name="UBC Ulsan" aria-label="UBC Ulsan"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">UBC</div><div><div class="ch-name-s">UBC Ulsan</div><div class="ch-desc-s">SBS regional affiliate for Ulsan.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/nhtv-live/" class="ch-item-s" data-name="NHTV" aria-label="NHTV"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NH</div><div><div class="ch-name-s">NHTV</div><div class="ch-desc-s">Agricultural broadcasting channel affiliated with Nonghyup (NACF).</div></div><div class="live-dot-s"></div></a>
+<a href="/en/mbc-chuncheon-live/" class="ch-item-s" data-name="MBC Chuncheon" aria-label="MBC Chuncheon"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">CHN</div><div><div class="ch-name-s">MBC Chuncheon</div><div class="ch-desc-s">Regional MBC affiliate for Gangwon (Chuncheon).</div></div><div class="live-dot-s"></div></a>
+<a href="/en/mbc-daejeon-live/" class="ch-item-s" data-name="MBC Daejeon" aria-label="MBC Daejeon"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">DJ</div><div><div class="ch-name-s">MBC Daejeon</div><div class="ch-desc-s">Regional MBC affiliate for Daejeon/Chungnam.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/nib-live/" class="ch-item-s" data-name="NIB" aria-label="NIB"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NIB</div><div><div class="ch-name-s">NIB</div><div class="ch-desc-s">Local cable broadcaster in the Incheon area.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/jjctv-live/" class="ch-item-s" data-name="JJCTV" aria-label="JJCTV"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JJC</div><div><div class="ch-name-s">JJCTV</div><div class="ch-desc-s">Local government and municipal-affairs channel.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/kcn-live/" class="ch-item-s" data-name="KCN" aria-label="KCN"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KCN</div><div><div class="ch-name-s">KCN</div><div class="ch-desc-s">Regional cable broadcaster in the Geumgang (Chungcheong) area.</div></div><div class="live-dot-s"></div></a>
+      <div class="cat-label-s">Religious Channels</div>
+<a href="/en/btn-live/" class="ch-item-s" data-name="BTN" aria-label="BTN"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">BTN</div><div><div class="ch-name-s">BTN</div><div class="ch-desc-s">Buddhist religious broadcaster.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/abn-live/" class="ch-item-s" data-name="ABN" aria-label="ABN"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">ABN</div><div><div class="ch-name-s">ABN</div><div class="ch-desc-s">Christian religious broadcaster.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/fgtv-live/" class="ch-item-s" data-name="FGTV" aria-label="FGTV"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">FG</div><div><div class="ch-name-s">FGTV</div><div class="ch-desc-s">Christian broadcaster affiliated with Yoido Full Gospel Church.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/rutc-live/" class="ch-item-s" data-name="RUTC TV" aria-label="RUTC TV"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">RUT</div><div><div class="ch-name-s">RUTC TV</div><div class="ch-desc-s">Christian gospel broadcasting channel.</div></div><div class="live-dot-s"></div></a>
+      <div class="cat-label-s">Business &amp; Shopping</div>
+<a href="/en/wowtv-live/" class="ch-item-s" data-name="WOWTV" aria-label="WOWTV"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">WOW</div><div><div class="ch-name-s">WOWTV</div><div class="ch-desc-s">Korea Economic TV — stock market and business news.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/mkmoney-live/" class="ch-item-s" data-name="MK Money" aria-label="MK Money"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">MK</div><div><div class="ch-name-s">MK Money</div><div class="ch-desc-s">Maeil Business TV — business and finance news.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/ktalpha-live/" class="ch-item-s" data-name="KT Alpha Shopping" aria-label="KT Alpha Shopping"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">KTA</div><div><div class="ch-name-s">KT Alpha Shopping</div><div class="ch-desc-s">TV home shopping channel.</div></div><div class="live-dot-s"></div></a>
+      <div class="cat-label-s">Music &amp; Radio</div>
+<a href="/en/tbs-efm-live/" class="ch-item-s" data-name="TBS eFM" aria-label="TBS eFM"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">eFM</div><div><div class="ch-name-s">TBS eFM</div><div class="ch-desc-s">Seoul&#x27;s English-language radio station — news and talk.</div></div><div class="live-dot-s"></div></a>
+<a href="/en/tbs-fm-live/" class="ch-item-s" data-name="TBS FM" aria-label="TBS FM"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">FM</div><div><div class="ch-name-s">TBS FM</div><div class="ch-desc-s">Seoul&#x27;s Korean-language traffic and talk radio station.</div></div><div class="live-dot-s"></div></a>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-banner-desk"><div class="tg-banner-desk-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></div><div class="tg-banner-desk-text"><b>Watch on Telegram</b> — all 31 channels in one app, free</div><span class="tg-banner-desk-arrow">→</span></a>
+
+    <div class="player-wrap" id="player-wrap">
+      <video id="video" playsinline webkit-playsinline poster="https://korea-tv.uk/thumbnails/ktv-live.jpg"></video>
+      <div class="player-overlay" id="overlay">
+        <div class="play-btn">▶</div>
+        <div style="color:var(--muted);font-size:14px">KTV — click to watch</div>
+      </div>
+      <button class="fs-btn" id="fs-btn" title="Fullscreen">⛶</button>
+    </div>
+
+    <a href="https://t.me/Korea_TV_hub" target="_blank" rel="noopener" class="tg-pulse-banner"><div class="tg-pulse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></div><div class="tg-pulse-text">Watch channels in Telegram</div><span class="tg-pulse-arrow">→</span></a>
+    <div class="player-status" id="status">Press ▶ to start the stream</div>
+
+    <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-mob-banner">
+      <div class="tg-mob-banner-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg>
+      </div>
+      <div class="tg-mob-banner-text">
+        <div class="tg-mob-banner-title">Telegram</div>
+        <div class="tg-mob-banner-sub">New channels and updates · @Korea_TV_hub</div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </a>
+
+    <div class="tg-card tg-card-mob">
+      <div class="tg-card-live"><span class="tg-card-live-dot"></span>LIVE · 24/7 broadcast</div>
+      <div style="width:52px;height:52px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg></div>
+      <h3>Watch on Telegram</h3>
+      <p>All 31 channels in one app — free. On iOS, Android and Desktop.</p>
+      <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-btn-card" style="gap:8px"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg> Subscribe to @Korea_TV_hub</a>
+      <div class="tg-sub">@Korea_TV_hub</div>
+    </div>
+
+    <div class="desc-box">
+      <h2>About KTV</h2>
+      <div class="cat-tag-wrap"><a href="https://korea-tv.uk/korean-public-broadcasting/" class="cat-tag">🏛️ Public &amp; Government</a></div>
+    <p>South Korea&#x27;s government-run public policy and information channel.</p>
+    <p>KTV is part of our Public & Government category, streaming free on Korea-TV.uk with no registration required.</p>
+    <p>It plays directly in your desktop or mobile browser with no app to install, and the player automatically attempts to reconnect if the connection is briefly interrupted.</p>
+    </div>
+
+    <div class="faq-box">
+      <h2>KTV — FAQ</h2>
+      <details>
+        <summary>Is KTV free to watch? <span>▾</span></summary>
+        <p>Yes, you can watch the live stream for free without registration or payment.</p>
+      </details>
+      <details>
+        <summary>Do I need a VPN to watch KTV? <span>▾</span></summary>
+        <p>No, you can access the stream directly from anywhere without a VPN.</p>
+      </details>
+      <details>
+        <summary>Can I watch on mobile? <span>▾</span></summary>
+        <p>Yes, the player is optimized for phones and tablets — no app install needed, just use your browser.</p>
+      </details>
+      <details>
+        <summary>What if the stream freezes or buffers? <span>▾</span></summary>
+        <p>Temporary interruptions can happen depending on your network; the player automatically attempts to reconnect. Refresh the page if it continues.</p>
+      </details>
+      <details>
+        <summary>Can I watch other Korean channels here? <span>▾</span></summary>
+        <p>Yes, use the channel list at the top or the homepage to watch other Korean TV channels for free.</p>
+      </details>
+    </div>
   </div>
-  <div class="footer-copy">&copy; 2026 Korea-TV.uk &middot; Free Korean TV Online</div>
-<div class="legal-note" style="text-align:center;margin:14px auto 0;max-width:820px;font-size:11px;line-height:1.6;color:var(--muted2,#454560)">Stream links come from sources openly available on the internet; Korea-TV.uk is not affiliated with any broadcaster. At a rights holder&#39;s request, a stream is removed once ownership is proven — <a href="https://korea-tv.uk/en/privacy/#rightsholders">For rights holders</a> · <a href="https://korea-tv.uk/en/privacy/">Privacy policy</a></div>
+
+<div class="related-section">
+    <div class="sim-box">
+      <h3>Similar channels</h3>
+<a href="/en/gugak-live/" class="sim-item"><div class="sim-icon" style="background:#0047A022;color:#0047A0">GUG</div><div><div class="sim-name">Gugak TV</div><div class="sim-cat">Public &amp; Government</div></div><span class="sim-live">LIVE</span></a>
+<a href="/en/oun-live/" class="sim-item"><div class="sim-icon" style="background:#0047A022;color:#0047A0">OUN</div><div><div class="sim-name">OUN</div><div class="sim-cat">Public &amp; Government</div></div><span class="sim-live">LIVE</span></a>
+<a href="/en/nbs-live/" class="sim-item"><div class="sim-icon" style="background:#0047A022;color:#0047A0">NBS</div><div><div class="sim-name">NBS</div><div class="sim-cat">Public &amp; Government</div></div><span class="sim-live">LIVE</span></a>
+<a href="/en/tbs-live/" class="sim-item"><div class="sim-icon" style="background:#0047A022;color:#0047A0">TBS</div><div><div class="sim-name">TBS</div><div class="sim-cat">Public &amp; Government</div></div><span class="sim-live">LIVE</span></a>
+    </div>
+
+    <div class="pop-box">
+      <div class="pop-title">⭐ Popular channels</div>
+      <a href="/en/arirang-live/" class="pop-item"><div class="pop-icon" style="background:#CD2E3A22;color:#CD2E3A">ARI</div><span class="pop-name">Arirang TV</span><span class="pop-live">LIVE</span></a>
+      <a href="/en/ebs1-live/" class="pop-item"><div class="pop-icon" style="background:#00838f22;color:#00838f">E1</div><span class="pop-name">EBS 1TV</span><span class="pop-live">LIVE</span></a>
+      <a href="/en/ktv-live/" class="pop-item"><div class="pop-icon" style="background:#0047A022;color:#0047A0">KTV</div><span class="pop-name">KTV</span><span class="pop-live">LIVE</span></a>
+      <a href="/en/tbs-live/" class="pop-item"><div class="pop-icon" style="background:#0047A022;color:#0047A0">TBS</div><span class="pop-name">TBS</span><span class="pop-live">LIVE</span></a>
+      <a href="/en/ebs-kids-live/" class="pop-item"><div class="pop-icon" style="background:#00838f22;color:#00838f">KID</div><span class="pop-name">EBS Kids</span><span class="pop-live">LIVE</span></a>
+    </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🇰🇷 <span style="color:#CD2E3A">한</span><span style="color:#1c66d4">국</span> <span style="color:#ffffff">TV</span></div>
+      <div class="footer-copy" style="margin-top:4px">© 2026 · Free Korean TV Online</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://korea-tv.uk/en/">All channels</a>
+      <a href="https://korea-tv.uk/en/#faq">FAQ</a>
+      <a href="https://korea-tv.uk/en/privacy/">Privacy</a>
+    </div>
+    <div class="footer-tg">
+      <a href="https://t.me/Korea_TV_hub" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg> Subscribe on Telegram</a>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:16px;font-size:11px;color:var(--muted2)">This site does not store any video content. All streams are provided by third parties and are publicly available on the internet.</div>
+  <div class="legal-note" style="text-align:center;margin:14px auto 0;max-width:820px;font-size:11px;line-height:1.6;color:var(--muted2,#454560)">Stream links come from sources openly available on the internet; Korea-TV.uk is not affiliated with any broadcaster. At a rights holder&#39;s request, a stream is removed once ownership is proven — <a href="https://korea-tv.uk/en/privacy/#rightsholders">For rights holders</a> · <a href="https://korea-tv.uk/en/privacy/">Privacy policy</a></div>
 </footer>
+
+<script>
+// Клик по ссылке на Telegram-канал — событие GA4 (как у russian-tv.com, без Яндекс.Метрики)
+(function(){
+  function tgTrack(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="t.me/Korea_TV_hub"]') : null;
+    if(!a) return;
+    var label = a.className || 'tg-link';
+    try{ if(typeof gtag==='function') gtag('event','telegram_click',{event_category:'engagement',event_label:label,link_url:a.href}); }catch(err){}
+  }
+  document.addEventListener('click', tgTrack, true);
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.15/hls.min.js"></script>
 <script src="/assets/quality.js?v=1"></script>
-<script defer src="/assets/player-ui.js?v=1"></script>
+<script defer src="/assets/site-ux.js?v=1"></script>
+<script defer src="/assets/player-ui.js?v=2"></script>
 <script defer src="/assets/cast.js?v=1"></script>
 <script>
-const PROXY = 'https://korea-worker.dyaltd.workers.dev';
-const video = document.getElementById('video');
-const statusEl = document.getElementById('player-status');
-let hls;
-let _fullCycles = 0, _netErrorCount = 0;
-let _stallTimer = null, _lastTime = -1, _stallCount = 0;
-function play(id, name) {
-  statusEl.textContent = _fullCycles > 0 ? 'Reconnecting... (' + _fullCycles + ')' : 'Loading stream...';
-  const url = PROXY + '/stream?channel=' + id;
-  if (hls) { try { hls.destroy(); } catch(err) {} hls = null; }
-  if (_stallTimer) { clearInterval(_stallTimer); _stallTimer = null; }
-  _lastTime = -1; _stallCount = 0;
-  _netErrorCount = 0;
-  function onFatalError() {
-    _fullCycles++;
-    const delay = Math.min(3000 + (_fullCycles - 1) * 3000, 15000);
-    statusEl.textContent = 'Connection error. Reconnecting...';
-    setTimeout(() => play(id, name), delay);
+// Прокси: korea-worker (гибридный режим v1.6.0); механизм ротации как у russian-tv.com, с одним адресом он повторяет его
+var PROXIES = ['https://korea-worker.dyaltd.workers.dev'];
+var _proxyIdx = 0;
+function _currentProxy(){return PROXIES[_proxyIdx%PROXIES.length];}
+var _proxyFailedAt = {};
+function _markProxyFailed(){ _proxyFailedAt[_proxyIdx % PROXIES.length] = Date.now(); }
+// Двигаемся к следующему прокси, но по возможности пропускаем те, что сломались
+// недавно (90 сек) — иначе профилактическая ротация периодически сама заводит
+// зрителя обратно на прокси, который прямо сейчас не работает.
+function _advanceProxy(){
+  for (var i = 1; i <= PROXIES.length; i++) {
+    var idx = (_proxyIdx + i) % PROXIES.length;
+    var failedAt = _proxyFailedAt[idx];
+    if (!failedAt || Date.now() - failedAt > 90000) { _proxyIdx += i; return; }
   }
-  _stallTimer = setInterval(() => {
-    if (video.paused || video.ended) return;
-    if (Math.abs(video.currentTime - _lastTime) < 0.05) {
-      _stallCount++;
-      if (_stallCount >= 2) { clearInterval(_stallTimer); _stallTimer = null; onFatalError(); }
-    } else { _stallCount = 0; }
-    _lastTime = video.currentTime;
-  }, 5000);
-  if (window.Hls && Hls.isSupported()) {
-    hls = new Hls({liveSyncDurationCount:3, lowLatencyMode:true, enableWorker:true, capLevelToPlayerSize:true, maxBufferLength:20});
-    hls.loadSource(url); hls.attachMedia(video);
-    try { if (window.rtvQuality) rtvQuality.attach(hls, video); } catch (e) {}
-    hls.on(Hls.Events.MANIFEST_PARSED, () => { _fullCycles = 0; statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); });
-    hls.on(Hls.Events.FRAG_LOADED, () => { _netErrorCount = 0; });
-    hls.on(Hls.Events.ERROR, (e,d) => {
-      if (!d.fatal) return;
-      if (d.type === Hls.ErrorTypes.NETWORK_ERROR) {
-        _netErrorCount++;
-        try { hls.startLoad(); } catch(err) {}
-        setTimeout(() => { if (hls && _netErrorCount >= 3) onFatalError(); }, 3000);
+  _proxyIdx++; // все недавно падали — всё равно двигаемся по кругу, чтобы не застрять
+}
+const CH_ID = 'ktv';
+
+const TG_URL = 'https://t.me/Korea_TV_hub';
+const video = document.getElementById('video');
+const overlay = document.getElementById('overlay');
+const statusEl = document.getElementById('status');
+let hls = null;
+
+
+function setStatus(msg, isError) { statusEl.innerHTML = isError ? '⚠️ ' + msg : '<span class="status-dot"></span>' + msg; }
+
+var _retryCount = 0;
+var _retryTimer = null;
+var _maxRetries = 5;
+var _hlsStopped = false;
+var _stableTimer = null;
+var _fullCycles = 0; // полных кругов по всем прокси подряд без успеха
+var _sessionStart = Date.now(); // время последнего (пере)подключения — для профилактического реконнекта
+
+// ── Сторож зависания: если видео не продвигается N сек (источник тихо
+// перестал отдавать новые сегменты, без fatal-ошибки HLS.js) — переподключаемся.
+var _lastProgressTime = Date.now();
+var _lastVideoTime = 0;
+video.addEventListener('timeupdate', function() {
+  if (video.currentTime !== _lastVideoTime) {
+    _lastVideoTime = video.currentTime;
+    _lastProgressTime = Date.now();
+  }
+});
+var PREEMPTIVE_REFRESH_MS = 6 * 60 * 1000; // профилактический реконнект с запасом до наблюдаемых сбоев cinerama.uz (иногда раньше 10 мин)
+var _lastFrameCount = 0;
+var _lastFrameProgressTime = Date.now();
+setInterval(function() {
+  if (_hlsStopped || !hls || video.seeking) return;
+  if (video.readyState >= 3 && typeof video.getVideoPlaybackQuality === 'function') {
+    var _vpq = video.getVideoPlaybackQuality();
+    if (_vpq.totalVideoFrames > _lastFrameCount) {
+      _lastFrameCount = _vpq.totalVideoFrames;
+      _lastFrameProgressTime = Date.now();
+    } else if (!video.paused && Date.now() - _lastFrameProgressTime > 9000) {
+      // currentTime может тикать (аудио/системные часы), пока сам видеокадр не
+      // обновляется — картинка визуально замирает/чернеет при формально "живом"
+      // потоке. Обычная проверка по currentTime это не ловит.
+      _lastFrameProgressTime = Date.now();
+      _lastProgressTime = Date.now();
+      setStatus('⏳ Frame stall detected, reconnecting...');
+      _scheduleReconnect();
+      return;
+    }
+  }
+  if (video.paused && video.readyState < 3) {
+    // В этом плеере нет пользовательского контрола паузы — остановка без
+    // буфера означает зависание/сбой, а не намеренную паузу зрителя.
+    if (Date.now() - _lastProgressTime > 12000) {
+      _lastProgressTime = Date.now();
+      if (_tryNudgeGap()) { setStatus('⏳ Buffering...'); return; }
+      setStatus('⏳ Recovering playback...');
+      _scheduleReconnect();
+    }
+    return;
+  }
+  if (Date.now() - _lastProgressTime > 18000) {
+    _lastProgressTime = Date.now();
+    if (_tryNudgeGap()) { setStatus('⏳ Buffering...'); return; }
+    setStatus('⏳ Stall detected, reconnecting...');
+    _scheduleReconnect();
+    return;
+  }
+  if (video.readyState >= 3 && Date.now() - _sessionStart > PREEMPTIVE_REFRESH_MS) {
+    // Переключаем прокси и здесь, а не только при сбое: если фриз связан с
+    // переиспользуемым сетевым соединением конкретного прокси до источника,
+    // новый прокси даёт реально другое соединение, а не просто повторный
+    // запрос по тому же пути.
+    _advanceProxy();
+    createHls();
+  }
+}, 5000);
+
+// ── Реальный старт воспроизведения (не путать с разбором манифеста —
+// манифест может распарситься, а сегменты потом не прийти).
+var _playTimeout = null;
+function _tryNudgeGap() {
+  // Перескакиваем через микро-разрыв в буфере (характерно для fs.uplink.kz
+  // и подобных источников с мелкими паузами в PTS между сегментами) —
+  // дешёвая попытка перед тяжёлым реконнектом.
+  try {
+    if (video.buffered && video.buffered.length) {
+      var end = video.buffered.end(video.buffered.length - 1);
+      if (end - video.currentTime > 0.5) {
+        video.currentTime = Math.max(end - 0.25, video.currentTime + 0.1);
+        return true;
+      }
+    }
+  } catch (e) {}
+  return false;
+}
+video.addEventListener('playing', function() {
+  clearTimeout(_playTimeout);
+  setStatus('▶ Playing');
+  _lastProgressTime = Date.now();
+  _fullCycles = 0; // успешное воспроизведение — сбрасываем нарастающую паузу
+});
+
+// ── Возврат из фона/разблокировка экрана: если во время простоя не было
+// прогресса — принудительно переподключаемся, а не ждём молча.
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'visible' && !_hlsStopped && hls) {
+    if (Date.now() - _lastProgressTime > 15000) {
+      _lastProgressTime = Date.now();
+      setStatus('⏳ Recovering after pause...');
+      _scheduleReconnect();
+    }
+  }
+});
+
+function _scheduleReconnect(forceRotate) {
+  if (_hlsStopped) return;
+  if (forceRotate || _retryCount >= _maxRetries) {
+    // Исчерпаны попытки на этом прокси — пробуем следующий, а после последнего
+    // снова с первого (он к тому времени уже мог «остыть»). Раньше здесь
+    // трансляция останавливалась навсегда — если источник (например,
+    // cinerama.uz) сам обрывает сессию просмотра примерно через 10-12 минут
+    // независимо от прокси, зритель терял канал без возможности восстановления
+    // без ручной перезагрузки страницы. Теперь продолжаем циклически
+    // переподключаться, с растущей паузой между полными кругами.
+    _markProxyFailed();
+    _advanceProxy();
+    if (_proxyIdx % PROXIES.length === 0) _fullCycles++;
+    _retryCount = 0;
+    var cycleDelay = _fullCycles > 0 ? Math.min(5000 + (_fullCycles - 1) * 3000, 15000) : 1500;
+    setStatus(_fullCycles >= 2
+      ? '⏳ The source is temporarily unavailable, still retrying automatically...'
+      : (_fullCycles > 0
+        ? '⏳ Reconnecting...'
+        : '⏳ Reconnecting... (' + ((_proxyIdx % PROXIES.length) + 1) + '/' + PROXIES.length + ')'));
+    clearTimeout(_retryTimer);
+    _retryTimer = setTimeout(createHls, cycleDelay);
+    return;
+  }
+  _retryCount++;
+  var delay = Math.min(3000 * _retryCount, 12000);
+  setStatus('⏳ Reconnecting (' + _retryCount + '/' + _maxRetries + ')...');
+  clearTimeout(_retryTimer);
+  _retryTimer = setTimeout(createHls, delay);
+}
+
+var _lastCreateHlsAt = 0;
+function createHls() {
+  if (_hlsStopped) return;
+  var _nowTs = Date.now();
+  if (_nowTs - _lastCreateHlsAt < 1500) return; // защита от шторма повторных пересозданий подряд
+  _lastCreateHlsAt = _nowTs;
+  _sessionStart = _nowTs; // отсчёт до профилактического реконнекта — заново с каждого (пере)подключения
+  _lastFrameCount = 0; _lastFrameProgressTime = _nowTs; // сброс счётчика кадров — video.load() обнуляет totalVideoFrames браузера
+  clearTimeout(_retryTimer);
+  const url = _currentProxy() + '/stream?channel=' + CH_ID;
+  if (hls) { try { hls.destroy(); } catch(e) {} hls = null; }
+  try { video.removeAttribute('src'); video.load(); } catch(e) {}
+  hls = new Hls({startLevel:0, liveSyncDurationCount:3, enableWorker:true,
+    manifestLoadingMaxRetry:2, fragLoadingMaxRetry:3, levelLoadingMaxRetry:2});
+  hls.loadSource(url);
+  hls.attachMedia(video);
+  try { window.rtvQuality && rtvQuality.attach(hls, video); } catch (e) {}
+  hls.on(Hls.Events.MANIFEST_PARSED, function() {
+    video.play().catch(function(){});
+    setStatus('⏳ Buffering...');
+    clearTimeout(_stableTimer);
+    _stableTimer = setTimeout(function() { _retryCount = 0; }, 60000);
+    // Манифест разобрался, но это ещё не значит, что видео реально пошло —
+    // если через 8с нет реального кадра (сегменты не пришли), считаем попытку неудачной.
+    clearTimeout(_playTimeout);
+    _playTimeout = setTimeout(function() {
+      if (_hlsStopped || video.readyState >= 3) return;
+      if (_tryNudgeGap()) {
+        _playTimeout = setTimeout(function() {
+          if (_hlsStopped || video.readyState >= 3) return;
+          _scheduleReconnect();
+        }, 1500);
         return;
       }
-      if (d.type === Hls.ErrorTypes.MEDIA_ERROR) { try { hls.recoverMediaError(); } catch(err) {} return; }
-      onFatalError();
-    });
+      _scheduleReconnect();
+    }, 8000);
+  });
+  var _nonFatalErrCount = 0, _nonFatalErrWinStart = Date.now();
+  hls.on(Hls.Events.ERROR, function(e, d) {
+    if (_hlsStopped) return;
+    if (!d.fatal) {
+      // Шквал некритичных ошибок подряд — признак реально сломанного
+      // подключения, даже если ни одна из них не помечена как fatal.
+      var _now2 = Date.now();
+      if (_now2 - _nonFatalErrWinStart > 5000) { _nonFatalErrWinStart = _now2; _nonFatalErrCount = 0; }
+      _nonFatalErrCount++;
+      if (_nonFatalErrCount > 15) { _nonFatalErrCount = 0; _scheduleReconnect(); }
+      return;
+    }
+    if (d.type === Hls.ErrorTypes.MEDIA_ERROR && _retryCount === 0) {
+      _retryCount++;
+      setStatus('⏳ Recovering...');
+      hls.recoverMediaError();
+      return;
+    }
+    // Ошибка на уровне плейлиста (не отдельного сегмента) — источник/прокси
+    // сломан целиком, повторять тот же прокси бессмысленно. Сразу переключаем
+    // прокси вместо 5 попыток на том же самом (это могло занимать до минуты).
+    var _isPlaylistError = d.details === 'manifestLoadError' || d.details === 'manifestLoadTimeOut'
+      || d.details === 'levelLoadError' || d.details === 'levelLoadTimeOut';
+    _scheduleReconnect(_isPlaylistError);
+  });
+}
+
+function startStream() {
+  overlay.style.display = 'none';
+  setStatus('⏳ Connecting...');
+  if (Hls.isSupported()) {
+    createHls();
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    const url = _currentProxy() + '/stream?channel=' + CH_ID;
     video.src = url;
-    try { if (window.rtvQuality) rtvQuality.attachNative(video, url); } catch (e) {}
-    video.addEventListener('loadedmetadata', () => { _fullCycles = 0; statusEl.textContent = 'LIVE — ' + name; video.play().catch(()=>{}); }, {once:true});
-    video.addEventListener('error', () => onFatalError(), {once:true});
-  } else {
-    statusEl.textContent = 'Your browser does not support HLS.';
+    try { window.rtvQuality && rtvQuality.attachNative(video, url); } catch (e) {}
+    video.play().catch(function(){});
+    setStatus('▶ Playing');
   }
 }
-const CH_ID = 'ktv', CH_NAME = 'KTV';
-// createHls() — общий вход для повтора (player-ui.js) и Cast/AirPlay (cast.js), как у russian-tv.com
-function createHls() { _fullCycles = 0; play(CH_ID, CH_NAME); }
-createHls();
-</script>
-<script>
-(function(){
-  const input = document.getElementById('search-input');
-  if (!input) return;
-  input.addEventListener('input', () => {
-    const q = input.value.toLowerCase();
-    document.querySelectorAll('.channel-sidebar .cat-group').forEach(group => {
-      let any = false;
-      group.querySelectorAll('.ch-item').forEach(item => {
-        const match = !q || item.dataset.name.includes(q);
-        item.style.display = match ? '' : 'none';
-        if (match) any = true;
-      });
-      group.style.display = any ? '' : 'none';
-      const label = group.previousElementSibling;
-      if (label && label.classList.contains('cat-label')) label.style.display = any ? '' : 'none';
+
+overlay.addEventListener('click', function() { startStream(); });
+
+// ── Fullscreen ────────────────────────────────────────────
+const _playerWrap = document.getElementById('player-wrap');
+const fsBtn = document.getElementById('fs-btn');
+fsBtn.addEventListener('click', function() {
+  const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+  if (fsEl) {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+  } else {
+    if (_playerWrap.requestFullscreen) _playerWrap.requestFullscreen().catch(function(){});
+    else if (_playerWrap.webkitRequestFullscreen) _playerWrap.webkitRequestFullscreen();
+    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+  }
+});
+function _onFsUpdate() {
+  const inFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+  fsBtn.textContent = inFs ? '✕' : '⛶';
+}
+document.addEventListener('fullscreenchange', _onFsUpdate);
+document.addEventListener('webkitfullscreenchange', _onFsUpdate);
+video.addEventListener('webkitbeginfullscreen', function() { fsBtn.textContent = '✕'; });
+video.addEventListener('webkitendfullscreen', function() { fsBtn.textContent = '⛶'; });
+
+// ── Sidebar search ────────────────────────────────────────
+var chSearch = document.getElementById('ch-search');
+if (chSearch) {
+  chSearch.addEventListener('input', function() {
+    var q = this.value.toLowerCase();
+    var items = document.querySelectorAll('.ch-item-s');
+    var labels = document.querySelectorAll('.cat-label-s');
+    items.forEach(function(el) {
+      el.style.display = (!q || el.dataset.name.toLowerCase().includes(q)) ? '' : 'none';
+    });
+    labels.forEach(function(label) {
+      var sib = label.nextElementSibling;
+      var hasVisible = false;
+      while (sib && !sib.classList.contains('cat-label-s')) {
+        if (sib.style.display !== 'none') hasVisible = true;
+        sib = sib.nextElementSibling;
+      }
+      label.style.display = hasVisible ? '' : 'none';
     });
   });
+}
+
+(function() {
+  var active = document.querySelector('.ch-item-s.active');
+  if (active) active.scrollIntoView({block:'center', behavior:'auto'});
 })();
 </script>
 </body>

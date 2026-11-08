@@ -31,115 +31,60 @@
   ]}
   </script>
   <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#080810;--bg2:#0f0f1c;--bg3:#151525;--card:#12121f;--border:#1e1e32;--border2:#252540;
-      --accent:#0047A0;--accent2:#1c66d4;--red:#CD2E3A;--text:#e2e2f0;--muted:#8a8aa5;
-      --tg:#229ED9;--radius:14px;--radius-sm:8px}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
-a{color:inherit;text-decoration:none}
-header{position:sticky;top:0;z-index:100;background:rgba(8,8,16,.95);backdrop-filter:blur(16px);
-        border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;padding:0 24px;height:60px}
-.logo{display:flex;align-items:center;gap:8px;font-size:24px;font-weight:900;letter-spacing:1px;flex-shrink:0}
-.logo .red{color:var(--red)} .logo .blue{color:var(--accent2)}
-.header-right{margin-left:auto;display:flex;align-items:center;gap:10px}
-.tg-btn{display:flex;align-items:center;gap:7px;background:var(--tg);color:#fff;
-        padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;transition:.2s}
-.tg-btn:hover{background:#1a8dc5;transform:translateY(-1px)}
-.back-btn{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);
-           color:var(--muted);padding:7px 14px;border-radius:20px;font-size:13px;transition:.2s}
-.back-btn:hover{color:var(--text);border-color:var(--border2)}
-.hero{background:linear-gradient(135deg,#060612 0%,#0a0a20 50%,#08081a 100%);
-      border-bottom:1px solid var(--border);padding:44px 24px 32px;text-align:center}
-.hero-icon{font-size:48px;margin-bottom:10px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(229,57,53,.1);
-            border:1px solid rgba(229,57,53,.3);border-radius:20px;padding:5px 14px;
-            font-size:12px;font-weight:700;color:var(--red);margin-bottom:14px}
-.live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1s infinite;flex-shrink:0}
-.hero h1{font-size:clamp(24px,4.4vw,38px);font-weight:900;line-height:1.2;margin-bottom:8px}
-.hero-count{font-size:14px;color:var(--muted);margin-bottom:22px}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;
-             padding:13px 26px;border-radius:28px;font-size:15px;font-weight:800;transition:.2s}
-.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
-.cat-nav{max-width:1100px;margin:0 auto;padding:22px 24px 0;display:flex;gap:8px;flex-wrap:wrap}
-.cat-pill{background:var(--card);border:1px solid var(--border);border-radius:20px;
-          padding:7px 14px;font-size:13px;font-weight:600;transition:.2s;white-space:nowrap}
-.cat-pill:hover{border-color:var(--border2);background:var(--bg3)}
-.cat-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.intro-block{max-width:900px;margin:22px auto 0;padding:0 24px}
-.intro-tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.itab{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 14px;
-      font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
-.itab.active{background:var(--border2);border-color:var(--border2)}
-.intro-text{font-size:14px;color:var(--muted);line-height:1.7;display:none}
-.intro-text.active{display:block}
-.channels-section{max-width:1100px;margin:22px auto;padding:0 24px}
-.channels-section h2{font-size:18px;font-weight:800;margin-bottom:16px}
-.ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-.ch-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);
-         padding:16px 14px;transition:.2s;display:flex;flex-direction:column;gap:6px}
-.ch-card:hover{border-color:var(--accent);background:var(--bg3);transform:translateY(-2px)}
-.ch-name{font-size:15px;font-weight:700;line-height:1.3}
-.ch-desc{font-size:11px;color:var(--muted)}
-.ch-live{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--red);font-weight:700}
-.player-wrap{position:relative;background:#000;border-radius:var(--radius);overflow:hidden;
-             border:1px solid var(--border);aspect-ratio:16/9;max-width:900px;margin:20px auto 0}
-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.player-status{font-size:13px;color:var(--muted);text-align:center;padding:10px 0}
-.seo-block{max-width:900px;margin:22px auto;padding:0 24px 24px}
-.seo-block .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px}
-.seo-block h2{font-size:17px;font-weight:800;margin-bottom:10px}
-.seo-block p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:8px}
-.similar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:10px}
-.faq details{margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:10px}
-.faq summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none}
-.faq p{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6}
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px;text-align:center;margin-top:40px}
-.footer-logo{font-size:17px;font-weight:900;margin-bottom:8px}
-.footer-links{display:flex;gap:18px;justify-content:center;margin-bottom:8px;flex-wrap:wrap}
-.footer-links a{font-size:13px;color:var(--muted)}
-.footer-links a:hover{color:var(--text)}
-.footer-copy{font-size:12px;color:var(--muted)}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-@media(max-width:600px){header{padding:0 12px;height:52px}.logo{font-size:19px}
-  .ch-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
-
-/* Left channel sidebar — same look as the homepage, but plain navigational links
-   (each page here is its own SEO-indexed URL, so no JS-driven player switching). */
-.layout-wrap{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;gap:20px;align-items:flex-start}
-.layout-wrap>.channel-sidebar,.layout-wrap>.content-col{min-width:0}
-.channel-sidebar{width:280px;flex-shrink:0;background:var(--card);border:1px solid var(--border);
-                  border-radius:var(--radius);padding:14px;max-height:80vh;overflow-y:auto;
-                  position:sticky;top:76px}
-.channel-sidebar::-webkit-scrollbar{width:5px}
-.channel-sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
-.sidebar-search{position:relative;margin-bottom:10px}
-.sidebar-search input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);
-                       border-radius:var(--radius-sm);padding:9px 12px 9px 36px;font-size:13px;
-                       font-family:inherit;outline:none}
-.sidebar-search input:focus{border-color:var(--accent)}
-.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px}
-.cat-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;
-           letter-spacing:1.5px;padding:12px 6px 4px}
-.cat-label:first-child{padding-top:0}
-.cat-group{display:flex;flex-direction:column;gap:2px;margin-bottom:4px}
-.ch-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;transition:all .15s;border:1px solid transparent}
-.ch-item:hover{background:var(--bg3);border-color:var(--border)}
-.ch-item.active{background:linear-gradient(135deg,rgba(0,71,160,.15),rgba(28,102,212,.08));border-color:rgba(28,102,212,.3)}
-.ch-item.active .ch-name-s{color:var(--accent2)}
-.ch-icon-s{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-           font-size:9px;font-weight:900;flex-shrink:0}
-.ch-name-s{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ch-desc-s{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.live-indicator{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.2s infinite;
-                 flex-shrink:0;margin-left:auto}
-.content-col{flex:1;min-width:0}
-@media(max-width:900px){.layout-wrap{flex-direction:column;padding:0 12px}
-  .channel-sidebar{width:100%;max-height:320px;position:static}}
-.breadcrumb{padding:10px 24px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
-.breadcrumb a{color:var(--muted);transition:.15s}.breadcrumb a:hover{color:var(--accent2)}
-</style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#080810;--bg2:#0f0f1c;--bg3:#151525;--card:#12121f;--border:#1e1e32;--border2:#252540;
+      --text:#e2e2f0;--muted:#555570;--muted2:#383855;
+      --accent:#0047A0;--accent2:#1c66d4;--red:#CD2E3A;--tg-color:#229ED9;--radius:12px}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    header{background:rgba(8,8,16,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+      padding:0 20px;height:60px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+    .logo{font-size:22px;font-weight:900;letter-spacing:-.5px;display:flex;align-items:center;gap:6px}
+    .logo .r{color:#CC0000}.logo .w{color:#fff}.logo .b{color:var(--accent2)}
+    .tg-btn{display:flex;align-items:center;gap:7px;background:var(--tg-color);color:#fff;
+      padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-left:auto;transition:.2s}
+    .tg-btn:hover{background:#1a8dc5}
+    .breadcrumb{padding:10px 20px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border);display:flex;gap:6px}
+    .breadcrumb a{color:var(--muted);transition:.15s}.breadcrumb a:hover{color:var(--accent2)}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px 16px 48px}
+    .page-header{margin-bottom:24px}
+    h1{font-size:28px;font-weight:900;line-height:1.25;margin-bottom:8px}
+    .meta{display:flex;gap:7px;align-items:center;font-size:13px;color:var(--muted)}
+    .badge{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--accent2)}
+    .live-badge{display:flex;align-items:center;gap:5px;background:rgba(204,0,0,.12);border:1px solid rgba(204,0,0,.3);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--red)}
+    .live-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1s infinite;flex-shrink:0}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:32px}
+    .cat-ch-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;
+      text-align:center;transition:all .2s;cursor:pointer;display:block}
+    .cat-ch-card:hover{border-color:var(--accent2);background:var(--bg3);transform:translateY(-2px)}
+    .cat-ch-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+      font-size:12px;font-weight:900;margin:0 auto 10px}
+    .cat-ch-name{font-size:16px;font-weight:700;margin-bottom:4px}
+    .cat-ch-desc{font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.4}
+    .cat-ch-live{display:flex;align-items:center;justify-content:center;gap:4px;font-size:10px;font-weight:800;color:var(--red)}
+    .cat-live-dot{width:5px;height:5px;background:var(--red);border-radius:50%;animation:pulse 1s infinite}
+    .seo-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+    .seo-box h2{font-size:18px;font-weight:800;margin-bottom:14px}
+    .seo-box p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:10px}
+    .seo-box p:last-child{margin-bottom:0}
+    .faq-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+    .faq-box h2{font-size:16px;font-weight:800;margin-bottom:14px}
+    details{margin-bottom:10px;border-bottom:1px solid var(--border);padding-bottom:10px}
+    details:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    summary{cursor:pointer;font-weight:700;font-size:13px;list-style:none;display:flex;justify-content:space-between;gap:8px}
+    details p{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.6}
+    .cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+    .cat-nav a{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--muted);transition:.15s}
+    .cat-nav a:hover{color:var(--text);border-color:var(--border2)}
+    .cat-nav a.cur{background:var(--accent2);border-color:var(--accent2);color:#fff}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:20px;text-align:center;font-size:12px;color:var(--muted)}
+    footer a{color:var(--accent2);margin:0 8px}
+    @media(max-width:640px){h1{font-size:22px}.ch-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
+    .lang-switch { display:flex; align-items:center; gap:4px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:20px; padding:4px 6px; }
+    .lang-switch a { padding:3px 8px; border-radius:14px; font-size:12px; font-weight:700; color:rgba(255,255,255,.6); transition:.15s; text-decoration:none; }
+    .lang-switch a.active { background:#1a6de8; color:#fff; }
+  .lang-switch a{position:relative}.lang-switch a::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X503KNBLXB"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -150,63 +95,100 @@ gtag('config', 'G-X503KNBLXB');
 </head>
 <body>
 <header>
-  <a href="https://korea-tv.uk/" class="logo"><span class="red">한</span><span class="blue">국</span><span class="red">·TV</span></a>
-  <div class="header-right">
-    <a href="https://korea-tv.uk/" class="back-btn">← 전체 채널</a>
-    <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg>
-      <span>텔레그램</span>
-    </a>
-  </div>
+  <a href="https://korea-tv.uk/" class="logo"><span style="font-size:26px">🇰🇷</span><span class="logo-text"><span class="r">한</span><span class="b">국</span></span><span class="w">TV</span></a>
+  <a href="https://t.me/Korea_TV_hub" target="_blank" class="tg-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.66 7.85c-.12.53-.44.66-.89.41l-2.46-1.81-1.19 1.14c-.13.13-.24.24-.5.24l.18-2.51 4.57-4.13c.2-.17-.04-.27-.31-.1l-5.65 3.56-2.43-.76c-.62-.19-.63-.62.13-.92l8.96-3.46c.52-.19 1 .13.84.93z"/></svg>
+    텔레그램
+  </a>
 </header>
-<div class="breadcrumb"><a href="https://korea-tv.uk/">홈</a><span>›</span><a href="https://korea-tv.uk/#channels">채널</a><span>›</span><span>경제·쇼핑</span></div>
-<div class="layout-wrap">
-  <aside class="channel-sidebar" id="channel-sidebar"><div class="sidebar-search"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="채널 검색..."/></div><div class="cat-label">🌏 국제</div><div class="cat-group"><a href="https://korea-tv.uk/arirang-live/" class="ch-item" data-name="아리랑tv"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARI</div><div style="flex:1;min-width:0"><div class="ch-name-s">아리랑TV</div><div class="ch-desc-s">해외 시청자를 위한 국제 방송사 — 영어 뉴스·문화 채널</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/arirang-radio-live/" class="ch-item" data-name="아리랑 라디오"><div class="ch-icon-s" style="background:#CD2E3A22;color:#CD2E3A">ARR</div><div style="flex:1;min-width:0"><div class="ch-name-s">아리랑 라디오</div><div class="ch-desc-s">Arirang 계열 영어 라디오 — 음악과 생활 정보</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📚 EBS</div><div class="cat-group"><a href="https://korea-tv.uk/ebs1-live/" class="ch-item" data-name="ebs 1tv"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E1</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS 1TV</div><div class="ch-desc-s">EBS 대표 채널 — 교육·다큐멘터리·어린이 프로그램</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/ebs2-live/" class="ch-item" data-name="ebs 2tv"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">E2</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS 2TV</div><div class="ch-desc-s">EBS 제2채널 — 학습·강의 프로그램</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/ebs-plus1-live/" class="ch-item" data-name="ebs plus1"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P1</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Plus1</div><div class="ch-desc-s">EBS 보조 채널 — 학습 콘텐츠</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/ebs-plus2-live/" class="ch-item" data-name="ebs plus2"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">P2</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Plus2</div><div class="ch-desc-s">EBS 보조 채널 — 교육 프로그램</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/ebs-kids-live/" class="ch-item" data-name="ebs kids"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">KID</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS Kids</div><div class="ch-desc-s">EBS 어린이 채널 — 애니메이션·교육 콘텐츠</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/ebs-english-live/" class="ch-item" data-name="ebs english"><div class="ch-icon-s" style="background:#00838f22;color:#00838f">ENG</div><div style="flex:1;min-width:0"><div class="ch-name-s">EBS English</div><div class="ch-desc-s">EBS 영어교육 채널</div></div><div class="live-indicator"></div></a></div><div class="cat-label">🏛️ 공영·정부</div><div class="cat-group"><a href="https://korea-tv.uk/ktv-live/" class="ch-item" data-name="ktv 국민방송"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">KTV</div><div style="flex:1;min-width:0"><div class="ch-name-s">KTV 국민방송</div><div class="ch-desc-s">대한민국 정책방송원 — 정부 정책·공공 정보 채널</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/gugak-live/" class="ch-item" data-name="국악방송 gugak tv"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">GUG</div><div style="flex:1;min-width:0"><div class="ch-name-s">국악방송 Gugak TV</div><div class="ch-desc-s">국립국악원 운영 — 한국 전통음악 전문 채널</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/oun-live/" class="ch-item" data-name="방송대학tv oun"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">OUN</div><div style="flex:1;min-width:0"><div class="ch-name-s">방송대학TV OUN</div><div class="ch-desc-s">한국방송통신대학교 교육방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/nbs-live/" class="ch-item" data-name="농수산방송 nbs"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">NBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">농수산방송 NBS</div><div class="ch-desc-s">농업·수산 정보 전문 방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/tbs-live/" class="ch-item" data-name="tbs"><div class="ch-icon-s" style="background:#0047A022;color:#0047A0">TBS</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS</div><div class="ch-desc-s">서울시 미디어재단 TBS — 교통정보와 시사 프로그램</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📍 지역 방송</div><div class="cat-group"><a href="https://korea-tv.uk/mbc-jeju-live/" class="ch-item" data-name="제주mbc"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JEJ</div><div style="flex:1;min-width:0"><div class="ch-name-s">제주MBC</div><div class="ch-desc-s">MBC 제주 지역 계열사</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/sbs-kbc-live/" class="ch-item" data-name="광주방송 kbc"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KBC</div><div style="flex:1;min-width:0"><div class="ch-name-s">광주방송 KBC</div><div class="ch-desc-s">SBS 계열 광주·전남 지역 방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/sbs-ubc-live/" class="ch-item" data-name="울산방송 ubc"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">UBC</div><div style="flex:1;min-width:0"><div class="ch-name-s">울산방송 UBC</div><div class="ch-desc-s">SBS 계열 울산 지역 방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/nhtv-live/" class="ch-item" data-name="농협방송 nhtv"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NH</div><div style="flex:1;min-width:0"><div class="ch-name-s">농협방송 NHTV</div><div class="ch-desc-s">농협 계열 농업방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/mbc-chuncheon-live/" class="ch-item" data-name="춘천mbc"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">CHN</div><div style="flex:1;min-width:0"><div class="ch-name-s">춘천MBC</div><div class="ch-desc-s">MBC 춘천(강원) 지역 계열사</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/mbc-daejeon-live/" class="ch-item" data-name="대전mbc"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">DJ</div><div style="flex:1;min-width:0"><div class="ch-name-s">대전MBC</div><div class="ch-desc-s">MBC 대전(충남) 지역 계열사</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/nib-live/" class="ch-item" data-name="남인천방송 nib"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">NIB</div><div style="flex:1;min-width:0"><div class="ch-name-s">남인천방송 NIB</div><div class="ch-desc-s">인천 지역 케이블방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/jjctv-live/" class="ch-item" data-name="지방자치tv jjctv"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">JJC</div><div style="flex:1;min-width:0"><div class="ch-name-s">지방자치TV JJCTV</div><div class="ch-desc-s">지방자치 정보 채널</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/kcn-live/" class="ch-item" data-name="금강방송 kcn"><div class="ch-icon-s" style="background:#1565c022;color:#1565c0">KCN</div><div style="flex:1;min-width:0"><div class="ch-name-s">금강방송 KCN</div><div class="ch-desc-s">금강(충청) 지역 케이블방송</div></div><div class="live-indicator"></div></a></div><div class="cat-label">⛪ 종교</div><div class="cat-group"><a href="https://korea-tv.uk/btn-live/" class="ch-item" data-name="btn 불교방송"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">BTN</div><div style="flex:1;min-width:0"><div class="ch-name-s">BTN 불교방송</div><div class="ch-desc-s">불교 종교방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/abn-live/" class="ch-item" data-name="abn"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">ABN</div><div style="flex:1;min-width:0"><div class="ch-name-s">ABN</div><div class="ch-desc-s">기독교 종교방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/fgtv-live/" class="ch-item" data-name="fgtv"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">FG</div><div style="flex:1;min-width:0"><div class="ch-name-s">FGTV</div><div class="ch-desc-s">여의도순복음교회 계열 기독교 방송</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/rutc-live/" class="ch-item" data-name="rutc tv"><div class="ch-icon-s" style="background:#6a1b9a22;color:#6a1b9a">RUT</div><div style="flex:1;min-width:0"><div class="ch-name-s">RUTC TV</div><div class="ch-desc-s">복음방송 채널</div></div><div class="live-indicator"></div></a></div><div class="cat-label">📈 경제·쇼핑</div><div class="cat-group"><a href="https://korea-tv.uk/wowtv-live/" class="ch-item" data-name="한국경제tv wowtv"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">WOW</div><div style="flex:1;min-width:0"><div class="ch-name-s">한국경제TV WOWTV</div><div class="ch-desc-s">한국경제TV — 증권·경제 뉴스</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/mkmoney-live/" class="ch-item" data-name="매일경제tv"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">MK</div><div style="flex:1;min-width:0"><div class="ch-name-s">매일경제TV</div><div class="ch-desc-s">매일경제TV — 경제·재테크 뉴스</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/ktalpha-live/" class="ch-item" data-name="kt알파쇼핑"><div class="ch-icon-s" style="background:#2e7d3222;color:#2e7d32">KTA</div><div style="flex:1;min-width:0"><div class="ch-name-s">KT알파쇼핑</div><div class="ch-desc-s">홈쇼핑 채널</div></div><div class="live-indicator"></div></a></div><div class="cat-label">🎵 음악·라디오</div><div class="cat-group"><a href="https://korea-tv.uk/tbs-efm-live/" class="ch-item" data-name="tbs efm"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">eFM</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS eFM</div><div class="ch-desc-s">서울 영어 라디오 — 뉴스·시사</div></div><div class="live-indicator"></div></a><a href="https://korea-tv.uk/tbs-fm-live/" class="ch-item" data-name="tbs fm"><div class="ch-icon-s" style="background:#ad145722;color:#ad1457">FM</div><div style="flex:1;min-width:0"><div class="ch-name-s">TBS FM</div><div class="ch-desc-s">서울 교통·시사 라디오(한국어)</div></div><div class="live-indicator"></div></a></div></aside>
-  <div class="content-col">
-    <section class="hero">
-      <div class="hero-icon">📈</div>
-      <div class="hero-badge"><span class="live-dot"></span> 3개 채널 LIVE</div>
-      <h1>경제·쇼핑 채널 실시간 시청</h1>
-      <p class="hero-count">3개 채널 &middot; 무료 &middot; VPN 불필요 &middot; 24/7</p>
-      <div class="hero-btns"><a href="https://korea-tv.uk/" class="btn-primary">📺 전체 채널 보기</a></div>
-    </section>
-    <nav class="cat-nav"><a href="https://korea-tv.uk/korean-international-channels/" class="cat-pill">🌏 국제</a><a href="https://korea-tv.uk/korean-educational-channels/" class="cat-pill">📚 EBS</a><a href="https://korea-tv.uk/korean-public-broadcasting/" class="cat-pill">🏛️ 공영·정부</a><a href="https://korea-tv.uk/korean-regional-channels/" class="cat-pill">📍 지역 방송</a><a href="https://korea-tv.uk/korean-religious-channels/" class="cat-pill">⛪ 종교</a><a href="https://korea-tv.uk/korean-business-shopping-channels/" class="cat-pill active">📈 경제·쇼핑</a><a href="https://korea-tv.uk/korean-music-radio-channels/" class="cat-pill">🎵 음악·라디오</a></nav>
-    <div class="channels-section">
-      <h2>📈 경제·쇼핑 채널 (3개)</h2>
-      <div class="ch-grid"><a href="https://korea-tv.uk/wowtv-live/" class="ch-card"><div class="ch-name">한국경제TV WOWTV</div><div class="ch-desc">한국경제TV — 증권·경제 뉴스</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a href="https://korea-tv.uk/mkmoney-live/" class="ch-card"><div class="ch-name">매일경제TV</div><div class="ch-desc">매일경제TV — 경제·재테크 뉴스</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a><a href="https://korea-tv.uk/ktalpha-live/" class="ch-card"><div class="ch-name">KT알파쇼핑</div><div class="ch-desc">홈쇼핑 채널</div><div class="ch-live"><span class="live-dot"></span>LIVE</div></a></div>
+<div class="breadcrumb">
+  <a href="https://korea-tv.uk/">홈</a><span>›</span>
+  <a href="https://korea-tv.uk/#channels">채널</a><span>›</span>
+  <span>경제·쇼핑</span>
+</div>
+<div class="wrap">
+  <div class="page-header">
+    <h1>경제·쇼핑 채널 실시간 시청</h1>
+    <div class="meta">
+      <span class="badge">3개 채널</span>
+      <span class="live-badge"><span class="live-dot"></span>실시간 24/7</span>
     </div>
-    <div class="seo-block"><div class="card"><h2>📈 경제·쇼핑 채널 소개</h2><p>경제 뉴스 전문 채널과 홈쇼핑 채널을 모은 카테고리입니다.</p><p>포함된 채널: <a href="https://korea-tv.uk/wowtv-live/" style="color:var(--accent2)">한국경제TV WOWTV</a>, <a href="https://korea-tv.uk/mkmoney-live/" style="color:var(--accent2)">매일경제TV</a>, <a href="https://korea-tv.uk/ktalpha-live/" style="color:var(--accent2)">KT알파쇼핑</a>.</p><p>모든 채널은 회원가입 없이 무료로, VPN 없이 전 세계 어디서나 시청할 수 있습니다.</p></div></div><div class="faq" style="max-width:900px;margin:0 auto 24px;padding:0 24px"><h2 style="font-size:17px;font-weight:800;margin-bottom:10px">자주 묻는 질문</h2><details><summary>경제·쇼핑 카테고리는 무료로 시청할 수 있나요?</summary><p>네, 회원가입이나 결제 없이 무료로 실시간 시청할 수 있습니다.</p></details><details><summary>경제·쇼핑 채널은 몇 개가 있나요?</summary><p>현재 3개 채널이 제공되고 있습니다: 한국경제TV WOWTV, 매일경제TV, KT알파쇼핑.</p></details><details><summary>해외에서도 VPN 없이 시청할 수 있나요?</summary><p>네, VPN 없이 전 세계 어디서나 바로 접속해 시청할 수 있습니다.</p></details><details><summary>다른 카테고리 채널도 볼 수 있나요?</summary><p>네, 상단 카테고리 탭이나 홈페이지에서 다른 카테고리의 채널로 이동할 수 있습니다.</p></details></div>
+  </div>
+
+  <nav class="cat-nav" aria-label="카테고리">
+    <a href="https://korea-tv.uk/korean-international-channels/" >🌏 국제</a>
+    <a href="https://korea-tv.uk/korean-educational-channels/" >📚 EBS</a>
+    <a href="https://korea-tv.uk/korean-public-broadcasting/" >🏛️ 공영·정부</a>
+    <a href="https://korea-tv.uk/korean-regional-channels/" >📍 지역 방송</a>
+    <a href="https://korea-tv.uk/korean-religious-channels/" >⛪ 종교</a>
+    <a href="https://korea-tv.uk/korean-business-shopping-channels/" class='cur'>📈 경제·쇼핑</a>
+    <a href="https://korea-tv.uk/korean-music-radio-channels/" >🎵 음악·라디오</a>
+  </nav>
+
+  <div class="ch-grid">
+
+        <a href="https://korea-tv.uk/wowtv-live/" class="cat-ch-card">
+          <div class="cat-ch-icon" style="background:#2e7d3222;color:#2e7d32">WOW</div>
+          <div class="cat-ch-name">한국경제TV WOWTV</div>
+          <div class="cat-ch-desc">한국경제TV — 증권·경제 뉴스</div>
+          <div class="cat-ch-live"><span class="cat-live-dot"></span>LIVE</div>
+        </a>
+
+        <a href="https://korea-tv.uk/mkmoney-live/" class="cat-ch-card">
+          <div class="cat-ch-icon" style="background:#2e7d3222;color:#2e7d32">MK</div>
+          <div class="cat-ch-name">매일경제TV</div>
+          <div class="cat-ch-desc">매일경제TV — 경제·재테크 뉴스</div>
+          <div class="cat-ch-live"><span class="cat-live-dot"></span>LIVE</div>
+        </a>
+
+        <a href="https://korea-tv.uk/ktalpha-live/" class="cat-ch-card">
+          <div class="cat-ch-icon" style="background:#2e7d3222;color:#2e7d32">KTA</div>
+          <div class="cat-ch-name">KT알파쇼핑</div>
+          <div class="cat-ch-desc">홈쇼핑 채널</div>
+          <div class="cat-ch-live"><span class="cat-live-dot"></span>LIVE</div>
+        </a>
+
+</div>
+
+  <div class="seo-box">
+    <h2>📈 경제·쇼핑 채널 소개</h2>
+    <p>경제 뉴스 전문 채널과 홈쇼핑 채널을 모은 카테고리입니다.</p><p>포함된 채널: <a href="https://korea-tv.uk/wowtv-live/" style="color:var(--accent2)">한국경제TV WOWTV</a>, <a href="https://korea-tv.uk/mkmoney-live/" style="color:var(--accent2)">매일경제TV</a>, <a href="https://korea-tv.uk/ktalpha-live/" style="color:var(--accent2)">KT알파쇼핑</a>.</p><p>모든 채널은 회원가입 없이 무료로, VPN 없이 전 세계 어디서나 시청할 수 있습니다.</p>
+  </div>
+
+  <div class="faq-box" style="margin-top:16px">
+    <h2>자주 묻는 질문</h2>
+    <details>
+      <summary>경제·쇼핑 카테고리는 무료로 시청할 수 있나요? <span>▾</span></summary>
+      <p>네, 회원가입이나 결제 없이 무료로 실시간 시청할 수 있습니다.</p>
+    </details>
+    <details>
+      <summary>경제·쇼핑 채널은 몇 개가 있나요? <span>▾</span></summary>
+      <p>현재 3개 채널이 제공되고 있습니다: 한국경제TV WOWTV, 매일경제TV, KT알파쇼핑.</p>
+    </details>
+    <details>
+      <summary>해외에서도 VPN 없이 시청할 수 있나요? <span>▾</span></summary>
+      <p>네, VPN 없이 전 세계 어디서나 바로 접속해 시청할 수 있습니다.</p>
+    </details>
+    <details>
+      <summary>다른 카테고리 채널도 볼 수 있나요? <span>▾</span></summary>
+      <p>네, 상단 카테고리 탭이나 홈페이지에서 다른 카테고리의 채널로 이동할 수 있습니다.</p>
+    </details>
   </div>
 </div>
+
 <footer>
-  <div class="footer-logo"><span style="color:#CD2E3A">한</span><span style="color:#0047A0">국</span>·TV</div>
-  <div class="footer-links">
-    <a href="https://korea-tv.uk/">홈</a>
-    <a href="https://korea-tv.uk/korean-international-channels/">🌏 국제</a><a href="https://korea-tv.uk/korean-educational-channels/">📚 EBS</a><a href="https://korea-tv.uk/korean-public-broadcasting/">🏛️ 공영·정부</a><a href="https://korea-tv.uk/korean-regional-channels/">📍 지역 방송</a><a href="https://korea-tv.uk/korean-religious-channels/">⛪ 종교</a><a href="https://korea-tv.uk/korean-business-shopping-channels/">📈 경제·쇼핑</a><a href="https://korea-tv.uk/korean-music-radio-channels/">🎵 음악·라디오</a>
+  <div>🇰🇷 <a href="https://korea-tv.uk/">한국 TV</a> — 무료 한국 방송 온라인 시청</div>
+  <div style="margin-top:6px">
+    <a href="https://korea-tv.uk/korean-international-channels/">국제</a>
+    <a href="https://korea-tv.uk/korean-educational-channels/">EBS</a>
+    <a href="https://korea-tv.uk/korean-public-broadcasting/">공영·정부</a>
+    <a href="https://korea-tv.uk/korean-regional-channels/">지역 방송</a>
+    <a href="https://korea-tv.uk/korean-religious-channels/">종교</a>
+    <a href="https://korea-tv.uk/korean-business-shopping-channels/">경제·쇼핑</a>
+    <a href="https://korea-tv.uk/korean-music-radio-channels/">음악·라디오</a>
     <a href="https://t.me/Korea_TV_hub" target="_blank">Telegram</a>
   </div>
-  <div class="footer-copy">&copy; 2026 Korea-TV.uk &middot; 무료 한국 방송 온라인 시청</div>
-<div class="legal-note" style="text-align:center;margin:14px auto 0;max-width:820px;font-size:11px;line-height:1.6;color:var(--muted2,#454560)">방송 링크는 인터넷에 공개된 출처에서 가져왔으며, Korea-TV.uk는 방송사와 제휴 관계가 없습니다. 권리자가 요청하고 권리를 증빙하면 해당 방송을 삭제합니다 — <a href="https://korea-tv.uk/privacy/#rightsholders">권리자 안내</a> · <a href="https://korea-tv.uk/privacy/">개인정보처리방침</a></div>
+  <div class="legal-note" style="text-align:center;margin:14px auto 0;max-width:820px;font-size:11px;line-height:1.6;color:var(--muted2,#454560)">방송 링크는 인터넷에 공개된 출처에서 가져왔으며, Korea-TV.uk는 방송사와 제휴 관계가 없습니다. 권리자가 요청하고 권리를 증빙하면 해당 방송을 삭제합니다 — <a href="https://korea-tv.uk/privacy/#rightsholders">권리자 안내</a> · <a href="https://korea-tv.uk/privacy/">개인정보처리방침</a></div>
 </footer>
-<script>
-(function(){
-  const input = document.getElementById('search-input');
-  if (!input) return;
-  input.addEventListener('input', () => {
-    const q = input.value.toLowerCase();
-    document.querySelectorAll('.channel-sidebar .cat-group').forEach(group => {
-      let any = false;
-      group.querySelectorAll('.ch-item').forEach(item => {
-        const match = !q || item.dataset.name.includes(q);
-        item.style.display = match ? '' : 'none';
-        if (match) any = true;
-      });
-      group.style.display = any ? '' : 'none';
-      const label = group.previousElementSibling;
-      if (label && label.classList.contains('cat-label')) label.style.display = any ? '' : 'none';
-    });
-  });
-})();
-</script>
 </body>
 </html>

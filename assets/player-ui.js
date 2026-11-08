@@ -1,5 +1,5 @@
 /* korea-tv.uk: адаптированная копия assets/player-ui.js сайта russian-tv.com (репозиторий varenik-ai/russian-tv-site@3df9191).
-   Изменения: строки ko/en вместо ru/en; .channel-sidebar в режиме кинотеатра; похожие каналы из сайдбара korea-tv.uk; корейские клавиши. */
+   Изменения: строки ko/en вместо ru/en; .channel-sidebar в режиме кинотеатра; корейские клавиши. */
 /* Unified player UI for korea-tv.uk (from russian-tv.com) (home + channel pages, RU/EN).
    For every .player-wrap with a <video> it adds:
    - a glass control bar (sound + volume, LIVE / "back to live", quality slot, cinema mode, picture-in-picture, fullscreen) that auto-hides while playing
@@ -105,11 +105,14 @@
         return out;
       }
     } catch (e) {}
-    var act = document.querySelector('#channel-sidebar .ch-item.active');
-    if (act && act.parentNode) {   // страница канала: соседи из той же категории сайдбара (korea-tv.uk: .cat-group > a.ch-item)
-      Array.prototype.filter.call(act.parentNode.querySelectorAll('a.ch-item'), function (n) { return n !== act; }).slice(0, 3).forEach(function (n) {
-        var nm = n.querySelector('.ch-name-s'); out.push({ name: nm ? nm.textContent : n.textContent.trim(), href: n.getAttribute('href') });
+    var list = document.getElementById('ch-list');
+    if (list) {   // страница канала: берём соседей из той же категории сайдбара
+      var items = [], cur = null, started = false;
+      Array.prototype.forEach.call(list.children, function (n) {
+        if (n.classList.contains('cat-label-s')) { if (started) return; items = []; }
+        else if (n.classList.contains('ch-item-s')) { items.push(n); if (n.classList.contains('active')) started = true; }
       });
+      items.filter(function (n) { return !n.classList.contains('active'); }).slice(0, 3).forEach(function (n) { out.push({ name: n.getAttribute('data-name'), href: n.getAttribute('href') }); });
     }
     return out;
   }
