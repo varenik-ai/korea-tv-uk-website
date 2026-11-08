@@ -283,7 +283,10 @@
     .pop-icon, .rec-icon { width:28px; height:28px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:900; flex-shrink:0; }
     .pop-name, .rec-name { font-size:12px; font-weight:600; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .pop-live, .rec-live { font-size:9px; font-weight:800; color:var(--red); flex-shrink:0; }
-  .lang-switch a{position:relative}.lang-switch a::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}.tg-pulse-banner{display:flex;align-items:center;gap:10px;margin:14px 0;padding:13px 16px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:2px solid #229ED9;border-radius:14px;text-decoration:none;color:#fff;animation:tgPulse 2s ease-in-out infinite}@keyframes tgPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,158,217,.55)}50%{box-shadow:0 0 0 7px rgba(34,158,217,0)}}.tg-pulse-icon{width:38px;height:38px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.tg-pulse-text{flex:1;font-size:14px;font-weight:700}.tg-pulse-arrow{opacity:.6;flex-shrink:0;font-size:16px}</style>
+  .lang-switch a{position:relative}.lang-switch a::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}.tg-pulse-banner{display:flex;align-items:center;gap:10px;margin:14px 0;padding:13px 16px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:2px solid #229ED9;border-radius:14px;text-decoration:none;color:#fff;animation:tgPulse 2s ease-in-out infinite}@keyframes tgPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,158,217,.55)}50%{box-shadow:0 0 0 7px rgba(34,158,217,0)}}.tg-pulse-icon{width:38px;height:38px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.tg-pulse-text{flex:1;font-size:14px;font-weight:700}.tg-pulse-arrow{opacity:.6;flex-shrink:0;font-size:16px}
+    /* korea-tv.uk: логотипы на светлой плашке — многие корейские логотипы тёмные и пропадают на тёмном фоне */
+    .ch-icon-s.ch-logo-s,.ch-tile-icon.ch-logo-s{background:#fff!important}
+</style>
   <style>.footer-seo a{color:inherit;text-decoration:none;margin:0 7px;white-space:nowrap}.footer-seo a:hover{color:var(--text);text-decoration:underline}</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X503KNBLXB"></script>
 <script>
@@ -485,59 +488,59 @@ const TG_URL = 'https://t.me/Korea_TV_hub';
 
 const CHANNEL_GROUPS = [
   { label: '🌏 International', channels: [
-      { id:'arirang', name:'Arirang TV', desc:'International broadcaster in English for global audiences — news and culture.', icon:'ARI', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['intl'] },
-      { id:'arirang_radio', name:'Arirang Radio', desc:'English-language radio from Arirang — music and lifestyle programming.', icon:'ARR', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['intl'] }
+      { id:'arirang', name:'Arirang TV', desc:'International broadcaster in English for global audiences — news and culture.', icon:'ARI', color:'#CD2E3A', iconBg:'#CD2E3A22', logo:'/assets/logos/arirang.png', tags:['intl'] },
+      { id:'arirang_radio', name:'Arirang Radio', desc:'English-language radio from Arirang — music and lifestyle programming.', icon:'ARR', color:'#CD2E3A', iconBg:'#CD2E3A22', logo:'/assets/logos/arirang-radio.png', tags:['intl'] }
     ] },
   { label: '📺 General Channels', channels: [
-      { id:'tvchosun', name:'TV Chosun', desc:'General programming channel of the Chosun Ilbo group — news, current affairs, entertainment and drama.', icon:'TVC', color:'#d84315', iconBg:'#d8431522', tags:['general'] },
-      { id:'tvchosun2', name:'TV Chosun 2', desc:'Second channel of TV Chosun.', icon:'TV2', color:'#d84315', iconBg:'#d8431522', tags:['general'] }
+      { id:'tvchosun', name:'TV Chosun', desc:'General programming channel of the Chosun Ilbo group — news, current affairs, entertainment and drama.', icon:'TVC', color:'#d84315', iconBg:'#d8431522', logo:'/assets/logos/tvchosun.png', tags:['general'] },
+      { id:'tvchosun2', name:'TV Chosun 2', desc:'Second channel of TV Chosun.', icon:'TV2', color:'#d84315', iconBg:'#d8431522', logo:'/assets/logos/tvchosun2.png', tags:['general'] }
     ] },
   { label: '📚 EBS Educational', channels: [
-      { id:'ebs1', name:'EBS 1TV', desc:'EBS\'s flagship channel — education, documentaries, children\'s programming.', icon:'E1', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs2', name:'EBS 2TV', desc:'EBS\'s second channel — school and lecture programming.', icon:'E2', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_plus1', name:'EBS Plus1', desc:'EBS supplementary channel — learning content.', icon:'P1', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_plus2', name:'EBS Plus2', desc:'EBS supplementary channel — educational programming.', icon:'P2', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_kids', name:'EBS Kids', desc:'EBS\'s children\'s channel — animation and educational content.', icon:'KID', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_english', name:'EBS English', desc:'EBS\'s English-language learning channel.', icon:'ENG', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] }
+      { id:'ebs1', name:'EBS 1TV', desc:'EBS\'s flagship channel — education, documentaries, children\'s programming.', icon:'E1', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs1.png', tags:['ebs'] },
+      { id:'ebs2', name:'EBS 2TV', desc:'EBS\'s second channel — school and lecture programming.', icon:'E2', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs2.png', tags:['ebs'] },
+      { id:'ebs_plus1', name:'EBS Plus1', desc:'EBS supplementary channel — learning content.', icon:'P1', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-plus1.png', tags:['ebs'] },
+      { id:'ebs_plus2', name:'EBS Plus2', desc:'EBS supplementary channel — educational programming.', icon:'P2', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-plus2.png', tags:['ebs'] },
+      { id:'ebs_kids', name:'EBS Kids', desc:'EBS\'s children\'s channel — animation and educational content.', icon:'KID', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-kids.png', tags:['ebs'] },
+      { id:'ebs_english', name:'EBS English', desc:'EBS\'s English-language learning channel.', icon:'ENG', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-english.png', tags:['ebs'] }
     ] },
   { label: '🏛️ Public & Government', channels: [
-      { id:'ktv', name:'KTV', desc:'South Korea\'s government-run public policy and information channel.', icon:'KTV', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'gugak', name:'Gugak TV', desc:'Traditional Korean music channel run by the National Gugak Center.', icon:'GUG', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'oun', name:'OUN', desc:'Korea National Open University\'s distance-education channel.', icon:'OUN', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'nbs', name:'NBS', desc:'Agriculture and fisheries information broadcasting.', icon:'NBS', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'tbs', name:'TBS', desc:'Seoul\'s public broadcaster — traffic info and current affairs.', icon:'TBS', color:'#0047A0', iconBg:'#0047A022', tags:['public'] }
+      { id:'ktv', name:'KTV', desc:'South Korea\'s government-run public policy and information channel.', icon:'KTV', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/ktv.png', tags:['public'] },
+      { id:'gugak', name:'Gugak TV', desc:'Traditional Korean music channel run by the National Gugak Center.', icon:'GUG', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/gugak.png', tags:['public'] },
+      { id:'oun', name:'OUN', desc:'Korea National Open University\'s distance-education channel.', icon:'OUN', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/oun.png', tags:['public'] },
+      { id:'nbs', name:'NBS', desc:'Agriculture and fisheries information broadcasting.', icon:'NBS', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/nbs.png', tags:['public'] },
+      { id:'tbs', name:'TBS', desc:'Seoul\'s public broadcaster — traffic info and current affairs.', icon:'TBS', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/tbs.png', tags:['public'] }
     ] },
   { label: '📍 Regional Channels', channels: [
-      { id:'mbc_jeju', name:'MBC Jeju', desc:'Regional MBC affiliate for Jeju Island.', icon:'JEJ', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'sbs_kbc', name:'KBC Gwangju', desc:'SBS regional affiliate for Gwangju/Jeonnam.', icon:'KBC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'sbs_ubc', name:'UBC Ulsan', desc:'SBS regional affiliate for Ulsan.', icon:'UBC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'nhtv', name:'NHTV', desc:'Agricultural broadcasting channel affiliated with Nonghyup (NACF).', icon:'NH', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'mbc_chuncheon', name:'MBC Chuncheon', desc:'Regional MBC affiliate for Gangwon (Chuncheon).', icon:'CHN', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'mbc_daejeon', name:'MBC Daejeon', desc:'Regional MBC affiliate for Daejeon/Chungnam.', icon:'DJ', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'mbc_jeju', name:'MBC Jeju', desc:'Regional MBC affiliate for Jeju Island.', icon:'JEJ', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/mbc-jeju.png', tags:['regional'] },
+      { id:'sbs_kbc', name:'KBC Gwangju', desc:'SBS regional affiliate for Gwangju/Jeonnam.', icon:'KBC', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/sbs-kbc.png', tags:['regional'] },
+      { id:'sbs_ubc', name:'UBC Ulsan', desc:'SBS regional affiliate for Ulsan.', icon:'UBC', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/sbs-ubc.png', tags:['regional'] },
+      { id:'nhtv', name:'NHTV', desc:'Agricultural broadcasting channel affiliated with Nonghyup (NACF).', icon:'NH', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/nhtv.png', tags:['regional'] },
+      { id:'mbc_chuncheon', name:'MBC Chuncheon', desc:'Regional MBC affiliate for Gangwon (Chuncheon).', icon:'CHN', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/mbc-chuncheon.png', tags:['regional'] },
+      { id:'mbc_daejeon', name:'MBC Daejeon', desc:'Regional MBC affiliate for Daejeon/Chungnam.', icon:'DJ', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/mbc-daejeon.png', tags:['regional'] },
       { id:'nib', name:'NIB', desc:'Local cable broadcaster in the Incheon area.', icon:'NIB', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
       { id:'jjctv', name:'JJCTV', desc:'Local government and municipal-affairs channel.', icon:'JJC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
       { id:'kcn', name:'KCN', desc:'Regional cable broadcaster in the Geumgang (Chungcheong) area.', icon:'KCN', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] }
     ] },
   { label: '⛪ Religious Channels', channels: [
-      { id:'btn', name:'BTN', desc:'Buddhist religious broadcaster.', icon:'BTN', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'abn', name:'ABN', desc:'Christian religious broadcaster.', icon:'ABN', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'fgtv', name:'FGTV', desc:'Christian broadcaster affiliated with Yoido Full Gospel Church.', icon:'FG', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'rutc', name:'RUTC TV', desc:'Christian gospel broadcasting channel.', icon:'RUT', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'bbs', name:'BBS Buddhist TV', desc:'Buddhist Broadcasting System TV — Buddhist programming.', icon:'BBS', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] }
+      { id:'btn', name:'BTN', desc:'Buddhist religious broadcaster.', icon:'BTN', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/btn.png', tags:['religious'] },
+      { id:'abn', name:'ABN', desc:'Christian religious broadcaster.', icon:'ABN', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/abn.png', tags:['religious'] },
+      { id:'fgtv', name:'FGTV', desc:'Christian broadcaster affiliated with Yoido Full Gospel Church.', icon:'FG', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/fgtv.png', tags:['religious'] },
+      { id:'rutc', name:'RUTC TV', desc:'Christian gospel broadcasting channel.', icon:'RUT', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/rutc.png', tags:['religious'] },
+      { id:'bbs', name:'BBS Buddhist TV', desc:'Buddhist Broadcasting System TV — Buddhist programming.', icon:'BBS', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/bbs.png', tags:['religious'] }
     ] },
   { label: '📈 Business & Shopping', channels: [
-      { id:'wowtv', name:'WOWTV', desc:'Korea Economic TV — stock market and business news.', icon:'WOW', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'mkmoney', name:'MK Money', desc:'Maeil Business TV — business and finance news.', icon:'MK', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'ktalpha', name:'KT Alpha Shopping', desc:'TV home shopping channel.', icon:'KTA', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'cjonstyle', name:'CJ OnStyle', desc:'TV home shopping channel.', icon:'CJ', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'cjonstyle_plus', name:'CJ OnStyle Plus', desc:'Second home shopping channel of CJ OnStyle.', icon:'CJ+', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'gsshop', name:'GS SHOP', desc:'TV home shopping channel.', icon:'GS', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'lotte', name:'Lotte Home Shopping', desc:'TV home shopping channel.', icon:'LT', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'shinsegae', name:'Shinsegae TV Shopping', desc:'TV home shopping channel.', icon:'SSG', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] }
+      { id:'wowtv', name:'WOWTV', desc:'Korea Economic TV — stock market and business news.', icon:'WOW', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/wowtv.png', tags:['business'] },
+      { id:'mkmoney', name:'MK Money', desc:'Maeil Business TV — business and finance news.', icon:'MK', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/mkmoney.png', tags:['business'] },
+      { id:'ktalpha', name:'KT Alpha Shopping', desc:'TV home shopping channel.', icon:'KTA', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/ktalpha.png', tags:['business'] },
+      { id:'cjonstyle', name:'CJ OnStyle', desc:'TV home shopping channel.', icon:'CJ', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/cjonstyle.png', tags:['business'] },
+      { id:'cjonstyle_plus', name:'CJ OnStyle Plus', desc:'Second home shopping channel of CJ OnStyle.', icon:'CJ+', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/cjonstyle-plus.png', tags:['business'] },
+      { id:'gsshop', name:'GS SHOP', desc:'TV home shopping channel.', icon:'GS', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/gsshop.png', tags:['business'] },
+      { id:'lotte', name:'Lotte Home Shopping', desc:'TV home shopping channel.', icon:'LT', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/lotte.png', tags:['business'] },
+      { id:'shinsegae', name:'Shinsegae TV Shopping', desc:'TV home shopping channel.', icon:'SSG', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/shinsegae.png', tags:['business'] }
     ] },
   { label: '🎵 Music & Radio', channels: [
-      { id:'tbs_efm', name:'TBS eFM', desc:'Seoul\'s English-language radio station — news and talk.', icon:'eFM', color:'#ad1457', iconBg:'#ad145722', tags:['music'] },
-      { id:'tbs_fm', name:'TBS FM', desc:'Seoul\'s Korean-language traffic and talk radio station.', icon:'FM', color:'#ad1457', iconBg:'#ad145722', tags:['music'] }
+      { id:'tbs_efm', name:'TBS eFM', desc:'Seoul\'s English-language radio station — news and talk.', icon:'eFM', color:'#ad1457', iconBg:'#ad145722', logo:'/assets/logos/tbs-efm.png', tags:['music'] },
+      { id:'tbs_fm', name:'TBS FM', desc:'Seoul\'s Korean-language traffic and talk radio station.', icon:'FM', color:'#ad1457', iconBg:'#ad145722', logo:'/assets/logos/tbs-fm.png', tags:['music'] }
     ] }
 ];
 

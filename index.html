@@ -283,7 +283,10 @@
     .pop-icon, .rec-icon { width:28px; height:28px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:900; flex-shrink:0; }
     .pop-name, .rec-name { font-size:12px; font-weight:600; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .pop-live, .rec-live { font-size:9px; font-weight:800; color:var(--red); flex-shrink:0; }
-  .lang-switch a{position:relative}.lang-switch a::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}.tg-pulse-banner{display:flex;align-items:center;gap:10px;margin:14px 0;padding:13px 16px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:2px solid #229ED9;border-radius:14px;text-decoration:none;color:#fff;animation:tgPulse 2s ease-in-out infinite}@keyframes tgPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,158,217,.55)}50%{box-shadow:0 0 0 7px rgba(34,158,217,0)}}.tg-pulse-icon{width:38px;height:38px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.tg-pulse-text{flex:1;font-size:14px;font-weight:700}.tg-pulse-arrow{opacity:.6;flex-shrink:0;font-size:16px}</style>
+  .lang-switch a{position:relative}.lang-switch a::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}.tg-pulse-banner{display:flex;align-items:center;gap:10px;margin:14px 0;padding:13px 16px;background:linear-gradient(135deg,#0d1f3c,#0a2a3f);border:2px solid #229ED9;border-radius:14px;text-decoration:none;color:#fff;animation:tgPulse 2s ease-in-out infinite}@keyframes tgPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,158,217,.55)}50%{box-shadow:0 0 0 7px rgba(34,158,217,0)}}.tg-pulse-icon{width:38px;height:38px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.tg-pulse-text{flex:1;font-size:14px;font-weight:700}.tg-pulse-arrow{opacity:.6;flex-shrink:0;font-size:16px}
+    /* korea-tv.uk: логотипы на светлой плашке — многие корейские логотипы тёмные и пропадают на тёмном фоне */
+    .ch-icon-s.ch-logo-s,.ch-tile-icon.ch-logo-s{background:#fff!important}
+</style>
   <style>.footer-seo a{color:inherit;text-decoration:none;margin:0 7px;white-space:nowrap}.footer-seo a:hover{color:var(--text);text-decoration:underline}</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X503KNBLXB"></script>
 <script>
@@ -485,59 +488,59 @@ const TG_URL = 'https://t.me/Korea_TV_hub';
 
 const CHANNEL_GROUPS = [
   { label: '🌏 국제', channels: [
-      { id:'arirang', name:'아리랑TV', desc:'해외 시청자를 위한 국제 방송사 — 영어 뉴스·문화 채널', icon:'ARI', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['intl'] },
-      { id:'arirang_radio', name:'아리랑 라디오', desc:'Arirang 계열 영어 라디오 — 음악과 생활 정보', icon:'ARR', color:'#CD2E3A', iconBg:'#CD2E3A22', tags:['intl'] }
+      { id:'arirang', name:'아리랑TV', desc:'해외 시청자를 위한 국제 방송사 — 영어 뉴스·문화 채널', icon:'ARI', color:'#CD2E3A', iconBg:'#CD2E3A22', logo:'/assets/logos/arirang.png', tags:['intl'] },
+      { id:'arirang_radio', name:'아리랑 라디오', desc:'Arirang 계열 영어 라디오 — 음악과 생활 정보', icon:'ARR', color:'#CD2E3A', iconBg:'#CD2E3A22', logo:'/assets/logos/arirang-radio.png', tags:['intl'] }
     ] },
   { label: '📺 종합편성', channels: [
-      { id:'tvchosun', name:'TV조선', desc:'조선일보 계열 종합편성채널 — 뉴스·시사·예능·드라마', icon:'TVC', color:'#d84315', iconBg:'#d8431522', tags:['general'] },
-      { id:'tvchosun2', name:'TV조선2', desc:'TV조선의 두 번째 채널', icon:'TV2', color:'#d84315', iconBg:'#d8431522', tags:['general'] }
+      { id:'tvchosun', name:'TV조선', desc:'조선일보 계열 종합편성채널 — 뉴스·시사·예능·드라마', icon:'TVC', color:'#d84315', iconBg:'#d8431522', logo:'/assets/logos/tvchosun.png', tags:['general'] },
+      { id:'tvchosun2', name:'TV조선2', desc:'TV조선의 두 번째 채널', icon:'TV2', color:'#d84315', iconBg:'#d8431522', logo:'/assets/logos/tvchosun2.png', tags:['general'] }
     ] },
   { label: '📚 EBS', channels: [
-      { id:'ebs1', name:'EBS 1TV', desc:'EBS 대표 채널 — 교육·다큐멘터리·어린이 프로그램', icon:'E1', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs2', name:'EBS 2TV', desc:'EBS 제2채널 — 학습·강의 프로그램', icon:'E2', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_plus1', name:'EBS Plus1', desc:'EBS 보조 채널 — 학습 콘텐츠', icon:'P1', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_plus2', name:'EBS Plus2', desc:'EBS 보조 채널 — 교육 프로그램', icon:'P2', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_kids', name:'EBS Kids', desc:'EBS 어린이 채널 — 애니메이션·교육 콘텐츠', icon:'KID', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] },
-      { id:'ebs_english', name:'EBS English', desc:'EBS 영어교육 채널', icon:'ENG', color:'#00838f', iconBg:'#00838f22', tags:['ebs'] }
+      { id:'ebs1', name:'EBS 1TV', desc:'EBS 대표 채널 — 교육·다큐멘터리·어린이 프로그램', icon:'E1', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs1.png', tags:['ebs'] },
+      { id:'ebs2', name:'EBS 2TV', desc:'EBS 제2채널 — 학습·강의 프로그램', icon:'E2', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs2.png', tags:['ebs'] },
+      { id:'ebs_plus1', name:'EBS Plus1', desc:'EBS 보조 채널 — 학습 콘텐츠', icon:'P1', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-plus1.png', tags:['ebs'] },
+      { id:'ebs_plus2', name:'EBS Plus2', desc:'EBS 보조 채널 — 교육 프로그램', icon:'P2', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-plus2.png', tags:['ebs'] },
+      { id:'ebs_kids', name:'EBS Kids', desc:'EBS 어린이 채널 — 애니메이션·교육 콘텐츠', icon:'KID', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-kids.png', tags:['ebs'] },
+      { id:'ebs_english', name:'EBS English', desc:'EBS 영어교육 채널', icon:'ENG', color:'#00838f', iconBg:'#00838f22', logo:'/assets/logos/ebs-english.png', tags:['ebs'] }
     ] },
   { label: '🏛️ 공영·정부', channels: [
-      { id:'ktv', name:'KTV 국민방송', desc:'대한민국 정책방송원 — 정부 정책·공공 정보 채널', icon:'KTV', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'gugak', name:'국악방송 Gugak TV', desc:'국립국악원 운영 — 한국 전통음악 전문 채널', icon:'GUG', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'oun', name:'방송대학TV OUN', desc:'한국방송통신대학교 교육방송', icon:'OUN', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'nbs', name:'농수산방송 NBS', desc:'농업·수산 정보 전문 방송', icon:'NBS', color:'#0047A0', iconBg:'#0047A022', tags:['public'] },
-      { id:'tbs', name:'TBS', desc:'서울시 미디어재단 TBS — 교통정보와 시사 프로그램', icon:'TBS', color:'#0047A0', iconBg:'#0047A022', tags:['public'] }
+      { id:'ktv', name:'KTV 국민방송', desc:'대한민국 정책방송원 — 정부 정책·공공 정보 채널', icon:'KTV', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/ktv.png', tags:['public'] },
+      { id:'gugak', name:'국악방송 Gugak TV', desc:'국립국악원 운영 — 한국 전통음악 전문 채널', icon:'GUG', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/gugak.png', tags:['public'] },
+      { id:'oun', name:'방송대학TV OUN', desc:'한국방송통신대학교 교육방송', icon:'OUN', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/oun.png', tags:['public'] },
+      { id:'nbs', name:'농수산방송 NBS', desc:'농업·수산 정보 전문 방송', icon:'NBS', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/nbs.png', tags:['public'] },
+      { id:'tbs', name:'TBS', desc:'서울시 미디어재단 TBS — 교통정보와 시사 프로그램', icon:'TBS', color:'#0047A0', iconBg:'#0047A022', logo:'/assets/logos/tbs.png', tags:['public'] }
     ] },
   { label: '📍 지역 방송', channels: [
-      { id:'mbc_jeju', name:'제주MBC', desc:'MBC 제주 지역 계열사', icon:'JEJ', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'sbs_kbc', name:'광주방송 KBC', desc:'SBS 계열 광주·전남 지역 방송', icon:'KBC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'sbs_ubc', name:'울산방송 UBC', desc:'SBS 계열 울산 지역 방송', icon:'UBC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'nhtv', name:'농협방송 NHTV', desc:'농협 계열 농업방송', icon:'NH', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'mbc_chuncheon', name:'춘천MBC', desc:'MBC 춘천(강원) 지역 계열사', icon:'CHN', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
-      { id:'mbc_daejeon', name:'대전MBC', desc:'MBC 대전(충남) 지역 계열사', icon:'DJ', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
+      { id:'mbc_jeju', name:'제주MBC', desc:'MBC 제주 지역 계열사', icon:'JEJ', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/mbc-jeju.png', tags:['regional'] },
+      { id:'sbs_kbc', name:'광주방송 KBC', desc:'SBS 계열 광주·전남 지역 방송', icon:'KBC', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/sbs-kbc.png', tags:['regional'] },
+      { id:'sbs_ubc', name:'울산방송 UBC', desc:'SBS 계열 울산 지역 방송', icon:'UBC', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/sbs-ubc.png', tags:['regional'] },
+      { id:'nhtv', name:'농협방송 NHTV', desc:'농협 계열 농업방송', icon:'NH', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/nhtv.png', tags:['regional'] },
+      { id:'mbc_chuncheon', name:'춘천MBC', desc:'MBC 춘천(강원) 지역 계열사', icon:'CHN', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/mbc-chuncheon.png', tags:['regional'] },
+      { id:'mbc_daejeon', name:'대전MBC', desc:'MBC 대전(충남) 지역 계열사', icon:'DJ', color:'#1565c0', iconBg:'#1565c022', logo:'/assets/logos/mbc-daejeon.png', tags:['regional'] },
       { id:'nib', name:'남인천방송 NIB', desc:'인천 지역 케이블방송', icon:'NIB', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
       { id:'jjctv', name:'지방자치TV JJCTV', desc:'지방자치 정보 채널', icon:'JJC', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] },
       { id:'kcn', name:'금강방송 KCN', desc:'금강(충청) 지역 케이블방송', icon:'KCN', color:'#1565c0', iconBg:'#1565c022', tags:['regional'] }
     ] },
   { label: '⛪ 종교', channels: [
-      { id:'btn', name:'BTN 불교방송', desc:'불교 종교방송', icon:'BTN', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'abn', name:'ABN', desc:'기독교 종교방송', icon:'ABN', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'fgtv', name:'FGTV', desc:'여의도순복음교회 계열 기독교 방송', icon:'FG', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'rutc', name:'RUTC TV', desc:'복음방송 채널', icon:'RUT', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] },
-      { id:'bbs', name:'BBS 불교방송', desc:'불교방송 TV — 불교 종교방송', icon:'BBS', color:'#6a1b9a', iconBg:'#6a1b9a22', tags:['religious'] }
+      { id:'btn', name:'BTN 불교방송', desc:'불교 종교방송', icon:'BTN', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/btn.png', tags:['religious'] },
+      { id:'abn', name:'ABN', desc:'기독교 종교방송', icon:'ABN', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/abn.png', tags:['religious'] },
+      { id:'fgtv', name:'FGTV', desc:'여의도순복음교회 계열 기독교 방송', icon:'FG', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/fgtv.png', tags:['religious'] },
+      { id:'rutc', name:'RUTC TV', desc:'복음방송 채널', icon:'RUT', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/rutc.png', tags:['religious'] },
+      { id:'bbs', name:'BBS 불교방송', desc:'불교방송 TV — 불교 종교방송', icon:'BBS', color:'#6a1b9a', iconBg:'#6a1b9a22', logo:'/assets/logos/bbs.png', tags:['religious'] }
     ] },
   { label: '📈 경제·쇼핑', channels: [
-      { id:'wowtv', name:'한국경제TV WOWTV', desc:'한국경제TV — 증권·경제 뉴스', icon:'WOW', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'mkmoney', name:'매일경제TV', desc:'매일경제TV — 경제·재테크 뉴스', icon:'MK', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'ktalpha', name:'KT알파쇼핑', desc:'홈쇼핑 채널', icon:'KTA', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'cjonstyle', name:'CJ온스타일', desc:'홈쇼핑 채널', icon:'CJ', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'cjonstyle_plus', name:'CJ온스타일 플러스', desc:'CJ온스타일의 두 번째 홈쇼핑 채널', icon:'CJ+', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'gsshop', name:'GS SHOP', desc:'홈쇼핑 채널', icon:'GS', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'lotte', name:'롯데홈쇼핑', desc:'홈쇼핑 채널', icon:'LT', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] },
-      { id:'shinsegae', name:'신세계TV쇼핑', desc:'홈쇼핑 채널', icon:'SSG', color:'#2e7d32', iconBg:'#2e7d3222', tags:['business'] }
+      { id:'wowtv', name:'한국경제TV WOWTV', desc:'한국경제TV — 증권·경제 뉴스', icon:'WOW', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/wowtv.png', tags:['business'] },
+      { id:'mkmoney', name:'매일경제TV', desc:'매일경제TV — 경제·재테크 뉴스', icon:'MK', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/mkmoney.png', tags:['business'] },
+      { id:'ktalpha', name:'KT알파쇼핑', desc:'홈쇼핑 채널', icon:'KTA', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/ktalpha.png', tags:['business'] },
+      { id:'cjonstyle', name:'CJ온스타일', desc:'홈쇼핑 채널', icon:'CJ', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/cjonstyle.png', tags:['business'] },
+      { id:'cjonstyle_plus', name:'CJ온스타일 플러스', desc:'CJ온스타일의 두 번째 홈쇼핑 채널', icon:'CJ+', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/cjonstyle-plus.png', tags:['business'] },
+      { id:'gsshop', name:'GS SHOP', desc:'홈쇼핑 채널', icon:'GS', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/gsshop.png', tags:['business'] },
+      { id:'lotte', name:'롯데홈쇼핑', desc:'홈쇼핑 채널', icon:'LT', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/lotte.png', tags:['business'] },
+      { id:'shinsegae', name:'신세계TV쇼핑', desc:'홈쇼핑 채널', icon:'SSG', color:'#2e7d32', iconBg:'#2e7d3222', logo:'/assets/logos/shinsegae.png', tags:['business'] }
     ] },
   { label: '🎵 음악·라디오', channels: [
-      { id:'tbs_efm', name:'TBS eFM', desc:'서울 영어 라디오 — 뉴스·시사', icon:'eFM', color:'#ad1457', iconBg:'#ad145722', tags:['music'] },
-      { id:'tbs_fm', name:'TBS FM', desc:'서울 교통·시사 라디오(한국어)', icon:'FM', color:'#ad1457', iconBg:'#ad145722', tags:['music'] }
+      { id:'tbs_efm', name:'TBS eFM', desc:'서울 영어 라디오 — 뉴스·시사', icon:'eFM', color:'#ad1457', iconBg:'#ad145722', logo:'/assets/logos/tbs-efm.png', tags:['music'] },
+      { id:'tbs_fm', name:'TBS FM', desc:'서울 교통·시사 라디오(한국어)', icon:'FM', color:'#ad1457', iconBg:'#ad145722', logo:'/assets/logos/tbs-fm.png', tags:['music'] }
     ] }
 ];
 
