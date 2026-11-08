@@ -35,7 +35,7 @@
     if (!slug) { var m = location.pathname.match(/\/([a-z0-9-]+-live)\/?$/); if (m) slug = m[1]; }
     return location.origin + (slug ? '/thumbnails/' + slug + '.jpg' : '/icon.png');
   }
-  var NO_CAST = { arirang_radio: 1, kcn: 1, mkmoney: 1, nhtv: 1, nib: 1, sbs_ubc: 1 };
+  var NO_CAST = { arirang_radio: 1, kcn: 1, mkmoney: 1, nhtv: 1, nib: 1, sbs_ubc: 1, tvchosun: 1, tvchosun2: 1, bbs: 1, lotte: 1 };  // = каналы вне DIRECT в korea-worker.js
   function castable() { var id = chId(); return !!id && !NO_CAST[id]; }
   function proxy() { try { if (typeof _currentProxy === 'function') return _currentProxy(); } catch (e) {} try { if (typeof PROXY === 'string' && PROXY) return PROXY; } catch (e) {} return 'https://korea-worker.dyaltd.workers.dev'; }
 
