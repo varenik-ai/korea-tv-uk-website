@@ -13,5 +13,5 @@ for name in sorted(os.listdir(raw)):
     bbox = alpha.getbbox() if alpha.getextrema()[0] < 250 else ImageChops.difference(im.convert('RGB'), Image.new('RGB', im.size, (255, 255, 255))).getbbox()
     if bbox: im = im.crop(bbox)
     im.thumbnail((240, 120), Image.LANCZOS)
-    im.save(os.path.join(out, name.replace('_', '-') + '.png'), optimize=True)
+    im.save(os.path.join(out, os.path.splitext(name)[0].replace('_', '-') + '.png'), optimize=True)
 print('ok', len(os.listdir(out)))

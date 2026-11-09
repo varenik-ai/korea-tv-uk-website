@@ -37,9 +37,10 @@ def channels(path):
         chs = [dict(id=c[0], name=c[1].replace("\\'", "'"), desc=c[2].replace("\\'", "'"), icon=c[3], color=c[4], iconBg=c[5])
                for c in re.findall(r"\{ id:'([^']+)', name:'((?:[^'\\]|\\.)*)', desc:'((?:[^'\\]|\\.)*)', icon:'([^']*)', color:'([^']*)', iconBg:'([^']*)'", gm.group(2))]
         groups.append(dict(label=gm.group(1), channels=chs))
-    assert len(groups) == 8 and sum(len(g['channels']) for g in groups) == 39
+    assert len(groups) == 8 and all(g['channels'] for g in groups)
     return groups
 KO, EN = channels('index.html'), channels('en/index.html')
+N = sum(len(g['channels']) for g in KO)   # число каналов для текстов страниц стран
 
 def head_of(old, css):
     head = old[:old.find('</head>')]
@@ -161,12 +162,12 @@ def build_geo(k):
 <div class="hero">
   <div class="hero-flag">{flag}</div>
   <h1>{h1}</h1>
-  <p>39 Korean live channels — no VPN, no registration, no payment. Works on any device.</p>
+  <p>{N} Korean live channels — no VPN, no registration, no payment. Works on any device.</p>
   <div class="hero-badges">
     <span class="badge">✅ No VPN</span>
     <span class="badge">🆓 Free</span>
     <span class="badge">📱 All devices</span>
-    <span class="badge">📡 39 channels</span>
+    <span class="badge">📡 {N} channels</span>
     <span class="badge">🕐 Live 24/7</span>
   </div>
   <a href="{SITE}/en/" class="hero-cta">▶ Watch now — free</a>
@@ -174,13 +175,13 @@ def build_geo(k):
 
 <div class="wrap">
   <div class="info-grid">
-    <div class="info-card"><div class="info-icon">📡</div><div class="info-val">39</div><div class="info-lbl">live channels</div></div>
+    <div class="info-card"><div class="info-icon">📡</div><div class="info-val">{N}</div><div class="info-lbl">live channels</div></div>
     <div class="info-card"><div class="info-icon">🆓</div><div class="info-val">$0</div><div class="info-lbl">no subscription</div></div>
     <div class="info-card"><div class="info-icon">🌍</div><div class="info-val">No VPN</div><div class="info-lbl">works in {in_name}</div></div>
     <div class="info-card"><div class="info-icon">📱</div><div class="info-val">Any</div><div class="info-lbl">device</div></div>
   </div>
 
-  <h2>All 39 Korean channels</h2>
+  <h2>All {N} Korean channels</h2>
   <div class="ch-grid">
 {cards}</div>
 

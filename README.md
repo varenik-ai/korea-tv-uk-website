@@ -1,6 +1,6 @@
 # korea-tv.uk — сайт Korea TV
 
-Статический сайт: 39 корейских каналов в прямом эфире, корейская (`/`) и английская (`/en/`) версии.
+Статический сайт: 40 корейских каналов в прямом эфире, корейская (`/`) и английская (`/en/`) версии.
 GitHub Pages из ветки `main`, домен в `CNAME`, DNS — Cloudflare (только DNS, без прокси). Сборки нет: что в репозитории, то и на сайте (~1 мин после push).
 
 Потоки, мини-апп и бот — в репозитории [`varenik-ai/south-korea-tv-hub`](https://github.com/varenik-ai/south-korea-tv-hub)
@@ -12,7 +12,7 @@ GitHub Pages из ветки `main`, домен в `CNAME`, DNS — Cloudflare (
 | Путь | Что | Сколько |
 |---|---|---|
 | `index.html`, `en/index.html` | главные: плеер, боковой список, плитки, вкладки по группам, популярные, FAQ | 2 |
-| `<slug>/`, `en/<slug>/` | страницы каналов (`ebs1-live`, `tvchosun-live`, …): плеер, список каналов, описание, FAQ, похожие каналы | 39 + 39 |
+| `<slug>/`, `en/<slug>/` | страницы каналов (`ebs1-live`, `tvchosun-live`, …): плеер, список каналов, описание, FAQ, похожие каналы | 40 + 40 |
 | `korean-*-channels/`, `korean-public-broadcasting/` | категории (ko): карточки каналов группы, SEO-текст, FAQ | 8 |
 | `korean-tv-in-<страна>/` | страницы по странам (en): США, Япония, Китай, Канада, Австралия | 5 |
 | `blog/`, `en/blog/` | статьи (по 3) + списки | 8 |
@@ -60,12 +60,12 @@ hls.js закреплён на `1.5.15` (как в мини-аппе). Изме�
 
 Шаблоны russian-tv.com скачать из `varenik-ai/russian-tv-site@3df9191` в папку вне репозитория.
 Генераторы идемпотентны: повторный запуск без изменения данных ничего не меняет. Каждая замена проверяется `assert`: при
-несовпадении скрипт останавливается, а не портит страницы. Число групп (8) и каналов (39) зашито в проверках и текстах — при изменении поправить.
+несовпадении скрипт останавливается, а не портит страницы. Число каналов в текстах генераторы считают из `CHANNEL_GROUPS`; число групп (8) зашито в проверках.
 Превью и логотипы требуют Pillow; шрифты превью — системные macOS.
 
 ## SEO
 - У каждой страницы canonical и пара hreflang ko↔en (+ `x-default` → ko), JSON-LD (`WebSite`, `WebPage`, `VideoObject`/`BroadcastEvent`, `FAQPage`, `BreadcrumbList`)
-- `sitemap.xml`: 103 адреса с `xhtml:link` hreflang и `lastmod`, без `changefreq`/`priority`; `robots.txt` указывает на него
+- `sitemap.xml`: 105 адресов с `xhtml:link` hreflang и `lastmod`, без `changefreq`/`priority`; `robots.txt` указывает на него
 - Подтверждения владения: `google90bb75ff5ce1a7ee.html` (Search Console), `BingSiteAuth.xml` (Bing), `167724622c7c85d7f0e443d9c7e5cd55.txt` (ключ IndexNow). Не удалять
 - Аналитика: GA4 `G-X503KNBLXB` на всех страницах; событие `telegram_click`
 

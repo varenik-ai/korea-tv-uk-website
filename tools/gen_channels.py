@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild korea-tv.uk channel pages (39 KO + 39 EN) on the russian-tv.com channel page template
+"""Rebuild korea-tv.uk channel pages (all KO + EN) on the russian-tv.com channel page template
 (varenik-ai/russian-tv-site@3df9191, perviy-kanal-live/index.html).
 Kept from each existing korea-tv.uk page: <head> (title, meta, canonical, hreflang, OG, JSON-LD, GA4), the "about" paragraphs,
 FAQ, similar channels. Channel data (name, desc, icon, colours, category) comes from the home page CHANNEL_GROUPS.
@@ -46,12 +46,13 @@ def channels(path):
         for cm in re.finditer(r"\{ id:'([^']+)', name:'((?:[^'\\]|\\.)*)', desc:'((?:[^'\\]|\\.)*)', icon:'([^']*)', color:'([^']*)', iconBg:'([^']*)'(?:, logo:'([^']*)')?", gm.group(2)):
             chs.append(dict(id=cm.group(1), name=cm.group(2).replace("\\'", "'"), desc=cm.group(3).replace("\\'", "'"), icon=cm.group(4), color=cm.group(5), iconBg=cm.group(6), logo=cm.group(7)))
         groups.append(dict(label=gm.group(1), channels=chs))
-    assert len(groups) == 8 and sum(len(g['channels']) for g in groups) == 39, [(g['label'], len(g['channels'])) for g in groups]
+    assert len(groups) == 8 and all(g['channels'] for g in groups), [(g['label'], len(g['channels'])) for g in groups]
     return groups
 
 DATA = {'ko': channels('index.html'), 'en': channels('en/index.html')}
 for a, b in zip(DATA['ko'], DATA['en']):
     assert [c['id'] for c in a['channels']] == [c['id'] for c in b['channels']]
+N = sum(len(g['channels']) for g in DATA['ko'])   # число каналов: подставляется в тексты вместо 39
 
 T = {
 'ko': dict(back='← 전체 채널', tgbtn='텔레그램', home='홈', h1='{name} 실시간 무료 시청', crumb='{name} 온라인', live='실시간', meta3='24/7 실시간 방송',
@@ -83,6 +84,11 @@ T = {
         '⏳ Переподключение к трансляции...': '⏳ Reconnecting...', "'⏳ Резервный сервер... ('": "'⏳ Reconnecting... ('",
         "'⏳ Переподключение ('": "'⏳ Reconnecting ('", '⏳ Восстановление...': '⏳ Recovering...', '⏳ Подключение...': '⏳ Connecting...'}),
 }
+# Число каналов в текстах: в словаре выше написано 39 (так проще читать), здесь подставляется фактическое N
+for _t in T.values():
+    for _k, _v in list(_t.items()):
+        if isinstance(_v, str): _t[_k] = _v.replace('39개', '%d개' % N).replace(' 39 channels', ' %d channels' % N)
+assert sum(str(v).count('39') for t in T.values() for v in t.values()) == 0 or N == 39
 
 def page_js(cid, lang):
     js = MAIN
